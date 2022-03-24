@@ -56,7 +56,8 @@ export default function ControlledTreeView() {
   }
 
   const cap = (value) =>{
-    return value.charAt(0).toUpperCase() + noCase(value.slice(1)) 
+    const capValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() 
+    return capValue
   }
 
   const treeItemLabel = node =>{
