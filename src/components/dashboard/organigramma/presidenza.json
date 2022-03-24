@@ -1,0 +1,18 @@
+{
+    "id":1,
+    "code":"CDR P10000",
+    "role": "PRESIDENZA",
+    "name":"L. Tagliavanti",
+    "type": 8,
+    "children": [
+      {
+        "id":2,
+        "code":"CDR P11000",
+        "role": "COMUNICAZIONE",
+        "name":"M. T. Capacchione",
+        "type": 2
+      }
+     
+    ]
+  }
+  

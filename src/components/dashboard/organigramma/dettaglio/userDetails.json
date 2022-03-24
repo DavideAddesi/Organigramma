@@ -1,0 +1,80 @@
+{
+    "id":1,
+    "avatar": "/static/mock-images/avatars/avatar-miron_vitold.png",
+    "area":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA",
+    "codice":"A16001",
+    "ruolo":"Responsabile",
+    "nome":"Elena Proietti",
+    "sede": "Milano",
+    "email":"elena.proietti@gmail.com",
+    "mission":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+
+
+
+    "posizionamentoAziendale":{
+        "id":1,
+        "code":"CDR A10000",
+        "role": "DIREZIONE GENERALE",
+        "name":"P.Ghezzi",
+        "type": 0,
+        "children":[
+            {
+                "id": 2,
+                "code":"CDR A15000",
+                "role": "AFFARI LEGALI E ISTITUZIONALI",
+                "name":"G. Sessa",
+                "type": 3
+            },
+            {
+                "id": 3,
+                "code":"CDR A15000",
+                "role": "AFFARI LEGALI E ISTITUZIONALI",
+                "name":"G. Sessa",
+                "type": 3
+            },
+            {
+                "id": 4,
+                "code":"CDR A15000",
+                "role": "AFFARI LEGALI E ISTITUZIONALI",
+                "name":"G. Sessa",
+                "type": 3
+            },
+            {
+                "id": 5,
+                "code":"CDR A15000",
+                "role": "AFFARI LEGALI E ISTITUZIONALI",
+                "name":"G. Sessa",
+                "type": 3
+            }
+        ]
+    },
+    "personaleAssegnato":[
+        {
+            "id": 1,
+            "avatar": "xxx",
+            "stato":1,
+            "nome":"Bassan Caterina",
+            "CDO": "A16000",
+            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
+            "responsabile":"Elena Proietti"
+        },  {
+            "id": 2,
+            "avatar": "xxx",
+            "stato":2,
+            "nome":"Cantoni Donatella",
+            "CDO": "A16000",
+            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
+            "responsabile":"Elena Proietti"
+        },
+        {
+            "id": 3,
+            "avatar": "xxx",
+            "stato":3,
+            "nome":"Carlesso Laura",
+            "CDO": "A16000",
+            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
+            "responsabile":"Elena Proietti"
+        }
+    ]
+
+}

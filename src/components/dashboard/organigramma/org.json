@@ -1,0 +1,121 @@
+{
+    "id":1,
+    "code":"CDR A10000",
+    "role": "DIREZIONE GENERALE",
+    "name":"P.Ghezzi",
+    "type": 0,
+    "children": [
+      {
+        "id":2,
+        "code":"CDR A15000",
+        "role": "AFFARI LEGALI E ISTITUZIONALI",
+        "name":"G. Sessa",
+        "type": 1,
+        "children":[
+          { "id":3,"role":"SERVIZI LEGALI", "name": "S. Marchetti",  "type": 3 },
+          { "id":4,"role":"SERVIZI SOCIETARI", "name": "F. Castrica",  "type": 3 },
+          { "id":5,"role":"RELAZIONI ISTITUZIONALI", "name": "G. Da Rin",  "type": 3 }
+        ]
+      },
+      {
+        "id":6,
+        "code":"CDR A17000",
+        "role": "AMMINISTRAZIONE E FINANZA",
+        "name":"V. Padula",
+        "type": 1,
+        "children":[
+          { "id":7,"role":"AMMINISTRAZIONE CLIENTI", "name": "R. Ragazzon",  "type": 3 },
+          { "id":8,"role":"CONTABILITÀ E BILANCIO", "name": "F. Cappellato",  "type": 3 },
+          { "id":9,"code": "CDR A17100", "role":"SERVIZI AMMINISTRATIVI DI GRUPPO", "name": "M. Ravelli",  "type": 3 }
+        ]
+      },
+      {
+        "id":10,
+        "code":"CDR A12000",
+        "role": "APPROVVIGIONAMENTI",
+        "name":"A. Marchesin",
+        "type": 2
+      },
+      {
+        "id":11,
+        "code":"CDR A13000",
+        "role": "PIANIFICAZIONE E CONTROLLO",
+        "name":"M. Martorella",
+        "type": 2
+      },
+      {
+        "id":12,
+        "code":"CDR A16000",
+        "role": "RISORSE UMANE ORGANIZZAZIONE E AFFARI GENERALI",
+        "name":"M. Bergamasco",
+        "type": 1,
+        "children":[
+          { "id":13,"role":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA", "name": "E. Proietti",  "type": 3 },
+          { "id":14,"role":"AMMINISTRAZIONE RISORSE UMANE", "name": "S. Schipilliti",  "type": 3 },
+          { "id":15,"role":"QUALITÀ E PROCESSI", "name": "A. Lasaracina", "type": 3 },
+          { "id":16,"code": "CDR A16100", "role":"SERVIZI AL PERSONALE E SICUREZZA SUL LAVORO", "name": "G. Lopatriello",  "type": 3 },
+          { "id":17,"code": "CDR A16200", "role":"SOLUZIONI DIGITALI AZIENDALI", "name": "S. Finoli",  "type": 3 }
+        ]
+      },
+      {
+        "id":18,
+        "code":"CDR C10000",
+        "role": "CAMERE DI COMMERCIO: SERVIZI STANDARD E DI SISTEMA",
+        "name":"S. Nasoni",
+        "type": 1,
+        "children":[
+          {
+            "id":19,
+            "code":"CDR C21000",
+            "role": "SVILUPPO E GESTIONE ISTRUTTORIA RI E REA",
+            "name":"F. Dolzan",
+            "type": 2,
+            "children":[
+              { "id":20,"role":"PROCEDUREE SERVIZI APPLICATIVI", "name": "A. Balest",  "type": 3 },
+              { "id":21,"role":"SERVIZI DI ISTRUTTORIA AMMINISTRATIVA", "name": "P. Marzo",  "type": 3 }
+            ]
+          },
+          {
+            "id":22,
+            "code":"CDR C22000",
+            "role": "SVILUPPO E GESTIONE SERVIZI STANDARD",
+            "name":"M. Romualdi",
+            "type": 2,
+            "children":[
+              { "id":23,"role":"PIATTAFORME E PROCESSI DIGITALI", "name": "P. Graffi",  "type": 3 },
+              { "id":24,"role":"CONDUZIONE OPERATIVA DEI SERVIZI", "name": "L. Beltramin",  "type": 3 }
+            ]
+          }
+        ]
+      },
+      {
+        "id":25,
+        "code":"CDR B10000",
+        "role": "SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
+        "name":"G. Coppa",
+        "type": 1,
+        "children":[
+          {
+            "id":26,
+            "code":"CDR B21000",
+            "role": "INFORMATION SECURITY",
+            "name":"C. De Rossi",
+            "type": 2,
+            "children":[
+              { "id":27,"role":"INFORMATION SECURITY ENGINEERING & OPERATIONS", "name": "C. De Rossi ad interim",  "type": 3 },
+              { "id":28,"role":"INFORMATION SECURITY GOVERNANCE", "name": "L. Brusutti",  "type": 3 }
+            ]
+          },
+          {
+            "id":29,
+            "code":"CDR B22000",
+            "role": "GOVERNO DELLE ARCHITETTURE APPLICATIVE",
+            "name":"E. Trivellato",
+            "type": 2
+          }
+        ]
+      }
+      
+    ]
+  }
+  

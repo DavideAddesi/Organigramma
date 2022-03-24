@@ -1,0 +1,17 @@
+{
+    "id":1,
+    "role": "Rispondono al CDA",
+    "type": 9,
+    "avatar":false,
+    "children": [
+      {
+        "id":2,
+        "code":"CDR A11000",
+        "role": "INTERNAL AUDIT",
+        "name":"M. C. Mazzucato",
+        "type": 2
+      }
+     
+    ]
+  }
+  
