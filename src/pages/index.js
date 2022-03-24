@@ -23,15 +23,8 @@ const Home = () => {
         </title>
       </Head>
       <main>
-        <HomeHero />
+        <HomeHero />   
         <Divider />
-        <HomeDevelopers />
-        <Divider />
-        <HomeDesigners />
-        <HomeTestimonials />
-        <HomeFeatures />
-        <Divider />
-        <HomeClients />
       </main>
     </>
   );

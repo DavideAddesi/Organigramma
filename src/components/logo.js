@@ -9,7 +9,7 @@ export const Logo = (props) => {
   const url="/static/LOGO_INFOCAMERE.jpg"
 
   return (
-    <img src={url} alt="logo infocamere" />
+    <img src={url} alt="logo infocamere" {...other} />
   )
 
   // return (
