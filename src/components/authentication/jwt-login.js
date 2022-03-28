@@ -31,7 +31,7 @@ export const JWTLogin = (props) => {
         await login(values.email, values.password);
 
         if (isMounted()) {
-          const returnUrl = router.query.returnUrl || '/dashboard';
+          const returnUrl = router.query.returnUrl || '/dashboard/organigramma';
           router.push(returnUrl);
         }
       } catch (err) {
@@ -97,11 +97,11 @@ export const JWTLogin = (props) => {
       <Box sx={{ mt: 2 }}>
         <Alert severity="info">
           <div>
-            Use
+            Usa
             {' '}
             <b>demo@procs.io</b>
             {' '}
-            and password
+            e password
             {' '}
             <b>Password123!</b>
           </div>

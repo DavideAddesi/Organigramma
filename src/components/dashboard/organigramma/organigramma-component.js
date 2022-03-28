@@ -15,6 +15,10 @@ import BusinessIcon from "@mui/icons-material/Business";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+import { InvoicePDF } from '../invoice/invoice-pdf';
+import { jsPDF } from "jspdf";
+import html2canvas from "html2canvas";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -40,6 +44,32 @@ const useStyles = makeStyles((theme) => ({
 
     },
   }));
+  const invoice = {
+    id: '5ecb86785312dcc69b5799ad',
+    currency: '$',
+    customer: {
+      address: '271 Richmond Rd, Grey Lynn, Auckland 1022, New Zealand',
+      company: 'Countdown Grey Lynn',
+      email: 'contact@acme.com',
+      name: 'ACME SRL',
+      taxId: '6934656584231'
+    },
+    dueDate: 222,
+    issueDate: 222,
+    items: [
+      {
+        id: '5ecb8694db1760a701dfbf74',
+        currency: '$',
+        description: 'Freelancer Subscription (12/05/2019 - 11/06/2019)',
+        unitAmount: 55.50
+      }
+    ],
+    number: 'INV-0019',
+    status: 'paid',
+    subtotalAmount: 50.00,
+    taxAmount: 5.50,
+    totalAmount: 55.50
+  };
 
   function Organization({ org, onCollapse, collapsed, size }) {
     
@@ -59,6 +89,8 @@ const useStyles = makeStyles((theme) => ({
     const codeSize = size == "small" ? "5px": size== "medium" ? "7px":"10px" 
     const roleSize = size == "small" ? "10px": size== "medium" ? "12px":"18px" 
     const nameSize = size == "small" ? "7px": size== "medium" ? "10px":"13px" 
+
+   
 
     return (
       <Card
@@ -155,9 +187,22 @@ const useStyles = makeStyles((theme) => ({
     const [size, setsize] = useState("medium")
     const [displayMore, setDisplayMore] = useState(false)
 
+    const printDocument= () => {
+      const input = document.getElementById('divToPrint');
+      html2canvas(input)
+        .then((canvas) => {
+          const imgData = canvas.toDataURL('image/png');
+          const pdf = new jsPDF();
+          pdf.addImage(imgData, 'JPEG', 0, 0);
+          // pdf.output('dataurlnewwindow');
+          pdf.save("download.pdf");
+        })
+      ;
+    }
+
     return (
-        <>
-          <Box style={{display: "flex", alignItems: "center"}}>
+      <>
+      <Box style={{display: "flex", alignItems: "center"}}>
         
             <Box style={{display: "flex", alignItems: "center", gap:"7px"}}>
             <Typography
@@ -186,8 +231,19 @@ const useStyles = makeStyles((theme) => ({
                 <MenuItem value="medium">medio</MenuItem>
                 <MenuItem value="large">grande</MenuItem>
             </TextField>
+        
+                  {/* <Button
+                    color="primary"
+                    sx={{ m: 1 }}
+                    variant="contained"
+                    onClick={() =>printDocument()}
+                  >
+                    Download
+                  </Button> */}
           </Box>
-           
+          
+
+          <div id="divToPrint">
           <Grid
             container
             mt={3}
@@ -195,9 +251,14 @@ const useStyles = makeStyles((theme) => ({
           > 
             {displayMore && <Grid item md={2}><Node o={cda} size={size} /></Grid>} 
             {displayMore && <Grid item md={2}><Node o={presidenza} size={size} /></Grid>}
-            <Grid item md={displayMore ? 8: 12}><Node o={organization} size={size} /></Grid>
+            <Grid item md={displayMore ? 8: 12}><Node o={organization} size={size} /> </Grid>
           </Grid>
+        </div>
+
+
+          </>
+         
            
-        </>
+           
     );
   }
