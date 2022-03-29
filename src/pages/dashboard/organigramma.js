@@ -4,7 +4,10 @@ import {
   Box,
   Container,
   Grid,
-  Typography
+  Typography,
+  Switch,
+  MenuItem,
+  TextField
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
@@ -12,6 +15,8 @@ import OrganigrammaComponent from '../../components/dashboard/organigramma/organ
 import Legenda from '../../components/dashboard/organigramma/Legenda'
 
 const Organigramma = () => {
+  const [size, setsize] = useState("small")
+  const [displayMore, setDisplayMore] = useState(false)
 
   return (
     <>
@@ -36,10 +41,46 @@ const Organigramma = () => {
             >
                <Grid item md={12}>
                 <Box display="flex" sx={{width:"auto", justifyContent:"space-between"}}>
-                <Typography variant="h4" >
-                Esempio Organigramma
-                </Typography>
-                <Legenda />
+                  <Typography variant="h4" >
+                  Esempio Organigramma
+                  </Typography>
+                  <Box sx={{display:"flex", flexDirection:"column", gap:"30px"}}>
+                    <Legenda />
+                    <Box sx={{display:"flex", gap:"15px"}}>
+                    
+                    
+                   <TextField
+                   fullWidth 
+                      defaultValue={size}
+                      label="Carattere"
+                      select
+                      size="small"
+                      onChange={event=>setsize(event.target.value)}
+                    >
+                      <MenuItem value="small">piccolo</MenuItem>
+                      <MenuItem value="medium">medio</MenuItem>
+                      <MenuItem value="large">grande</MenuItem>
+                    </TextField>
+                    <Box style={{display: "flex", alignItems: "center", gap:"7px"}}>
+                      <Typography
+                          gutterBottom
+                          variant="subtitle2"
+                        >
+                          Espandi
+                      </Typography>
+                      <Switch 
+                        checked={displayMore}
+                        onChange={()=>setDisplayMore(!displayMore)}            
+                        edge="start"
+                        name="displayMore"
+                      />       
+                   </Box>
+                    </Box>
+                    
+
+                   
+
+                  </Box>
                 
                 </Box>
                
@@ -53,7 +94,7 @@ const Organigramma = () => {
             spacing={4}
           >
               <Grid item md={12}>
-                    <OrganigrammaComponent />
+                    <OrganigrammaComponent size={size} displayMore={displayMore} />
               </Grid>
               
             

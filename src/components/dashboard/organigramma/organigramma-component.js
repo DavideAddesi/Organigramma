@@ -20,14 +20,29 @@ import { InvoicePDF } from '../invoice/invoice-pdf';
 import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
       background: "white",
-      display: "inline-block",
+      // display: "inline-block",
       // maxwWdth:"200px",
-      borderRadius: 16,
+      borderRadius: "16px  !important",
+      border:"1px solid #bbc !important",
+      minWidth:"140px",
+      minHeight:"120px",
+      maxHeight:"200px",
+      display:"flex", 
+      flexDirection:"column",
+      alignItems: "center", 
+      justifyContent: "center",
+      paddingLeft:"10px",
+      paddingRight:"10px",
+     
+
     },
     expand: {
+      marginLeft:"auto",
+      marginRight:"auto",
       transform: "rotate(0deg)",
       marginTop: -10,
       marginLeft: "auto",
@@ -36,6 +51,8 @@ const useStyles = makeStyles((theme) => ({
       }),
     },
     expandOpen: {
+      marginLeft:"auto",
+      marginRight:"auto",
       transform: "rotate(180deg)",
     },
     avatar: {
@@ -100,19 +117,29 @@ const useStyles = makeStyles((theme) => ({
       >
      
      {/* code role name: 10, 18, 13 /   */}
-        <CardContent sx={{padding:"10px 5px"}}>
+        {/* <CardContent sx={{padding:"10px 5px"}}> */}
+        <div style={{flexGrow: 1, display:"flex", 
+      flexDirection:"column",
+      alignItems: "center", 
+      justifyContent: "center"}}>
+        <Box sx={{
+          display:"flex", 
+          alignItems: "center", 
+          justifyContent: "center", 
+          flexDirection: "column"
+        }}>
             <Typography variant="caption" sx={{fontSize:codeSize}}>{org.code}</Typography>
             <Box display="flex" sx={{flexDirection:"column"}}>
                 <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.role}</Typography>
                 <Box display="flex" sx={{gap:"7px", alignItems: "center", justifyContent: "center"}}>
-                {/* <Avatar className={classes.avatar} sx={{ width: 24, height: 24 }}>
-                  <BusinessIcon color="primary" />
-                </Avatar> */}
                 <Typography variant="subtitle2" sx={{fontSize:nameSize}}>{org.name}</Typography>
                 </Box>
               
             </Box>
-        </CardContent>
+        </Box>
+        {/* </CardContent> */}
+        
+        </div>
         {org.children &&   <IconButton 
           size="small"
           onClick={onCollapse}
@@ -122,6 +149,7 @@ const useStyles = makeStyles((theme) => ({
         >
           <ExpandMoreIcon />
         </IconButton>}
+       
       
       </Card>
     );
@@ -184,8 +212,9 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   export default function Organigramma(props) {
-    const [size, setsize] = useState("medium")
-    const [displayMore, setDisplayMore] = useState(false)
+    // const [size, setsize] = useState("medium")
+    // const [displayMore, setDisplayMore] = useState(false)
+    const {size, displayMore} = props
 
     const printDocument= () => {
       const input = document.getElementById('divToPrint');
@@ -202,58 +231,27 @@ const useStyles = makeStyles((theme) => ({
 
     return (
       <>
-      <Box style={{display: "flex", alignItems: "center"}}>
-        
-            <Box style={{display: "flex", alignItems: "center", gap:"7px"}}>
-            <Typography
-                gutterBottom
-                variant="subtitle2"
-              >
-                Organigramma completo
-              </Typography>
-              <Switch 
-                checked={displayMore}
-                onChange={()=>setDisplayMore(!displayMore)}            
-                edge="start"
-                name="displayMore"
-              />
-              
-              </Box>
-              <TextField
-                defaultValue={size}
-                label="Carattere"
-                select
-                size="small"
-                sx={{ m: 1 }}
-                onChange={event=>setsize(event.target.value)}
-            >
-                <MenuItem value="small">piccolo</MenuItem>
-                <MenuItem value="medium">medio</MenuItem>
-                <MenuItem value="large">grande</MenuItem>
-            </TextField>
-        
-                  {/* <Button
-                    color="primary"
-                    sx={{ m: 1 }}
-                    variant="contained"
-                    onClick={() =>printDocument()}
-                  >
-                    Download
-                  </Button> */}
-          </Box>
-          
-
-          <div id="divToPrint">
-          <Grid
-            container
-            mt={3}
-            spacing={4}
-          > 
-            {displayMore && <Grid item md={2}><Node o={cda} size={size} /></Grid>} 
-            {displayMore && <Grid item md={2}><Node o={presidenza} size={size} /></Grid>}
-            <Grid item md={displayMore ? 8: 12}><Node o={organization} size={size} /> </Grid>
-          </Grid>
-        </div>
+      <Box style={{display: "flex", alignItems: "center"}}>                 
+          {/* <Button
+            color="primary"
+            sx={{ m: 1 }}
+            variant="contained"
+            onClick={() =>printDocument()}
+          >
+            Download
+          </Button> */}
+      </Box>
+      <div id="divToPrint">
+        <Grid
+          container
+          mt={3}
+          spacing={4}
+        > 
+          <Grid item md={2}><Node o={cda} size={size} /></Grid>
+           <Grid item md={2}><Node o={presidenza} size={size} /></Grid>
+          <Grid item md={12}><Node o={organization} size={size} /> </Grid>
+        </Grid>
+      </div>
 
 
           </>

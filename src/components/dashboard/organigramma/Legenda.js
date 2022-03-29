@@ -18,7 +18,8 @@ import makeStyles from '@mui/styles/makeStyles';
           display: "flex", 
           flexDirection: "column", 
           justifyContent: "center",
-          border:`1px solid ${border && "black"}`
+          border:"1px solid #bbc",
+          padding:"10px"
         },
         content: {
           padding: "0 5px"
