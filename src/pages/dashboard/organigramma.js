@@ -4,14 +4,33 @@ import {
   Box,
   Container,
   Grid,
-  Typography
+  Typography,
+  Switch,
+  MenuItem,
+  TextField,
+  Button  
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
+
+import org from "./org.json";
 import OrganigrammaComponent from '../../components/dashboard/organigramma/organigramma-component'
 import Legenda from '../../components/dashboard/organigramma/Legenda'
 
 const Organigramma = () => {
+  const [size, setsize] = useState("small")
+  const [displayMore, setDisplayMore] = useState(false)
+  const [organization, setOrganization] = useState(org) 
+
+  useEffect(() => {
+      const newChildren = organization.children.map(child =>{
+        return {...child, collapsed: displayMore ? false : true}
+      })
+      setOrganization({...organization, children:newChildren})
+  }, [displayMore])
+
+
+  
 
   return (
     <>
@@ -36,10 +55,40 @@ const Organigramma = () => {
             >
                <Grid item md={12}>
                 <Box display="flex" sx={{width:"auto", justifyContent:"space-between"}}>
-                <Typography variant="h4" >
-                Esempio Organigramma
-                </Typography>
-                <Legenda />
+                  <Typography variant="h4" >
+                  Esempio Organigramma
+                  </Typography>
+                  <Box sx={{display:"flex", flexDirection:"column", gap:"30px"}}>
+                    <Legenda />
+                    <Box sx={{display:"flex", gap:"15px"}}>
+                    
+                    
+                    <TextField
+                      fullWidth 
+                      defaultValue={size}
+                      label="Carattere"
+                      select
+                      size="small"
+                      onChange={event=>setsize(event.target.value)}
+                    >
+                      <MenuItem value="small">piccolo</MenuItem>
+                      <MenuItem value="medium">medio</MenuItem>
+                      <MenuItem value="large">grande</MenuItem>
+                    </TextField>
+
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={()=>setDisplayMore(!displayMore)}
+                    >
+                        {displayMore ? "Riduci":"Espandi"}
+                    </Button>
+                    </Box>
+                    
+
+                   
+
+                  </Box>
                 
                 </Box>
                
@@ -53,7 +102,7 @@ const Organigramma = () => {
             spacing={4}
           >
               <Grid item md={12}>
-                    <OrganigrammaComponent />
+                    {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization} /> } 
               </Grid>
               
             
