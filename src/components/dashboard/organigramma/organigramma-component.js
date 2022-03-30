@@ -6,7 +6,6 @@ import { Tree, TreeNode } from "react-organizational-chart";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useDrag, useDrop } from "react-dnd";
-import organization from "./org.json";
 import cda from "./cda.json";
 import presidenza from "./presidenza.json";
 import makeStyles from '@mui/styles/makeStyles';
@@ -212,9 +211,7 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   export default function Organigramma(props) {
-    // const [size, setsize] = useState("medium")
-    // const [displayMore, setDisplayMore] = useState(false)
-    const {size, displayMore} = props
+    const {org, size} = props
 
     const printDocument= () => {
       const input = document.getElementById('divToPrint');
@@ -249,7 +246,7 @@ const useStyles = makeStyles((theme) => ({
         > 
           <Grid item md={2}><Node o={cda} size={size} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} /></Grid>
-          <Grid item md={12}><Node o={organization} size={size} /> </Grid>
+          <Grid item md={12}><Node o={org} size={size} /> </Grid>
         </Grid>
       </div>
 

@@ -7,16 +7,30 @@ import {
   Typography,
   Switch,
   MenuItem,
-  TextField
+  TextField,
+  Button  
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
+
+import org from "./org.json";
 import OrganigrammaComponent from '../../components/dashboard/organigramma/organigramma-component'
 import Legenda from '../../components/dashboard/organigramma/Legenda'
 
 const Organigramma = () => {
   const [size, setsize] = useState("small")
   const [displayMore, setDisplayMore] = useState(false)
+  const [organization, setOrganization] = useState(org) 
+
+  useEffect(() => {
+      const newChildren = organization.children.map(child =>{
+        return {...child, collapsed: displayMore ? false : true}
+      })
+      setOrganization({...organization, children:newChildren})
+  }, [displayMore])
+
+
+  
 
   return (
     <>
@@ -49,8 +63,8 @@ const Organigramma = () => {
                     <Box sx={{display:"flex", gap:"15px"}}>
                     
                     
-                   <TextField
-                   fullWidth 
+                    <TextField
+                      fullWidth 
                       defaultValue={size}
                       label="Carattere"
                       select
@@ -61,20 +75,14 @@ const Organigramma = () => {
                       <MenuItem value="medium">medio</MenuItem>
                       <MenuItem value="large">grande</MenuItem>
                     </TextField>
-                    <Box style={{display: "flex", alignItems: "center", gap:"7px"}}>
-                      <Typography
-                          gutterBottom
-                          variant="subtitle2"
-                        >
-                          Espandi
-                      </Typography>
-                      <Switch 
-                        checked={displayMore}
-                        onChange={()=>setDisplayMore(!displayMore)}            
-                        edge="start"
-                        name="displayMore"
-                      />       
-                   </Box>
+
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={()=>setDisplayMore(!displayMore)}
+                    >
+                        {displayMore ? "Riduci":"Espandi"}
+                    </Button>
                     </Box>
                     
 
@@ -94,7 +102,7 @@ const Organigramma = () => {
             spacing={4}
           >
               <Grid item md={12}>
-                    <OrganigrammaComponent size={size} displayMore={displayMore} />
+                    {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization} /> } 
               </Grid>
               
             
