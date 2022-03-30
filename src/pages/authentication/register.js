@@ -33,7 +33,7 @@ const Register = () => {
     <>
       <Head>
         <title>
-          Register | Material Kit Pro
+          Register | InfoCamere Organigramma
         </title>
       </Head>
       <Box

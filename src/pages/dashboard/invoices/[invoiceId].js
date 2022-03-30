@@ -59,7 +59,7 @@ const InvoiceDetails = () => {
     <>
       <Head>
         <title>
-          Dashboard: Invoice Details | Material Kit Pro
+          Dashboard: Invoice Details | InfoCamere Organigramma
         </title>
       </Head>
       <Box

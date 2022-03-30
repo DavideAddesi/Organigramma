@@ -19,7 +19,7 @@ const Home = () => {
     <>
       <Head>
         <title>
-          Material Kit Pro
+          InfoCamere Organigramma
         </title>
       </Head>
       <main>

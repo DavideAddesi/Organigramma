@@ -50,7 +50,7 @@ const OrderDetails = () => {
     <>
       <Head>
         <title>
-          Dashboard: Order Details | Material Kit Pro
+          Dashboard: Order Details | InfoCamere Organigramma
         </title>
       </Head>
       <Box

@@ -39,7 +39,7 @@ const SocialFeed = () => {
     <>
       <Head>
         <title>
-          Dashboard: Social Feed | Material Kit Pro
+          Dashboard: Social Feed | InfoCamere Organigramma
         </title>
       </Head>
       <Box

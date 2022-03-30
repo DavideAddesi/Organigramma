@@ -39,7 +39,7 @@ const BlogPostList = () => {
     <>
       <Head>
         <title>
-          Blog: Post List | Material Kit Pro
+          Blog: Post List | InfoCamere Organigramma
         </title>
       </Head>
       <Box
