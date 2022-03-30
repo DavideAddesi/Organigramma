@@ -99,7 +99,7 @@ const Mail = () => {
     <>
       <Head>
         <title>
-          Dashboard: Mail | Material Kit Pro
+          Dashboard: Mail | InfoCamere Organigramma
         </title>
       </Head>
       <Box

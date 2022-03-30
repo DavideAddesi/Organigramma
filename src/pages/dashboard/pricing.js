@@ -18,7 +18,7 @@ const Pricing = () => {
     <>
       <Head>
         <title>
-          Pricing | Material Kit Pro
+          Pricing | InfoCamere Organigramma
         </title>
       </Head>
       <Box

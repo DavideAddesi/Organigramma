@@ -10,6 +10,7 @@ import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component'
 import Legenda from '../../components/dashboard/organigramma/legenda-treeview'
+import org from './org.json'
 
 const Treeview = () => {
 
@@ -39,7 +40,7 @@ const Treeview = () => {
                 <Typography variant="h4">
                 Esempio Treeview
                 </Typography>
-                <Legenda color={false} />
+                {/* <Legenda color={false} /> */}
                 </Box>
               </Grid>
                 
@@ -51,7 +52,7 @@ const Treeview = () => {
             spacing={4}
           >
               <Grid item>
-                    <TreeviewComponent />
+                    <TreeviewComponent org={org} h={600} />
               </Grid>
               
             

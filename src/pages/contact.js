@@ -16,7 +16,7 @@ const Contact = () => {
     <>
       <Head>
         <title>
-          Contact | Material Kit Pro
+          Contact | InfoCamere Organigramma
         </title>
       </Head>
       <Box

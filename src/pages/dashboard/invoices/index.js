@@ -167,7 +167,7 @@ const InvoiceList = () => {
     <>
       <Head>
         <title>
-          Dashboard: Invoice List | Material Kit Pro
+          Dashboard: Invoice List | InfoCamere Organigramma
         </title>
       </Head>
       <Box

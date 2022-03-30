@@ -24,6 +24,7 @@ import { Mission } from '../../components/dashboard/customer/mission';
 import  PosizionamentoAziendale  from '../../components/dashboard/customer/posizionamento-aziendale';
 import  Treeview  from '../../components/dashboard/customer/treeview';
 import { PersonaleAssegnato } from '../../components/dashboard/customer/personale-assegnato';
+import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component'
 import { CustomerDataManagement } from '../../components/dashboard/customer/customer-data-management';
 import { CustomerEmailsSummary } from '../../components/dashboard/customer/customer-emails-summary';
 import { CustomerInvoices } from '../../components/dashboard/customer/customer-invoices';
@@ -280,7 +281,7 @@ const CustomerDetails = () => {
                 
                 <Box p={3}>
                   {!displayTreeview && <PosizionamentoAziendale organization={userDetail.posizionamentoAziendale}/>}
-                  { displayTreeview && <Treeview org={userDetail.posizionamentoAziendale}/>}
+                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} />}
                 </Box>
               </Box>
             </Card>

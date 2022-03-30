@@ -67,6 +67,27 @@ const text = {
   disabled: 'rgba(55, 65, 81, 0.48)'
 };
 
+const direzione = {
+  main: '#ddffd2',
+  light: '#ddffd2',
+  dark: '#ddffd2',
+  contrastText: '#000000'
+};
+
+const struttura = {
+  main: '#A7C7E7',
+  light: '#A7C7E7',
+  dark: '#A7C7E7',
+  contrastText: '#000000'
+};
+
+const unita = {
+  main: '#fff',
+  light: '#fff',
+  dark: '#fff',
+  contrastText: '#000000'
+};
+
 export const lightThemeOptions = {
   components: {
     MuiAvatar: {
@@ -177,7 +198,10 @@ export const lightThemeOptions = {
     secondary,
     success,
     text,
-    warning
+    warning,
+    direzione,
+    struttura,
+    unita
   },
   shadows: [
     'none',

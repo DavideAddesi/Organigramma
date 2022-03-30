@@ -27,7 +27,7 @@ const BrowseCharts = () => {
     <>
       <Head>
         <title>
-          Browse: Charts | Material Kit Pro
+          Browse: Charts | InfoCamere Organigramma
         </title>
       </Head>
       <Box

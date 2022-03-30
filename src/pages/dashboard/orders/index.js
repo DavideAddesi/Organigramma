@@ -205,7 +205,7 @@ const OrderList = () => {
     <>
       <Head>
         <title>
-          Dashboard: Order List | Material Kit Pro
+          Dashboard: Order List | InfoCamere Organigramma
         </title>
       </Head>
       <Box

@@ -23,7 +23,7 @@ const BrowseDetailLists = () => {
     <>
       <Head>
         <title>
-          Browse: Detail Lists | Material Kit Pro
+          Browse: Detail Lists | InfoCamere Organigramma
         </title>
       </Head>
       <Box
