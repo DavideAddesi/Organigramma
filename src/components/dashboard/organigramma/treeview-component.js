@@ -56,15 +56,16 @@ export default function ControlledTreeView({org, h}) {
 
   //<FontAwesomeIcon icon="fa-solid fa-briefcase" />
 
-  const chip = (type, code) =>{ faLandmark
+  const chip = (type, code) =>{ 
+    const codeNoCdr = code ? code.split("CDR").pop(): "******"
     // <FontAwesomeIcon icon={faLandmark} />
-    if(type==1) return   <Chip label={code} color="direzione" />
+    if(type==1) return   <Chip label={codeNoCdr} color="direzione" />
 
     // <FontAwesomeIcon icon={faBuilding} />
-    if(type==2) return  <Chip label={code} color="struttura" />
+    if(type==2) return  <Chip label={codeNoCdr} color="struttura" />
 
     // <FontAwesomeIcon icon={faBriefcase} />
-    if(type==3) return <Chip label={code || "CDR ****** "} variant="outlined"  />
+    if(type==3) return <Chip label={codeNoCdr || "CDR ****** "} variant="outlined"  />
   }
 
   const cap = (value) =>{

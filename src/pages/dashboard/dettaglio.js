@@ -77,6 +77,12 @@ const CustomerDetails = () => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+  const chip = (type, code) =>{ 
+    if(type==1) return   <Chip label={code} color="direzione" />
+    if(type==2) return  <Chip label={code} color="struttura" />
+    if(type==3) return <Chip label={code || "CDR ****** "} variant="outlined"  />
+  }
+
 
 
 
@@ -128,6 +134,24 @@ const CustomerDetails = () => {
               justifyContent="space-between"
               spacing={3}
             >
+                <Grid
+              item
+                md={12}
+                sx={{
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  display: 'flex',
+                }}
+              >
+                <Typography
+                color="primary"
+                variant="h5"
+              >
+                 {userDetail.area}
+              </Typography>
+             
+              {chip(userDetail.type, userDetail.codice)}
+              </Grid>
               <Grid
                 item
                 md={12}
@@ -159,7 +183,7 @@ const CustomerDetails = () => {
               >
                  {userDetail.ruolo}, {userDetail.sede}
               </Typography>
-                  <Typography variant="h4" sx={{mt:"-4px"}}>
+                  <Typography  sx={{mt:"-4px"}}>
                     {userDetail.nome}
                   </Typography>
                   <Box
@@ -184,28 +208,7 @@ const CustomerDetails = () => {
                 </Box>
                 
               </Grid>
-              <Grid
-              item
-                md={12}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
-                }}
-              >
-                <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.area}
-              </Typography>
-              <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.codice}
-              </Typography>
-              </Grid>
+            
             </Grid>
             <Tabs
               indicatorColor="primary"

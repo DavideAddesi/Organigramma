@@ -251,12 +251,12 @@ export const DashboardNavbar = (props) => {
     <>
       <DashboardNavbarRoot
         sx={{
-          left: {
-            lg: 280
-          },
-          width: {
-            lg: 'calc(100% - 280px)'
-          }
+          // left: {
+          //   lg: 280
+          // },
+          // width: {
+          //   lg: 'calc(100% - 280px)'
+          // }
         }}
         {...other}>
         <Toolbar
@@ -272,7 +272,7 @@ export const DashboardNavbar = (props) => {
             sx={{
               display: {
                 xs: 'inline-flex',
-                lg: 'none'
+                // lg: 'none'
               }
             }}
           >

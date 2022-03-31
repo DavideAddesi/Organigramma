@@ -10,9 +10,7 @@ const DashboardLayoutRoot = styled('div')(({ theme }) => ({
   flex: '1 1 auto',
   maxWidth: '100%',
   paddingTop: 64,
-  [theme.breakpoints.up('lg')]: {
-    paddingLeft: 280
-  }
+  paddingLeft:10
 }));
 
 export const DashboardLayout = (props) => {

@@ -40,29 +40,37 @@ const Organigramma = () => {
         </title>
       </Head>
       <Box
-        component="main"
+        // component="main"
         sx={{
-          flexGrow: 1,
+          flexGrow: 2,
           py: 8
         }}
       >
-        <Container maxWidth="xl">
-          <Box sx={{ mb: 4 }}>
+        <Container maxWidth="3000px" >
+          <Box maxWidth="3000px"sx={{ mb: 4 }}>
             <Grid
               container
               justifyContent="space-between"
               spacing={3}
+              // width={"3000px"}
+              // maxWidth="3000px"
             >
-               <Grid item md={12}>
-                <Box display="flex" sx={{width:"auto", justifyContent:"space-between"}}>
+                <Box display="flex" sx={{width:"100%", justifyContent:"space-between"}}>
                   <Typography variant="h4" >
                   Esempio Organigramma
                   </Typography>
-                  <Box sx={{display:"flex", flexDirection:"column", gap:"30px"}}>
+                  <Box 
+                    sx={{
+                      display:"flex", 
+                      flexDirection:"column", 
+                      gap:"10px", 
+                      position:"fixed", 
+                      right:"0", 
+                      marginRight:"20px",
+                      // height:"100px"  
+                    }}>
                     <Legenda />
-                    <Box sx={{display:"flex", gap:"15px"}}>
-                    
-                    
+               
                     <TextField
                       fullWidth 
                       defaultValue={size}
@@ -83,7 +91,6 @@ const Organigramma = () => {
                     >
                         {displayMore ? "Riduci":"Espandi"}
                     </Button>
-                    </Box>
                     
 
                    
@@ -91,8 +98,6 @@ const Organigramma = () => {
                   </Box>
                 
                 </Box>
-               
-              </Grid>
                 
              
             </Grid>
@@ -102,7 +107,9 @@ const Organigramma = () => {
             spacing={4}
           >
               <Grid item md={12}>
-                    {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization} /> } 
+                    {/* <div style={{overflowY: "scroll"}}> */}
+                      {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization} /> } 
+                      {/* </div>  */}
               </Grid>
               
             

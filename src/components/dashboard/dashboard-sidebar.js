@@ -48,6 +48,11 @@ const getSections = (t) => [
       //   path: '/dashboard/organigramma-2',
       //   icon: <AccountTreeIcon fontSize="small" />
       // },
+      // {
+      //   title: "Organigramma verticale",
+      //   path: '/dashboard/organigramma-verticale',
+      //   icon: <AccountTreeIcon fontSize="small" />
+      // },
       {
         title: "Treeview",
         path: '/dashboard/treeview',
@@ -71,7 +76,7 @@ export const DashboardSidebar = (props) => {
   const { onClose, open } = props;
   const router = useRouter();
   const { t } = useTranslation();
-  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'), {
+  const lgUp = useMediaQuery((theme) => theme.breakpoints.up('xl'), {
     noSsr: true
   });
   const sections = useMemo(() => getSections(t), [t]);
@@ -241,27 +246,27 @@ export const DashboardSidebar = (props) => {
     </>
   );
 
-  if (lgUp) {
-    return (
-      <Drawer
-        anchor="left"
-        open
-        PaperProps={{
-          sx: {
-            backgroundColor: '#fff',
-            borderRightColor: 'divider',
-            borderRightStyle: 'solid',
-            borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
-            color: '#000',
-            width: 280
-          }
-        }}
-        variant="permanent"
-      >
-        {content}
-      </Drawer>
-    );
-  }
+  // if (lgUp) {
+  //   return (
+  //     <Drawer
+  //       anchor="left"
+  //       open
+  //       PaperProps={{
+  //         sx: {
+  //           backgroundColor: '#fff',
+  //           borderRightColor: 'divider',
+  //           borderRightStyle: 'solid',
+  //           borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
+  //           color: '#000',
+  //           width: 280
+  //         }
+  //       }}
+  //       variant="permanent"
+  //     >
+  //       {content}
+  //     </Drawer>
+  //   );
+  // }
 
   return (
     <Drawer
@@ -270,8 +275,8 @@ export const DashboardSidebar = (props) => {
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: 'neutral.900',
-          color: '#FFFFFF',
+          backgroundColor: 'white',
+          color: '#000',
           width: 280
         }
       }}

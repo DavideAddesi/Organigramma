@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: "16px  !important",
       border:"1px solid #bbc !important",
       minWidth:"140px",
+      // maxWidth:"140  px",
       minHeight:"120px",
       maxHeight:"200px",
       display:"flex", 
@@ -102,9 +103,9 @@ const useStyles = makeStyles((theme) => ({
     }
 
 
-    const codeSize = size == "small" ? "5px": size== "medium" ? "7px":"10px" 
-    const roleSize = size == "small" ? "10px": size== "medium" ? "12px":"18px" 
-    const nameSize = size == "small" ? "7px": size== "medium" ? "10px":"13px" 
+    const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
+    const roleSize = size == "small" ? "10px": size== "medium" ? "13px":"18px" 
+    const nameSize = size == "small" ? "10px": size== "medium" ? "12px":"13px" 
 
    
 

@@ -2,6 +2,7 @@
     "id":1,
     "avatar": "/static/mock-images/avatars/avatar-miron_vitold.png",
     "area":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA",
+    "type": 3,
     "codice":"A16001",
     "ruolo":"Responsabile",
     "nome":"Elena Proietti",
