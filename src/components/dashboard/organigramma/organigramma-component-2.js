@@ -6,9 +6,9 @@ import { Tree, TreeNode } from "react-organizational-chart";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useDrag, useDrop } from "react-dnd";
-import organization from "./org.json";
-import cda from "./cda.json";
-import presidenza from "./presidenza.json";
+// import organization from "./org.json";
+// import cda from "./cda.json";
+// import presidenza from "./presidenza.json";
 import makeStyles from '@mui/styles/makeStyles';
 
 import BusinessIcon from "@mui/icons-material/Business";
