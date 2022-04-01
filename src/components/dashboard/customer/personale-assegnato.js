@@ -241,10 +241,10 @@ export const PersonaleAssegnato = (props) => {
                 CDO
               </TableCell>
               <TableCell>
-                Posizione Organizzativa
+                Email
               </TableCell>
               <TableCell>
-                Responsabile
+                Ufficio
               </TableCell>
               {/* <TableCell align="right">
                 Azioni
@@ -270,7 +270,7 @@ export const PersonaleAssegnato = (props) => {
                       }}
                     >
                       <Avatar
-                        src={"https://randomuser.me/api/portraits/men/"+randomIntFromInterval(1,100)+".jpg"}
+                        src={"https://randomuser.me/api/portraits/women/"+randomIntFromInterval(1,100)+".jpg"}
                         sx={{
                           height: 42,
                           width: 42
@@ -301,13 +301,13 @@ export const PersonaleAssegnato = (props) => {
                     {`${persona.CDO}`}
                   </TableCell>
                   <TableCell>
-                    {persona.posOrganizzativa}
+                    {persona.email}
                   </TableCell>
                   <TableCell>
                     <Typography
                       variant="subtitle2"
                     >
-                      {persona.responsabile}
+                      {persona.ufficio}
                     </Typography>
                   </TableCell>
                   {/* <TableCell align="right">

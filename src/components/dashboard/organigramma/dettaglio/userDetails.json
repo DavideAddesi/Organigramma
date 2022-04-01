@@ -13,37 +13,32 @@
 
     "posizionamentoAziendale":{
         "id":1,
-        "code":"CDR A10000",
-        "role": "DIREZIONE GENERALE",
-        "name":"P.Ghezzi",
+        "role": "DIREZIONE RISORSE UMANE, ORGANIZZAZIONE E AFFARI GENERALI ",
         "type": 0,
         "children":[
             {
                 "id": 2,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
+                "role": "Sviluppo Risorse Umane e Comunicazioen Interna",
                 "type": 3
             },
             {
                 "id": 3,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
+                "role": "Amministrazione Risorse Umane e Outsourcing",
                 "type": 3
             },
             {
                 "id": 4,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
+                "role": "Qualità e Processi",
                 "type": 3
             },
             {
                 "id": 5,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
+                "role": "Servizi al personale e Sicurezza sul Lavoro",
+                "type": 3
+            },
+            {
+                "id": 6,
+                "role": "Soluzioni Digitali Aziendali",
                 "type": 3
             }
         ]
@@ -55,16 +50,16 @@
             "stato":1,
             "nome":"Bassan Caterina",
             "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "email": "bassan.caterina@gmail.com",
+            "ufficio":"Ufficio"
         },  {
             "id": 2,
             "avatar": "xxx",
             "stato":2,
             "nome":"Cantoni Donatella",
             "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "email": "cantoni.donatella@gmail.com",
+            "ufficio":"Ufficio"
         },
         {
             "id": 3,
@@ -72,8 +67,8 @@
             "stato":3,
             "nome":"Carlesso Laura",
             "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "email": "carleso.laura@gmail.com",
+            "ufficio":"Ufficio"
         }
     ]
 

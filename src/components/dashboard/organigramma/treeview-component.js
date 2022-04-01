@@ -18,7 +18,7 @@ import Chip from '@mui/material/Chip';
 
 fontawesome.library.add(faLandmark, faBuilding, faBriefcase);
 
-export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecocerved, iconto}) {
+export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecocerved, iconto, dettaglio}) {
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
   const [ids, setIds] = React.useState([])
@@ -58,14 +58,14 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
   //<FontAwesomeIcon icon="fa-solid fa-briefcase" />
 
   const chip = (type, code) =>{ faLandmark
-    // <FontAwesomeIcon icon={faLandmark} />
-    if(type==1) return   <Chip label={code} color="direzione" />
+    const withNoCDR = code ? code.split("CDR").pop(): ""
+    if(type==1) return   <Chip label={withNoCDR} color="direzione" />
 
     // <FontAwesomeIcon icon={faBuilding} />
-    if(type==2) return  <Chip label={code} color="struttura" />
+    if(type==2) return  <Chip label={withNoCDR} color="struttura" />
 
     // <FontAwesomeIcon icon={faBriefcase} />
-    if(type==3) return <Chip label={code || "CDR ****** "} variant="outlined"  />
+    if(type==3) return <Chip label={withNoCDR || "******"} variant="outlined"  />
   }
 
   const cap = (value) =>{
@@ -114,14 +114,21 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
         onNodeSelect={handleSelect}
         multiSelect
       >
-        <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({role:"InfoCamere"})} sx={{my:"10px"}}>
-          {renderTree(cda)}
-          {renderTree(pres)}
-          {renderTree(org)}
-        </TreeItem>
-        {renderTree(outsourcing)}
-        {renderTree(ecocerved)}
-        {renderTree(iconto)}
+        {!dettaglio ? (
+          <>
+             <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({role:"InfoCamere"})} sx={{my:"10px"}}>
+              {renderTree(cda)}
+              {renderTree(pres)}
+              {renderTree(org)}
+            </TreeItem>
+            {renderTree(outsourcing)}
+            {renderTree(ecocerved)}
+            {renderTree(iconto)}
+          </>        
+        ) : (
+          renderTree(org)
+        )}
+        
        
       </TreeView>
     </Box>

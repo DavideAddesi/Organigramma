@@ -77,6 +77,10 @@ const CustomerDetails = () => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+  const chip = ( code) =>{ 
+     return <Chip label={code} variant="outlined"  />
+  }
+
 
 
 
@@ -100,34 +104,36 @@ const CustomerDetails = () => {
       >
         <Container maxWidth="md">
           <div>
-            {/* <Box sx={{ mb: 4 }}>
-              <NextLink
-                href="/dashboard/customers"
-                passHref
-              >
-                <Link
-                  color="textPrimary"
-                  component="a"
-                  sx={{
-                    alignItems: 'center',
-                    display: 'flex'
-                  }}
-                >
-                  <ArrowBackIcon
-                    fontSize="small"
-                    sx={{ mr: 1 }}
-                  />
-                  <Typography variant="subtitle2">
-                    Customers
-                  </Typography>
-                </Link>
-              </NextLink>
-            </Box> */}
             <Grid
               container
               justifyContent="space-between"
               spacing={3}
             >
+              <Grid item  md={12}><Divider  orientation="horizontal" /></Grid>
+              <Grid
+                item
+                  md={12}
+                  sx={{
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    display: 'flex',
+                  }}
+                >
+                  <Typography
+                  color="primary"
+                  variant="h5"
+                >
+                  {userDetail.area}
+                </Typography>
+                {/* <Typography
+                  color="textSecondary"
+                  variant="overline"
+                >
+                  {userDetail.codice}
+                </Typography> */}
+                {chip(userDetail.codice)}
+              </Grid>
+              <Grid item  md={12}><Divider  orientation="horizontal" /></Grid>
               <Grid
                 item
                 md={12}
@@ -143,69 +149,41 @@ const CustomerDetails = () => {
                   display: 'flex',
                   overflow: 'hidden'
                  }}>
-                     <Avatar
-                  // src={userDetail.avatar}
-                  src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
-                  sx={{
-                    height: 64,
-                    mr: 2,
-                    width: 64
-                  }}
-                />
-                <div>
-                <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.ruolo}, {userDetail.sede}
-              </Typography>
-                  <Typography variant="h4" sx={{mt:"-4px"}}>
-                    {userDetail.nome}
-                  </Typography>
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      // alignItems: 'center'
-                    }}
-                  >
-                   
-                     <Typography variant="subtitle2">
-                      {userDetail.email}
-                    </Typography>
-                    {/* <Typography variant="subtitle2">
-                      {userDetail.sede}
-                    </Typography> */}
-                    
-                    
-                  </Box>
-                </div>
+                    <Avatar
+                      // src={userDetail.avatar}
+                      src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
+                      sx={{
+                        height: 64,
+                        mr: 2,
+                        width: 64
+                      }}
+                    />
+                    <div>
+                      <Typography
+                      color="textSecondary"
+                      variant="overline"
+                      >
+                        {userDetail.ruolo}, {userDetail.sede}
+                      </Typography>
+                      <Typography variant="subtitle2" sx={{mt:"-4px"}}>
+                        {userDetail.nome}
+                      </Typography>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                        }}
+                      >              
+                        <Typography variant="subtitle2">
+                          {userDetail.email}
+                        </Typography>               
+                      </Box>
+                    </div>
                 </Box>
                 
               </Grid>
-              <Grid
-              item
-                md={12}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
-                }}
-              >
-                <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.area}
-              </Typography>
-              <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.codice}
-              </Typography>
-              </Grid>
+         
             </Grid>
             <Tabs
               indicatorColor="primary"
@@ -281,7 +259,7 @@ const CustomerDetails = () => {
                 
                 <Box p={3}>
                   {!displayTreeview && <PosizionamentoAziendale organization={userDetail.posizionamentoAziendale}/>}
-                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} />}
+                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} dettaglio={true} />}
                 </Box>
               </Box>
             </Card>
