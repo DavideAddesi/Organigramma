@@ -241,27 +241,27 @@ export const DashboardSidebar = (props) => {
     </>
   );
 
-  if (lgUp) {
-    return (
-      <Drawer
-        anchor="left"
-        open
-        PaperProps={{
-          sx: {
-            backgroundColor: '#fff',
-            borderRightColor: 'divider',
-            borderRightStyle: 'solid',
-            borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
-            color: '#000',
-            width: 280
-          }
-        }}
-        variant="permanent"
-      >
-        {content}
-      </Drawer>
-    );
-  }
+  // if (lgUp) {
+  //   return (
+  //     <Drawer
+  //       anchor="left"
+  //       open
+  //       PaperProps={{
+  //         sx: {
+  //           backgroundColor: '#fff',
+  //           borderRightColor: 'divider',
+  //           borderRightStyle: 'solid',
+  //           borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
+  //           color: '#000',
+  //           width: 280
+  //         }
+  //       }}
+  //       variant="permanent"
+  //     >
+  //       {content}
+  //     </Drawer>
+  //   );
+  // }
 
   return (
     <Drawer
@@ -270,8 +270,7 @@ export const DashboardSidebar = (props) => {
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: 'neutral.900',
-          color: '#FFFFFF',
+          backgroundColor: '#fff',
           width: 280
         }
       }}

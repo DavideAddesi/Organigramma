@@ -250,14 +250,14 @@ export const DashboardNavbar = (props) => {
   return (
     <>
       <DashboardNavbarRoot
-        sx={{
-          left: {
-            lg: 280
-          },
-          width: {
-            lg: 'calc(100% - 280px)'
-          }
-        }}
+        // sx={{
+        //   left: {
+        //     lg: 280
+        //   },
+        //   width: {
+        //     lg: 'calc(100% - 280px)'
+        //   }
+        // }}
         {...other}>
         <Toolbar
           disableGutters
@@ -269,12 +269,12 @@ export const DashboardNavbar = (props) => {
         >
           <IconButton
             onClick={onOpenSidebar}
-            sx={{
-              display: {
-                xs: 'inline-flex',
-                lg: 'none'
-              }
-            }}
+            // sx={{
+            //   display: {
+            //     xs: 'inline-flex',
+            //     lg: 'none'
+            //   }
+            // }}
           >
             <MenuIcon fontSize="small" />
           </IconButton>
