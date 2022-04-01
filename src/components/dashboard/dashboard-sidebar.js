@@ -33,6 +33,7 @@ import { OrganizationPopover } from './organization-popover';
 import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import PersonIcon from '@mui/icons-material/Person';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const getSections = (t) => [
   {
@@ -61,6 +62,11 @@ const getSections = (t) => [
       {
         title: "Dettaglio",
         path: '/dashboard/dettaglio',
+        icon: <SummarizeIcon fontSize="small" />
+      },
+      {
+        title: "Utente",
+        path: '/dashboard/utente',
         icon: <PersonIcon fontSize="small" />
       }
     ]

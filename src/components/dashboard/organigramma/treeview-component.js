@@ -57,7 +57,8 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
 
   //<FontAwesomeIcon icon="fa-solid fa-briefcase" />
 
-  const chip = (type, code) =>{ faLandmark
+
+  const chip = (type, code) =>{ 
     const withNoCDR = code ? code.split("CDR").pop(): ""
     if(type==1) return   <Chip label={withNoCDR} color="direzione" />
 
@@ -77,7 +78,7 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
       return(
           <Box display="flex" sx={{justifyContent:"space-between", p:"7px"}} >
             <Box sx={{display:"flex", alignItems: "center", gap:"7px"}}>
-                {node.type!== 0 ? chip(node.type, node.code): null}
+                {node.type!== 0 ? dettaglio ? null: chip(node.type, node.code): null}
                 <Typography variant="body2">{cap(node.role)}</Typography> 
             </Box>
             {/* <Typography variant="caption" sx={{fontSize:"10px"}} >{node.code}</Typography>  */}

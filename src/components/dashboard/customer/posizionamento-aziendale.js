@@ -16,10 +16,22 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 const useStyles = makeStyles((theme) => ({
     root: {
       background: "white",
-      display: "inline-block",
-      borderRadius: 16,
+      borderRadius: "16px  !important",
+      border:"1px solid #bbc   ",
+      // minWidth:"120px",
+      // maxWidth:"140  px",
+      minHeight:"100px",
+      maxHeight:"200px",
+      display:"flex", 
+      flexDirection:"column",
+      alignItems: "center", 
+      justifyContent: "center",
+      paddingLeft:"10px",
+      paddingRight:"10px",
     },
     expand: {
+      marginLeft:"auto",
+      marginRight:"auto",
       transform: "rotate(0deg)",
       marginTop: -10,
       marginLeft: "auto",
@@ -28,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
       }),
     },
     expandOpen: {
+      marginLeft:"auto",
+      marginRight:"auto",
       transform: "rotate(180deg)",
     },
     avatar: {
@@ -63,13 +77,14 @@ const useStyles = makeStyles((theme) => ({
     const nameSize = size == "10px"
 
     return (
+      <div style={{ border:org.owned && "3px solid #2196F3", borderRadius: org.owned &&"20px",}}>
       <Card
         variant="outlined"
         className={classes.root}
         style={{ backgroundColor: backgroundColor() }}
       >
      
-     {/* code role name: 10, 18, 13 /   */}
+
         <CardContent sx={{padding:"10px 5px"}}>
             <Typography variant="caption" sx={{fontSize:codeSize}}>{org.code}</Typography>
             <Box display="flex" sx={{flexDirection:"column"}}>
@@ -89,11 +104,12 @@ const useStyles = makeStyles((theme) => ({
           className={clsx(classes.expand, {
             [classes.expandOpen]: !collapsed,
           })}
-        >
+          >
           <ExpandMoreIcon />
         </IconButton>}
       
       </Card>
+          </div>
     );
   }
 
