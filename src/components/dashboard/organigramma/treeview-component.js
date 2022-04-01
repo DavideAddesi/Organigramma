@@ -18,14 +18,14 @@ import Chip from '@mui/material/Chip';
 
 fontawesome.library.add(faLandmark, faBuilding, faBriefcase);
 
-export default function ControlledTreeView({org, h}) {
+export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecocerved, iconto}) {
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
   const [ids, setIds] = React.useState([])
 
   React.useEffect(() => {
     const firstCode= org.id
-    recursiveIds(org.children, [firstCode])
+    recursiveIds(org.children, [firstCode, "infoRoot", "1cda", "1pres"])
   }, [])
   
 
@@ -45,6 +45,7 @@ export default function ControlledTreeView({org, h}) {
     })
     setIds(actualIds)
   }
+
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
       oldExpanded.length === 0 ? ids : [],
@@ -68,7 +69,7 @@ export default function ControlledTreeView({org, h}) {
   }
 
   const cap = (value) =>{
-    const capValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() 
+    const capValue = value ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() : ""
     return capValue
   }
 
@@ -85,13 +86,17 @@ export default function ControlledTreeView({org, h}) {
       )
   }
 
-  const renderTree = (nodes) => (
+   const renderTree = (nodes) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={treeItemLabel(nodes)} sx={{my:"10px"}}>
       {Array.isArray(nodes.children)
         ? nodes.children.map((node) => renderTree(node))
         : null}
     </TreeItem>
   );
+
+  
+
+
 
   return (
     <Box sx={{ height: h, flexGrow: 1, width: 700, overflowY: 'auto' }}>
@@ -109,7 +114,15 @@ export default function ControlledTreeView({org, h}) {
         onNodeSelect={handleSelect}
         multiSelect
       >
-        {renderTree(org)}
+        <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({role:"InfoCamere"})} sx={{my:"10px"}}>
+          {renderTree(cda)}
+          {renderTree(pres)}
+          {renderTree(org)}
+        </TreeItem>
+        {renderTree(outsourcing)}
+        {renderTree(ecocerved)}
+        {renderTree(iconto)}
+       
       </TreeView>
     </Box>
   );

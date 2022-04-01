@@ -1,68 +1,51 @@
 
-import {
-  Box,
-  Container,
-  Grid,
-  Typography,
-  Card,
-  CardContent
-} from '@mui/material';
+import {Box, Typography, Card} from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
 
- const Legenda = ({border}) =>{
-    const useStyles = makeStyles((theme) => ({
-        root: {
-          background: "white",
-          display: "inline-block",
-          borderRadius: 16,
-          display: "flex", 
-          flexDirection: "column", 
-          justifyContent: "center",
-          border:"1px solid #bbc",
-          padding:"10px"
-        },
-        content: {
-          padding: "0 5px"
-        },
-        text: {
-          fontSize:"3px", 
-          fontWeight:"bold"
-        },
-      }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width:"20px",
+    height:"20px",
+    display: "inline-block",
+    border:"1px solid #bbc",
+  },
+  container:{
+    display:'flex', 
+    gap:"5px"
+  }
+}));
+
+ const Legenda = () =>{
+    
   const classes = useStyles();
   return (
     <Box display='flex' sx={{gap:"10px"}}>
-      <Card
-        variant="outlined"
-        className={classes.root}
-        style={{ backgroundColor: "#ddffd2"}}
-      >   
-        <div className={classes.content}>
-            <Typography variant="body2">Direzione</Typography>         
-        </div> 
-      </Card>
 
-      <Card
-        variant="outlined"
-        className={classes.root}
-        style={{ backgroundColor: "#A7C7E7" }}
-      >
-       <div className={classes.content}>
-            <Typography variant="body2">Struttura</Typography>         
-        </div>  
-      </Card>
+      <div className={classes.container}>
+        <Card
+          className={classes.root}
+          style={{ backgroundColor: "#ddffd2"}}
+        /> 
+        <Typography variant="body2">Direzione</Typography>         
+      </div>
 
-      <Card
-        variant="outlined"
-        className={classes.root}
-        style={{ backgroundColor: "#fff" }}
-      >
-       <div className={classes.content}>
-            <Typography variant="body2">Unità di coordinamento</Typography>         
-        </div>  
-      </Card>
-    </Box>
-  
+      <div className={classes.container}>
+        <Card
+          className={classes.root}
+          style={{ backgroundColor: "#A7C7E7" }}
+        />    
+        <Typography variant="body2">Struttura</Typography>         
+      </div>
+
+      <div className={classes.container}>
+        <Card
+          className={classes.root}
+          style={{ backgroundColor: "#fff" }}
+        /> 
+        <Typography variant="body2">Unità operativa</Typography>         
+      </div>  
+  </Box>
+
   )
  
 }

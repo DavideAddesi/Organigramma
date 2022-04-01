@@ -6,8 +6,7 @@ import { Tree, TreeNode } from "react-organizational-chart";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { useDrag, useDrop } from "react-dnd";
-import cda from "./cda.json";
-import presidenza from "./presidenza.json";
+
 import makeStyles from '@mui/styles/makeStyles';
 
 import BusinessIcon from "@mui/icons-material/Business";
@@ -27,7 +26,8 @@ const useStyles = makeStyles((theme) => ({
       // maxwWdth:"200px",
       borderRadius: "16px  !important",
       border:"1px solid #bbc !important",
-      minWidth:"140px",
+      // minWidth:"120px",
+      // maxWidth:"140  px",
       minHeight:"120px",
       maxHeight:"200px",
       display:"flex", 
@@ -87,7 +87,7 @@ const useStyles = makeStyles((theme) => ({
     totalAmount: 55.50
   };
 
-  function Organization({ org, onCollapse, collapsed, size }) {
+  function Organization({ org, onCollapse, collapsed, size, fix }) {
     
     const classes = useStyles();
     const backgroundColor = () =>{
@@ -100,33 +100,28 @@ const useStyles = makeStyles((theme) => ({
 
          return "#000"
     }
-
-
-    const codeSize = size == "small" ? "5px": size== "medium" ? "7px":"10px" 
-    const roleSize = size == "small" ? "10px": size== "medium" ? "12px":"18px" 
-    const nameSize = size == "small" ? "7px": size== "medium" ? "10px":"13px" 
-
-   
-
+    const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
+    const roleSize = size == "small" ? "10px": size== "medium" ? "13px":"18px" 
+    const nameSize = size == "small" ? "10px": size== "medium" ? "12px":"13px" 
     return (
       <Card
         variant="outlined"
         className={classes.root}
-        style={{ backgroundColor: backgroundColor() }}
+        style={{ backgroundColor: backgroundColor(),  minWidth: fix? "120px":"unset"}}
       >
-     
-     {/* code role name: 10, 18, 13 /   */}
-        {/* <CardContent sx={{padding:"10px 5px"}}> */}
-        <div style={{flexGrow: 1, display:"flex", 
-      flexDirection:"column",
-      alignItems: "center", 
-      justifyContent: "center"}}>
-        <Box sx={{
-          display:"flex", 
+        <div style={{
+          flexGrow: 1, display:"flex", 
+          flexDirection:"column",
           alignItems: "center", 
-          justifyContent: "center", 
-          flexDirection: "column"
-        }}>
+          justifyContent: "center"
+          }}
+        >
+          <Box sx={{
+            display:"flex", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            flexDirection: "column"
+          }}>
             <Typography variant="caption" sx={{fontSize:codeSize}}>{org.code}</Typography>
             <Box display="flex" sx={{flexDirection:"column"}}>
                 <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.role}</Typography>
@@ -135,9 +130,7 @@ const useStyles = makeStyles((theme) => ({
                 </Box>
               
             </Box>
-        </Box>
-        {/* </CardContent> */}
-        
+          </Box>      
         </div>
         {org.children &&   <IconButton 
           size="small"
@@ -156,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-  function Node({ o, parent, size }) {
+  function Node({ o, parent, size, fix }) {
     const [collapsed, setCollapsed] = useState(o.collapsed);
     const handleCollapse = () => {
       setCollapsed(!collapsed);
@@ -185,6 +178,7 @@ const useStyles = makeStyles((theme) => ({
             onCollapse={handleCollapse}
             collapsed={collapsed}
             size={size}
+            fix={fix}
           />
         }
       />
@@ -196,6 +190,7 @@ const useStyles = makeStyles((theme) => ({
             onCollapse={handleCollapse}
             collapsed={collapsed}
             size={size}
+            fix={fix}
           />
         }
       >
@@ -211,7 +206,7 @@ const useStyles = makeStyles((theme) => ({
     );
   }
   export default function Organigramma(props) {
-    const {org, size} = props
+    const {org, size, cda, presidenza} = props
 
     const printDocument= () => {
       const input = document.getElementById('divToPrint');
@@ -244,8 +239,8 @@ const useStyles = makeStyles((theme) => ({
           mt={3}
           spacing={4}
         > 
-          <Grid item md={2}><Node o={cda} size={size} /></Grid>
-           <Grid item md={2}><Node o={presidenza} size={size} /></Grid>
+          <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
+           <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
           <Grid item md={12}><Node o={org} size={size} /> </Grid>
         </Grid>
       </div>

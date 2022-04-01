@@ -1,0 +1,40 @@
+{
+    "id":"1iconto",
+    "role": "ICONTO",
+    "type": 9,
+    "avatar":false,
+    "children": [
+      {
+        "id":"2iconto",
+        "role": "CDA ICONTO",
+        "children": [
+            {
+              "id":"3iconto",
+              "role": "Compliance and Risk Management"
+            },
+            {
+              "id":"4iconto",
+              "role": " Antiriciclaggio e Del. SOS "
+            }
+           
+          ]
+      },
+      {
+        "id":"5iconto",
+        "role": " Direzione Generale ICONTO",
+        "children": [
+            {
+              "id":"6iconto",
+              "role": "Operation"
+            },
+            {
+              "id":"7iconto",
+              "role": "Serv Applicativi"
+            }
+           
+          ]
+      }
+     
+    ]
+  }
+  
