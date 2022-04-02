@@ -103,7 +103,7 @@ export const CalendarToolbar = (props) => {
             <ChevronRightIcon fontSize="small" />
           </IconButton>
         </Box>
-        <TextField
+        {/* <TextField
           label="View"
           name="view"
           onChange={handleViewChange}
@@ -135,8 +135,8 @@ export const CalendarToolbar = (props) => {
               </option>
             );
           })}
-        </TextField>
-        <Button
+        </TextField> */}
+        {/* <Button
           onClick={onAddClick}
           startIcon={<PlusIcon fontSize="small" />}
           sx={{
@@ -153,7 +153,7 @@ export const CalendarToolbar = (props) => {
           variant="contained"
         >
           New Event
-        </Button>
+        </Button> */}
       </Box>
     </Box>
   );
