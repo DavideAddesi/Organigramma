@@ -22,10 +22,10 @@
         {"nome":"Altro", "percentuale":"%"}
     ],
     "corsi":[
-        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
-        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
-        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
-        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"}
+        {"data": "15/03/2022", "nome":"Nome corso di informazione"},
+        {"data": "26/01/2022", "nome":"Nome corso di informazione"},
+        {"data": "19/10/2021", "nome":"Nome corso di informazione"},
+        {"data": "04/04/2021", "nome":"Nome corso di informazione"}
     ],
     "certificazioni":[
         {"url": "", "alt":"Certificazione 1"},

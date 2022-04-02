@@ -290,14 +290,13 @@ const CustomerDetails = () => {
                       <Box p={3}>
                        <Box sx={{display: 'flex', flexDirection:"column", gap:"17px"}}>
                           <Box sx={{display: 'flex', justifyContent:"center", gap:"30px"}}>
-                              {/* <img src="/static/badges/google.png" style={{width:70, height:70}} /> */}
-                              <Skeleton variant="rectangular" width={50} height={50} />
-                             <Skeleton variant="rectangular" width={50} height={50} />
-                             <Skeleton variant="rectangular" width={50} height={50} />
+                              <img src="/static/badges/badge1.png" style={{width:50, height:50}} />
+                              <img src="/static/badges/badge2.png" style={{width:50, height:50}} />
+                              <img src="/static/badges/badge3.png" style={{width:50, height:50}} />
+
                           </Box>
                           <Box sx={{display: 'flex', justifyContent:"center", gap:"30px"}}>
-                              {/* <img src="/static/badges/google.png" style={{width:70, height:70}} /> */}
-                             <Skeleton variant="rectangular" width={50} height={50} />
+                              <img src="/static/badges/badge4.png" style={{width:50, height:50}} />
                              <Skeleton variant="rectangular" width={50} height={50} />
                              <Skeleton variant="rectangular" width={50} height={50} />
                           </Box>
