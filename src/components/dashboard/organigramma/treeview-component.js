@@ -18,14 +18,14 @@ import Chip from '@mui/material/Chip';
 
 fontawesome.library.add(faLandmark, faBuilding, faBriefcase);
 
-export default function ControlledTreeView({org, h}) {
+export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecocerved, iconto, dettaglio}) {
   const [expanded, setExpanded] = React.useState([]);
   const [selected, setSelected] = React.useState([]);
   const [ids, setIds] = React.useState([])
 
   React.useEffect(() => {
     const firstCode= org.id
-    recursiveIds(org.children, [firstCode])
+    recursiveIds(org.children, [firstCode, "infoRoot", "1cda", "1pres"])
   }, [])
   
 
@@ -45,6 +45,7 @@ export default function ControlledTreeView({org, h}) {
     })
     setIds(actualIds)
   }
+
   const handleExpandClick = () => {
     setExpanded((oldExpanded) =>
       oldExpanded.length === 0 ? ids : [],
@@ -56,19 +57,20 @@ export default function ControlledTreeView({org, h}) {
 
   //<FontAwesomeIcon icon="fa-solid fa-briefcase" />
 
-  const chip = (type, code) =>{ faLandmark
-    // <FontAwesomeIcon icon={faLandmark} />
-    if(type==1) return   <Chip label={code} color="direzione" />
+
+  const chip = (type, code) =>{ 
+    const withNoCDR = code ? code.split("CDR").pop(): ""
+    if(type==1) return   <Chip label={withNoCDR} color="direzione" />
 
     // <FontAwesomeIcon icon={faBuilding} />
-    if(type==2) return  <Chip label={code} color="struttura" />
+    if(type==2) return  <Chip label={withNoCDR} color="struttura" />
 
     // <FontAwesomeIcon icon={faBriefcase} />
-    if(type==3) return <Chip label={code || "CDR ****** "} variant="outlined"  />
+    if(type==3) return <Chip label={withNoCDR || "******"} variant="outlined"  />
   }
 
   const cap = (value) =>{
-    const capValue = value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() 
+    const capValue = value ? value.charAt(0).toUpperCase() + value.slice(1).toLowerCase() : ""
     return capValue
   }
 
@@ -76,7 +78,7 @@ export default function ControlledTreeView({org, h}) {
       return(
           <Box display="flex" sx={{justifyContent:"space-between", p:"7px"}} >
             <Box sx={{display:"flex", alignItems: "center", gap:"7px"}}>
-                {node.type!== 0 ? chip(node.type, node.code): null}
+                {node.type!== 0 ? dettaglio ? null: chip(node.type, node.code): null}
                 <Typography variant="body2">{cap(node.role)}</Typography> 
             </Box>
             {/* <Typography variant="caption" sx={{fontSize:"10px"}} >{node.code}</Typography>  */}
@@ -85,13 +87,17 @@ export default function ControlledTreeView({org, h}) {
       )
   }
 
-  const renderTree = (nodes) => (
+   const renderTree = (nodes) => (
     <TreeItem key={nodes.id} nodeId={nodes.id} label={treeItemLabel(nodes)} sx={{my:"10px"}}>
       {Array.isArray(nodes.children)
         ? nodes.children.map((node) => renderTree(node))
         : null}
     </TreeItem>
   );
+
+  
+
+
 
   return (
     <Box sx={{ height: h, flexGrow: 1, width: 700, overflowY: 'auto' }}>
@@ -109,7 +115,22 @@ export default function ControlledTreeView({org, h}) {
         onNodeSelect={handleSelect}
         multiSelect
       >
-        {renderTree(org)}
+        {!dettaglio ? (
+          <>
+             <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({role:"InfoCamere"})} sx={{my:"10px"}}>
+              {renderTree(cda)}
+              {renderTree(pres)}
+              {renderTree(org)}
+            </TreeItem>
+            {renderTree(outsourcing)}
+            {renderTree(ecocerved)}
+            {renderTree(iconto)}
+          </>        
+        ) : (
+          renderTree(org)
+        )}
+        
+       
       </TreeView>
     </Box>
   );

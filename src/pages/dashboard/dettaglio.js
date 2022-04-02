@@ -16,7 +16,6 @@ import {
   Card,
   Switch
 } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { customerApi } from '../../__fake-api__/customer-api';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
@@ -24,16 +23,9 @@ import { Mission } from '../../components/dashboard/customer/mission';
 import  PosizionamentoAziendale  from '../../components/dashboard/customer/posizionamento-aziendale';
 import  Treeview  from '../../components/dashboard/customer/treeview';
 import { PersonaleAssegnato } from '../../components/dashboard/customer/personale-assegnato';
-import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component'
-import { CustomerDataManagement } from '../../components/dashboard/customer/customer-data-management';
-import { CustomerEmailsSummary } from '../../components/dashboard/customer/customer-emails-summary';
-import { CustomerInvoices } from '../../components/dashboard/customer/customer-invoices';
-import { CustomerPayment } from '../../components/dashboard/customer/customer-payment';
-import { CustomerLogs } from '../../components/dashboard/customer/customer-logs';
+import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component';
 import { useMounted } from '../../hooks/use-mounted';
-import { ChevronDown as ChevronDownIcon } from '../../icons/chevron-down';
-import { PencilAlt as PencilAltIcon } from '../../icons/pencil-alt';
-import { getInitials } from '../../utils/get-initials';
+import LinkIcon from '@mui/icons-material/Link'
 
 const tabs = [
   { label: 'Mission', value: 'mission' },
@@ -77,6 +69,10 @@ const CustomerDetails = () => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
+  const chip = ( code) =>{ 
+     return <Chip label={code} variant="outlined" color="primary"  />
+  }
+
 
 
 
@@ -100,34 +96,30 @@ const CustomerDetails = () => {
       >
         <Container maxWidth="md">
           <div>
-            {/* <Box sx={{ mb: 4 }}>
-              <NextLink
-                href="/dashboard/customers"
-                passHref
-              >
-                <Link
-                  color="textPrimary"
-                  component="a"
-                  sx={{
-                    alignItems: 'center',
-                    display: 'flex'
-                  }}
-                >
-                  <ArrowBackIcon
-                    fontSize="small"
-                    sx={{ mr: 1 }}
-                  />
-                  <Typography variant="subtitle2">
-                    Customers
-                  </Typography>
-                </Link>
-              </NextLink>
-            </Box> */}
             <Grid
               container
               justifyContent="space-between"
               spacing={3}
             >
+              {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
+              <Grid
+                item
+                  md={12}
+                  sx={{
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    display: 'flex',
+                  }}
+                >
+                  <Typography
+                  color="primary"
+                  variant="h4"
+                >
+                  {userDetail.area}
+                </Typography>
+                {chip(userDetail.codice)}
+              </Grid>
+              {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
               <Grid
                 item
                 md={12}
@@ -137,77 +129,107 @@ const CustomerDetails = () => {
                   display: 'flex',
                 }}
               >
-                <Box
+                {/* <Box
                  sx={{
                   alignItems: 'center',
                   display: 'flex',
                   overflow: 'hidden'
                  }}>
-                     <Avatar
-                  // src={userDetail.avatar}
-                  src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
-                  sx={{
-                    height: 64,
-                    mr: 2,
-                    width: 64
-                  }}
-                />
-                <div>
-                <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.ruolo}, {userDetail.sede}
-              </Typography>
-                  <Typography variant="h4" sx={{mt:"-4px"}}>
-                    {userDetail.nome}
-                  </Typography>
-                  <Box
+                    <Avatar
+                      // src={userDetail.avatar}
+                      src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
+                      sx={{
+                        height: 64,
+                        mr: 2,
+                        width: 64
+                      }}
+                    />
+                    <div>
+                      <Typography
+                      color="textSecondary"
+                      variant="overline"
+                      >
+                        {userDetail.ruolo}, {userDetail.sede}
+                      </Typography>
+                      <Typography variant="subtitle2" sx={{mt:"-4px"}}>
+                        {userDetail.nome}
+                      </Typography>
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          justifyContent: 'center',
+                        }}
+                      >              
+                        <Typography variant="subtitle2">
+                          {userDetail.email}
+                        </Typography>               
+                      </Box>
+                    </div>
+                </Box> */}
+                <Box sx={{ mt: 3 }}>
+                  <Box > 
+                    <Typography variant="h5" >Responsabile</Typography>
+                  </Box> 
+                  <NextLink
+                  href="/dashboard/utente"
+                  passHref
+                >
+                 
+                
+                  <Box 
                     sx={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      // alignItems: 'center'
-                    }}
-                  >
-                   
-                     <Typography variant="subtitle2">
-                      {userDetail.email}
-                    </Typography>
-                    {/* <Typography variant="subtitle2">
-                      {userDetail.sede}
-                    </Typography> */}
-                    
-                    
-                  </Box>
-                </div>
+                      flexGrow: 1, 
+                      backgroundColor:"#fff", 
+                      p:2, 
+                      width: 950, 
+                      borderRadius:"8px",
+                      cursor: 'pointer',
+                      '&:hover': {
+                        background: "#F8F8F8",
+                      },  
+                    }}>
+                      <Box sx={{display:"flex"}}>
+                        <Avatar
+                            // src={userDetail.avatar}
+                            src={"https://randomuser.me/api/portraits/men/"+9+".jpg"}
+                            sx={{
+                              height: 64,
+                              mr: 2,
+                              width: 64
+                            }}
+                          />
+                          <div>
+                            <Typography
+                            color="textSecondary"
+                            variant="overline"
+                            > 
+                            {userDetail.nome}
+                            </Typography>
+                            <Typography variant="subtitle2" sx={{mt:"-4px"}}>
+                            Sede: {userDetail.sede}
+                            </Typography>
+                            <Box
+                              sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'center',
+                              }}
+                            >              
+                              <Typography variant="subtitle2">
+                                Email: {userDetail.email}
+                              </Typography>               
+                            </Box>
+                          </div>                   
+                      </Box>
+                    </Box> 
+                    </NextLink>
                 </Box>
                 
               </Grid>
-              <Grid
-              item
-                md={12}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
-                }}
-              >
-                <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.area}
-              </Typography>
-              <Typography
-                color="textSecondary"
-                variant="overline"
-              >
-                 {userDetail.codice}
-              </Typography>
-              </Grid>
+         
             </Grid>
-            <Tabs
+            {/* <Tabs
               indicatorColor="primary"
               onChange={handleTabsChange}
               scrollButtons="auto"
@@ -223,7 +245,7 @@ const CustomerDetails = () => {
                   value={tab.value}
                 />
               ))}
-            </Tabs>
+            </Tabs> */}
           </div>
           <Divider />
           <Box sx={{ mt: 3 }}>
@@ -235,16 +257,28 @@ const CustomerDetails = () => {
                   item
                   xs={12}
                   >
-                  {currentTab === 'mission' && <Mission mission={userDetail.mission}/>}
-                  {currentTab === 'documenti' && <Mission />}
+                    <Box > 
+                    <Typography variant="h5" >Mission</Typography>
+                  </Box> 
+                  <Mission mission={userDetail.mission}/>
+                  {/* {currentTab === 'mission' && <Mission mission={userDetail.mission}/>} */}
+                  {/* {currentTab === 'documenti' && <Mission />}
                   {currentTab === 'gdp' && <Mission />}
-                  {currentTab === 'processi' && <Mission />}
+                  {currentTab === 'processi' && <Mission />} */}
+                  <Box sx={{display: 'flex', gap:"15px", mt:"10px"}}>
+                  <Button variant="outlined" endIcon={<LinkIcon />}> Documenti</Button>
+                  <Button variant="outlined" endIcon={<LinkIcon />}> Gruppi di appartenenza</Button>
+                  <Button variant="outlined" endIcon={<LinkIcon />}> Processi</Button>
+                    
+                    
+                    
+                  </Box>
                 </Grid>
                
               </Grid>
       
           </Box>
-          <Box sx={{ mt: 3 }}>
+          <Box sx={{ mt: 4 }}>
             <Box sx={{display: 'flex', justifyContent:"space-between"}}> 
               <Typography variant="h5" >Posizionamento Aziendale</Typography>
               <NextLink
@@ -281,7 +315,7 @@ const CustomerDetails = () => {
                 
                 <Box p={3}>
                   {!displayTreeview && <PosizionamentoAziendale organization={userDetail.posizionamentoAziendale}/>}
-                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} />}
+                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} dettaglio={true} />}
                 </Box>
               </Box>
             </Card>

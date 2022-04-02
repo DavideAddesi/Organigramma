@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeView from '@mui/lab/TreeView';
 import TreeItem from '@mui/lab/TreeItem';
-import org from './org.json'
+// import org from './org.json'
 
 import DirezioneIcon from '@mui/icons-material/CorporateFare';
 import StrutturaIcon from '@mui/icons-material/Store';

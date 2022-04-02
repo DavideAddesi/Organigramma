@@ -33,6 +33,7 @@ import { OrganizationPopover } from './organization-popover';
 import CorporateFareIcon from '@mui/icons-material/CorporateFare';
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import PersonIcon from '@mui/icons-material/Person';
+import SummarizeIcon from '@mui/icons-material/Summarize';
 
 const getSections = (t) => [
   {
@@ -61,6 +62,11 @@ const getSections = (t) => [
       {
         title: "Dettaglio",
         path: '/dashboard/dettaglio',
+        icon: <SummarizeIcon fontSize="small" />
+      },
+      {
+        title: "Utente",
+        path: '/dashboard/utente',
         icon: <PersonIcon fontSize="small" />
       }
     ]
@@ -241,27 +247,27 @@ export const DashboardSidebar = (props) => {
     </>
   );
 
-  if (lgUp) {
-    return (
-      <Drawer
-        anchor="left"
-        open
-        PaperProps={{
-          sx: {
-            backgroundColor: '#fff',
-            borderRightColor: 'divider',
-            borderRightStyle: 'solid',
-            borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
-            color: '#000',
-            width: 280
-          }
-        }}
-        variant="permanent"
-      >
-        {content}
-      </Drawer>
-    );
-  }
+  // if (lgUp) {
+  //   return (
+  //     <Drawer
+  //       anchor="left"
+  //       open
+  //       PaperProps={{
+  //         sx: {
+  //           backgroundColor: '#fff',
+  //           borderRightColor: 'divider',
+  //           borderRightStyle: 'solid',
+  //           borderRightWidth: (theme) => theme.palette.mode === 'dark' ? 1 : 0,
+  //           color: '#000',
+  //           width: 280
+  //         }
+  //       }}
+  //       variant="permanent"
+  //     >
+  //       {content}
+  //     </Drawer>
+  //   );
+  // }
 
   return (
     <Drawer
@@ -270,8 +276,7 @@ export const DashboardSidebar = (props) => {
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: 'neutral.900',
-          color: '#FFFFFF',
+          backgroundColor: '#fff',
           width: 280
         }
       }}

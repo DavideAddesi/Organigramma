@@ -1,50 +1,53 @@
 {
     "id":1,
     "avatar": "/static/mock-images/avatars/avatar-miron_vitold.png",
-    "area":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA",
-    "codice":"A16001",
+    "area":"Procedure e servizi applicativi",
+    "codice":"C21000",
     "ruolo":"Responsabile",
-    "nome":"Elena Proietti",
+    "nome":"Alexander Balest",
     "sede": "Milano",
-    "email":"elena.proietti@gmail.com",
-    "mission":"L'Unità Operativa riporta alla Direzione Risorse Umane, Organizzazione e Affari Generali Ha i seguenti compiti: Ricerca, selezione ed inserimento del personale Gestione del sistema professionale Gestione processi e progetti formativi: piani annuali di formazione del personale interno di InfoCamere, formazione finanziata, gestione del Catalogo Corsi, organizzazione dei corsi (Webinar, E-learning, in house), gestione e selezione fornitori, valutazione efficacia investimenti Sistemi di incentivazione/compensation, politiche retributive. Mbo Sistemi di valutazione: manageriale, prestazioni, competenze e skill inventory Gestione mobilità interna, Job posting, richieste part-time, aspettative e anticipi TFR, Smart Working Gestione stage, tirocini e rapporti con Enti formativi ed Università Rapporti con le Organizzazioni Sindacali Gestione abbonamenti, acquisto libri/riviste",
+    "email":"alexander.balest@gmail.com",
+    "mission":"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 
 
 
     "posizionamentoAziendale":{
         "id":1,
-        "code":"CDR A10000",
-        "role": "DIREZIONE GENERALE",
-        "name":"P.Ghezzi",
-        "type": 0,
+        "role": "CCIAA: SERVIZI STANDARD E DI SISTEMA",
+        "type": 1,
         "children":[
             {
                 "id": 2,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
-                "type": 3
+                "role": "Relazioni con UC e soc. di sistema",
+                "type": 2
             },
             {
                 "id": 3,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
-                "type": 3
+                "role": "Sviluppo gestione istruttoria RI e REA",
+                "type": 2,
+                "children":[
+                    {
+                        "id": 4,
+                        "role": "Procedure e servizi applicativi",
+                        "type": 3,
+                        "owned":true
+                    },
+                    {
+                        "id": 5,
+                        "role": "Servizi di istruttoria amministrativa",
+                        "type": 3
+                    }
+                ]
             },
             {
-                "id": 4,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
-                "type": 3
+                "id": 6,
+                "role": "Sviluppo e gestione servizi standard",
+                "type": 2
             },
             {
-                "id": 5,
-                "code":"CDR A15000",
-                "role": "AFFARI LEGALI E ISTITUZIONALI",
-                "name":"G. Sessa",
-                "type": 3
+                "id": 7,
+                "role": "Sviluppo Gestione e supporto operativo SUAP",
+                "type": 2
             }
         ]
     },
@@ -53,27 +56,27 @@
             "id": 1,
             "avatar": "xxx",
             "stato":1,
-            "nome":"Bassan Caterina",
-            "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "nome":"Acri Lucia Balest",
+            "CDO": "C21001",
+            "email": "lucia.balest@gmail.com",
+            "ufficio":"Ufficio"
         },  {
             "id": 2,
             "avatar": "xxx",
             "stato":2,
-            "nome":"Cantoni Donatella",
-            "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "nome":"Basilicati Fedra",
+            "CDO": "C21001",
+            "email": "basilicati.fedra@gmail.com",
+            "ufficio":"Ufficio"
         },
         {
             "id": 3,
             "avatar": "xxx",
             "stato":3,
-            "nome":"Carlesso Laura",
-            "CDO": "A16000",
-            "posOrganizzativa": "UO Sviluppo Risorse Umane e Comunicazione Interna",
-            "responsabile":"Elena Proietti"
+            "nome":"Bertoli Pietro",
+            "CDO": "C21001",
+            "email": "bertoli.pietro@gmail.com",
+            "ufficio":"Ufficio"
         }
     ]
 

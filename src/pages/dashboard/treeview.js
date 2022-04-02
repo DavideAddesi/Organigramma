@@ -10,7 +10,12 @@ import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component'
 import Legenda from '../../components/dashboard/organigramma/legenda-treeview'
-import org from './org.json'
+import org from './json-strutture/org.json'
+import cda from './json-strutture/cda.json'
+import presidenza from './json-strutture/presidenza.json'
+import outsourcing from './json-strutture/outsourcing.json'
+import ecocerved from './json-strutture/ecocerved.json'
+import iconto from './json-strutture/iconto.json'
 
 const Treeview = () => {
 
@@ -52,7 +57,7 @@ const Treeview = () => {
             spacing={4}
           >
               <Grid item>
-                    <TreeviewComponent org={org} h={600} />
+                    <TreeviewComponent org={org} h={600} cda={cda} pres={presidenza} outsourcing={outsourcing} ecocerved={ecocerved} iconto={iconto} />
               </Grid>
               
             

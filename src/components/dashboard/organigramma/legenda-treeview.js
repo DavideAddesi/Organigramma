@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         <FontAwesomeIcon icon={faBuilding} />
       </Box>
       <Box className={classes.iconContainer}>
-      <Typography variant="body2">Unità di coordinamento</Typography> 
+      <Typography variant="body2">Unità operativa</Typography> 
       <FontAwesomeIcon icon={faBriefcase} />
       </Box>    
     </Box>
