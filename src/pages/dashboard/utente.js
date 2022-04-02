@@ -259,7 +259,7 @@ const CustomerDetails = () => {
                     <Card>
                       <Box p={3}>
                        {userJson.competenze.map(competenza=>(
-                         <Box sx={{display: 'flex', justifyContent:"space-between"}}>
+                         <Box key={competenza} sx={{display: 'flex', justifyContent:"space-between"}}>
                            <Typography variant="overline">{competenza.nome}</Typography>
                            <Typography variant="overline">{competenza.percentuale}</Typography>
                          </Box>
@@ -274,7 +274,7 @@ const CustomerDetails = () => {
                     <Card>
                       <Box p={3}>
                       {userJson.corsi.map((corso, i)=>(
-                         <Box sx={{display: 'flex', flexDirection:"column", mb: userJson.corsi.length == i+1 ? 0 : 3}}>
+                         <Box key={i} sx={{display: 'flex', flexDirection:"column", mb: userJson.corsi.length == i+1 ? 0 : 3}}>
                            <Typography variant="overline"  sx={{lineHeight:"0.5"}}>{corso.data}</Typography>
                            <Typography variant="subtitle2" >{corso.nome}</Typography>
                          </Box>
@@ -358,7 +358,7 @@ const CustomerDetails = () => {
                       <Box p={3}>
                         {currentTab == "attivita" ? (
                            userJson.attività.map(att=>(
-                            <Box sx={{display: 'flex'}}>
+                            <Box key={att} sx={{display: 'flex'}}>
                               <Typography variant="overline">{att}</Typography>
                             </Box>
                           ))
@@ -380,7 +380,7 @@ const CustomerDetails = () => {
                     <Card>
                       <Box p={3} sx={{ display: 'flex', gap:"7px"}}>
                         {userJson.interessi.map(interesse=>(
-                          <Chip label={interesse} variant="outlined" onClick={handleClick} color="primary" />
+                          <Chip key={interesse} label={interesse} variant="outlined" onClick={handleClick} color="primary" />
                         ))}
                       </Box>
                     </Card>              
