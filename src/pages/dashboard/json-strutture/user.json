@@ -1,0 +1,42 @@
+{
+    "id":1,
+    "avatar": "/static/mock-images/avatars/avatar-miron_vitold.png",
+    "area":"Procedure e servizi applicativi",
+    "codice":"C21000",
+    "ruolo":"Responsabile UO",
+    "nome":"Alexander Balest",
+    "sede": "Milano",
+    "email":"alexander.balest@gmail.com",
+    "ufficio":"ufficio",
+    "tel":"3406658425",
+    "matricola":"xxxxxx",
+    "stato":"1",
+    "descrizione":"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "linkCV":"",
+    "linkLinkedin":"",
+    "competenze":[
+        {"nome":"Java", "percentuale":"60%"},
+        {"nome":"HTML", "percentuale":"30%"},
+        {"nome":"CSS", "percentuale":"10%"},
+        {"nome":"PHP", "percentuale":"5%"},
+        {"nome":"Altro", "percentuale":"%"}
+    ],
+    "corsi":[
+        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
+        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
+        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"},
+        {"data": "GG/MM/AAAA", "nome":"Nome corso di informazione"}
+    ],
+    "certificazioni":[
+        {"url": "", "alt":"Certificazione 1"},
+        {"url": "", "alt":"Certificazione 2"},
+        {"url": "", "alt":"Certificazione 3"},
+        {"url": "", "alt":"Certificazione 4"}
+    ],
+    "attività":[
+        "Area CDO", "Area Processi", "Area CDP", "Area Progetti", "Progetti di resposabilità", "Progetti attivi di responsabilità"
+    ],
+    "interessi":["Sport", "Cinema", "Arte"]
+
+
+}
