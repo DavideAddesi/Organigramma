@@ -24,6 +24,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import userJson from "./json-strutture/user.json"
 import LinkIcon from '@mui/icons-material/Link'
 import Skeleton from '@mui/material/Skeleton';
+import CalendarUser from './calendarUser';
 
 const tabs = [
   { label: 'Attività', value: 'attivita' },
@@ -87,7 +88,7 @@ const CustomerDetails = () => {
               {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
               <Grid
                 item
-                  md={12}
+                  md={8}
                   sx={{
                     alignItems: 'center',
                     justifyContent: 'space-between',
@@ -147,17 +148,26 @@ const CustomerDetails = () => {
                    
                 </Box>
                 </Typography>
-                <div>  
-                     
-                </div>
+              
               </Grid>
-              <Grid item md={12}>
-                    
-              </Grid>
+              <Grid item md={4}>
+                      <CalendarUser />
+                </Grid>
             
          
             </Grid>
           </div>
+
+          {/* CALENDAR */}
+          {/* <Box sx={{ mt: 3 }}>
+              <Grid container spacing={3} >
+                <Grid item md={4}>
+                      <CalendarUser />
+                </Grid>        
+              </Grid>
+          </Box> */}
+
+          
 
              {/* Informazioni */}
              <Box sx={{ mt: 3 }}>
