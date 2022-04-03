@@ -98,6 +98,46 @@
       },
       {
         "collapsed":true,
+        "id":30,
+        "code":"CDR D10000",
+        "role": "CAMERE DI COMMERCIO: SERVIZI A RICHIESTA E INIZIATIVE TERRITORIALI",
+        "name":"A. Tonini - A. Panella",
+        "type": 1,
+        "children":[
+          {
+            "id":31,
+            "code":"CDR D11000",
+            "role": "SVILUPPOCAMERE E TERRITORI AREA 1",
+            "name":"M. Maccalli",
+            "type": 2
+          },
+          {
+            "id":32,
+            "code":"CDR D12000",
+            "role": "SVILUPPOCAMERE E TERRITORI AREA 2",
+            "name":"F. Romano",
+            "type": 2
+          }
+        ]
+      },
+      {
+        "collapsed":true,
+        "id":33,
+        "code":"CDR E10000",
+        "role": "PA IMPRESE E RETAIL:  PUBBLICI REGISTRI E INIZIATIVE DI DIGITALIZZAZIONE",
+        "name":"A. Acquaviva",
+        "type": 1
+      },
+      {
+        "collapsed":true,
+        "id":34,
+        "code":"CDR F10000",
+        "role": "SERVIZI CERTIFICATI E FINANZIARI",
+        "name":"P. Soleti",
+        "type": 1
+      },
+      {
+        "collapsed":true,
         "id":25,
         "code":"CDR B10000",
         "role": "SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
@@ -123,7 +163,17 @@
             "type": 2
           }
         ]
-      }
+      },
+      {
+        "collapsed":true,
+        "id":35,
+        "code":"CDR T10000",
+        "role": "TECNOLOGIE E IMPIANTI",
+        "name":"L. Candiani",
+        "type": 1
+      },
+      { "id":36, "code": "CDR A14000", "role":"MARKETING", "name": "F. Vudafieri",  "type": 2 },
+      { "id":37,"code": "CDR G10000", "role":"STATISTICHE E ANALISI EVOLUTA DEL DATO", "name": "Do. Tarantino",  "type": 2 }
       
     ]
   }
