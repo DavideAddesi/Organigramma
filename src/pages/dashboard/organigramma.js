@@ -46,9 +46,12 @@ const Organigramma = () => {
     // setAnchorEl(null);
   };
 
+  // collapsed: displayMore ? false : true
   useEffect(() => {
       const newChildren = organization.children.map(child =>{
-        return {...child, collapsed: displayMore ? false : true}
+        return {...child, 
+          children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
+        }
       })
       setOrganization({...organization, children:newChildren})
   }, [displayMore])
@@ -97,6 +100,8 @@ const Organigramma = () => {
                       position:"fixed", 
                       right:"0", 
                       marginRight:"20px",
+                      marginBottom:"50px",
+                      zIndex:1000
                       // height:"100px"  
                     }}>
                     <Legenda />

@@ -3,7 +3,7 @@
     "code":"CDR P10000",
     "role": "PRESIDENZA",
     "name":"L. Tagliavanti",
-    "type": 8,
+    "type": "presidenza",
     "children": [
       {
         "id":"2pres",

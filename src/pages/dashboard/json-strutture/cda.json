@@ -1,7 +1,7 @@
 {
     "id":"1cda",
     "role": "Rispondono al CDA",
-    "type": 9,
+    "type": "cda",
     "avatar":false,
     "children": [
       {

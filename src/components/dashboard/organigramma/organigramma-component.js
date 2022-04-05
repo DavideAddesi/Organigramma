@@ -19,47 +19,7 @@ import { jsPDF } from "jspdf";
 import html2canvas from "html2canvas";
 
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-      background: "white",
-      // display: "inline-block",
-      // maxwWdth:"200px",
-      borderRadius: "16px  !important",
-      border:"1px solid #bbc !important",
-      // minWidth:"120px",
-      // maxWidth:"140  px",
-      minHeight:"120px",
-      maxHeight:"200px",
-      display:"flex", 
-      flexDirection:"column",
-      alignItems: "center", 
-      justifyContent: "center",
-      paddingLeft:"10px",
-      paddingRight:"10px",
-     
 
-    },
-    expand: {
-      marginLeft:"auto",
-      marginRight:"auto",
-      transform: "rotate(0deg)",
-      marginTop: -10,
-      marginLeft: "auto",
-      transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.short,
-      }),
-    },
-    expandOpen: {
-      marginLeft:"auto",
-      marginRight:"auto",
-      transform: "rotate(180deg)",
-    },
-    avatar: {
-      backgroundColor: "#ECECF4",
-      
-
-    },
-  }));
   const invoice = {
     id: '5ecb86785312dcc69b5799ad',
     currency: '$',
@@ -87,27 +47,85 @@ const useStyles = makeStyles((theme) => ({
     totalAmount: 55.50
   };
 
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      display:"flex", 
+      flexDirection:"column",
+      alignItems: "center", 
+      justifyContent: "center",
+      borderRadius: "16px  !important",
+      border:"1px solid #bbc !important",
+    },
+    unit:{
+      minWidth: "100px",
+      minHeight: "130px",
+      maxHeight:"160px", 
+      paddingLeft:"10px",
+      paddingRight:"10px",
+    },
+    area:{
+      width:"100%",
+      padding:"5px 10px"
+    },
+    others:{
+      width:"110px",
+      height:"110px", 
+      paddingLeft:"10px",
+      paddingRight:"10px", 
+    },
+    expand: {
+      marginLeft:"auto",
+      marginRight:"auto",
+      transform: "rotate(0deg)",
+      marginTop: -10,
+      marginLeft: "auto",
+      transition: theme.transitions.create("transform", {
+        duration: theme.transitions.duration.short,
+      }),
+    },
+    expandOpen: {
+      marginLeft:"auto",
+      marginRight:"auto",
+      transform: "rotate(180deg)",
+    },
+    avatar: {
+      backgroundColor: "#ECECF4",
+      
+
+    },
+  }));
+
   function Organization({ org, onCollapse, collapsed, size, fix }) {
+   
     
     const classes = useStyles();
     const backgroundColor = () =>{
-        if(org.type==0) return "#ffd27f"
-        if(org.type==1) return "#ddffd2"
-        if(org.type==2) return "#A7C7E7"
-        if(org.type==3) return "#fff"
-        if(org.type==8) return "#D66666"
-        if(org.type==9) return "#f8873b"
 
-         return "#000"
+      if(org.type=="presidenza") return "#D66666"
+      if(org.type=="cda") return "#f8873b"
+      if(org.type=="area") return "#F5F5F5"
+
+      if(org.type==0) return "#ffd27f"
+      if(org.type==1) return "#ddffd2"
+      if(org.type==2) return "#A7C7E7"
+      if(org.type==3) return "#fff"
     }
+
     const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
     const roleSize = size == "small" ? "10px": size== "medium" ? "13px":"18px" 
     const nameSize = size == "small" ? "10px": size== "medium" ? "12px":"13px" 
+
+
     return (
       <Card
         variant="outlined"
-        className={classes.root}
-        style={{ backgroundColor: backgroundColor(),  minWidth: fix? "120px":"unset"}}
+        // className={classes.root}
+        className={clsx(classes.root,{
+          [classes.area]: org.type == "area",
+          [classes.unit] : org.type!= "area" && org.type!= "cda" && org.type!= "presidenza",
+          [classes.others] :  org.type == "cda" || org.type== "presidenza",
+        })}
+        style={{ backgroundColor: backgroundColor()}}
       >
         <div style={{
           flexGrow: 1, display:"flex", 
@@ -132,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
             </Box>
           </Box>      
         </div>
-        {org.children &&   <IconButton 
+        {org.children && org.type != "area"  &&   <IconButton 
           size="small"
           onClick={onCollapse}
           className={clsx(classes.expand, {
@@ -223,7 +241,7 @@ const useStyles = makeStyles((theme) => ({
 
     return (
       <>
-      <Box style={{display: "flex", alignItems: "center"}}>                 
+      <Box  style={{display: "flex", alignItems: "center"}}>                 
           {/* <Button
             color="primary"
             sx={{ m: 1 }}
