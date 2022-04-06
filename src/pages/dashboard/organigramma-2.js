@@ -54,7 +54,7 @@ const Organigramma = () => {
             container
             spacing={4}
           >
-            <Grid item> <OrganigrammaComponent /></Grid>
+            <Grid item> <OrganigrammaComponent classic={true}/></Grid>
           
           </Grid>
           {/* <div style={{position: 'absolute', bottom: 20, width: '100%'}}> */}

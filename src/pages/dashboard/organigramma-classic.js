@@ -13,7 +13,7 @@ import {
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 
-import org from "./json-strutture/org.json";
+import org from "./json-strutture/orgNoArea.json";
 import cda from "./json-strutture/cda.json";
 import presidenza from "./json-strutture/presidenza.json";
 import OrganigrammaComponent from '../../components/dashboard/organigramma/organigramma-component'
@@ -47,14 +47,19 @@ const Organigramma = () => {
   };
 
   // collapsed: displayMore ? false : true
+  // useEffect(() => {
+  //     const newChildren = organization.children.map(child =>{
+  //       return {...child, 
+  //         children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
+  //       }
+  //     })
+  //     setOrganization({...organization, children:newChildren})
+  // }, [displayMore])
+
   useEffect(() => {
-      const newChildren = organization.children.map(child =>{
-        return {...child, 
-          children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
-        }
-      })
-      setOrganization({...organization, children:newChildren})
-  }, [displayMore])
+    const newChildren = organization.children.map(child =>({...child, collapsed: displayMore ? false : true}))
+    setOrganization({...organization, children:newChildren})
+}, [displayMore])
 
   const options = [
    {value:"small", label:"Piccolo"},
@@ -69,7 +74,7 @@ const Organigramma = () => {
     <>
       <Head>
         <title>
-          Esempio Organigramma
+          Organigramma con box ordinati
         </title>
       </Head>
       <Box
@@ -90,7 +95,7 @@ const Organigramma = () => {
             >
                 <Box display="flex" sx={{width:"100%", justifyContent:"space-between"}}>
                   <Typography variant="h4" >
-                  Organigramma suddiviso in funzioni
+                  Organigramma con box ordinati
                   </Typography>
                   <Box 
                     sx={{

@@ -5,12 +5,7 @@
   "name":"P.Ghezzi",
   "type":0,
   "children":[
-     {
-        "id":38,
-        "role":"STAFF",
-        "type":"area",
-        "collapsed":false,
-        "children":[
+     
            {
               "collapsed":true,
               "id":2,
@@ -142,15 +137,9 @@
               "role":"PIANIFICAZIONE E CONTROLLO",
               "name":"M. Martorella",
               "type":2
-           }        
-        ]
-     },
-     {
-        "id":39,
-        "role":"BUSINESS UNIT",
-        "type":"area",
-        "collapsed":false,
-        "children":[
+           }  ,      
+        
+    
            {
               "collapsed":true,
               "id":18,
@@ -529,15 +518,8 @@
                 "type":2
                }
               ]
-           }
-        ]
-     },
-     {
-        "id":40,
-        "role":"FUNZIONI TRASVERSALI",
-        "type":"area",
-        "collapsed":false,
-        "children":[
+           },
+     
           {
             "collapsed":true,
             "id":35,
@@ -693,7 +675,6 @@
               "name":"Do. Tarantino",
               "type":2
            }
-        ]
-     }
+        
   ]
 }

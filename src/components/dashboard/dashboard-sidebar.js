@@ -40,8 +40,13 @@ const getSections = (t) => [
     
     items: [
       {
-        title: "Organigramma",
+        title: "Organigramma con aree",
         path: '/dashboard/organigramma',
+        icon: <AccountTreeIcon fontSize="small" />
+      },
+      {
+        title: "Organigramma ",
+        path: '/dashboard/organigramma-classic',
         icon: <AccountTreeIcon fontSize="small" />
       },
       // {
