@@ -120,13 +120,13 @@ import html2canvas from "html2canvas";
       <Card
         variant="outlined"
         // className={classes.root}
-        onClick={org.type == "area" ? onCollapse : null}
+        // onClick={org.type == "area" ? onCollapse : null}
         className={clsx(classes.root,{
           [classes.area]: org.type == "area",
           [classes.unit] : org.type!= "area" && org.type!= "cda" && org.type!= "presidenza",
           [classes.others] :  org.type == "cda" || org.type== "presidenza",
         })}
-        style={{ backgroundColor: backgroundColor(), cursor: org.type== "area" ? "pointer": ""}}
+        style={{ backgroundColor: backgroundColor()}}
       >
         <div style={{
           flexGrow: 1, display:"flex", 
