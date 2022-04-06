@@ -70,7 +70,7 @@ const CustomerDetails = () => {
   }
 
   const chip = ( code) =>{ 
-     return <Chip label={code} variant="outlined" color="primary"  />
+     return <Chip label={code} variant="outlined"  />
   }
 
 
