@@ -59,7 +59,10 @@
             "nome":"Acri Lucia Balest",
             "CDO": "C21001",
             "email": "lucia.balest@gmail.com",
-            "ufficio":"Ufficio"
+            "ufficio":"Ufficio",
+            "ruolo":"Ruolo",
+            "tel":"3409908555",
+            "sede":"Milano"
         },  {
             "id": 2,
             "avatar": "xxx",
@@ -67,7 +70,10 @@
             "nome":"Basilicati Fedra",
             "CDO": "C21001",
             "email": "basilicati.fedra@gmail.com",
-            "ufficio":"Ufficio"
+            "ufficio":"Ufficio",
+            "ruolo":"Ruolo",
+            "tel":"3929906835",
+            "sede":"Roma"
         },
         {
             "id": 3,
@@ -76,7 +82,10 @@
             "nome":"Bertoli Pietro",
             "CDO": "C21001",
             "email": "bertoli.pietro@gmail.com",
-            "ufficio":"Ufficio"
+            "ufficio":"Ufficio",
+            "ruolo":"Ruolo",
+            "tel":"33178945665",
+            "sede":"Milano"
         }
     ]
 

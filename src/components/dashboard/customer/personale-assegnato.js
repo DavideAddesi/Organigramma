@@ -238,14 +238,24 @@ export const PersonaleAssegnato = (props) => {
                 Nome
               </TableCell>
               <TableCell>
+                Ruolo
+              </TableCell>
+              <TableCell>
+                Ufficio
+              </TableCell>
+              <TableCell>
+                Sede
+              </TableCell>   
+              <TableCell>
                 CDO
               </TableCell>
               <TableCell>
                 Email
               </TableCell>
               <TableCell>
-                Ufficio
+                Tel/Cell
               </TableCell>
+
               {/* <TableCell align="right">
                 Azioni
               </TableCell> */}
@@ -297,11 +307,9 @@ export const PersonaleAssegnato = (props) => {
                       </Box>
                     </Box>
                   </TableCell>
+               
                   <TableCell>
-                    {`${persona.CDO}`}
-                  </TableCell>
-                  <TableCell>
-                    {persona.email}
+                    {persona.ruolo}
                   </TableCell>
                   <TableCell>
                     <Typography
@@ -309,6 +317,18 @@ export const PersonaleAssegnato = (props) => {
                     >
                       {persona.ufficio}
                     </Typography>
+                  </TableCell>
+                  <TableCell>
+                    {persona.sede}
+                  </TableCell>
+                  <TableCell>
+                  {`${persona.CDO}`}
+                  </TableCell>
+                  <TableCell>
+                    {persona.email}
+                  </TableCell>
+                  <TableCell>
+                    {persona.tel}
                   </TableCell>
                   {/* <TableCell align="right">
                     <NextLink
