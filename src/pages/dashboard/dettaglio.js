@@ -27,6 +27,7 @@ import TreeviewComponent from '../../components/dashboard/organigramma/treeview-
 import { useMounted } from '../../hooks/use-mounted';
 import LinkIcon from '@mui/icons-material/Link'
 
+
 const tabs = [
   { label: 'Mission', value: 'mission' },
   { label: 'Documenti', value: 'documenti' },
@@ -34,12 +35,13 @@ const tabs = [
   { label: 'Processi', value: 'processi' }
 ];
 
-
 const CustomerDetails = () => {
   const isMounted = useMounted();
   const [userDetail, setUserDetail] = useState(null);
   const [currentTab, setCurrentTab] = useState('mission');
   const [displayTreeview, setDisplayTreeview] = useState(false);
+
+
 
 
   

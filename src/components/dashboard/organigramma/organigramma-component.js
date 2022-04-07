@@ -20,6 +20,7 @@ import html2canvas from "html2canvas";
 
 
 
+
   const invoice = {
     id: '5ecb86785312dcc69b5799ad',
     currency: '$',
@@ -151,7 +152,7 @@ import html2canvas from "html2canvas";
             </Box>
           </Box>      
         </div>
-        {org.children && org.type != "area"  &&   <IconButton 
+        {org.children  &&   <IconButton 
           size="small"
           onClick={onCollapse}
           className={clsx(classes.expand, {
@@ -225,7 +226,7 @@ import html2canvas from "html2canvas";
     );
   }
   export default function Organigramma(props) {
-    const {org, size, cda, presidenza} = props
+    const {org, size, cda, presidenza, childRef} = props
 
     const printDocument= () => {
       const input = document.getElementById('divToPrint');
@@ -240,34 +241,17 @@ import html2canvas from "html2canvas";
       ;
     }
 
-    return (
-      <>
-      <Box  style={{display: "flex", alignItems: "center"}}>                 
-          {/* <Button
-            color="primary"
-            sx={{ m: 1 }}
-            variant="contained"
-            onClick={() =>printDocument()}
-          >
-            Download
-          </Button> */}
-      </Box>
-      <div id="divToPrint">
+    return ( 
         <Grid
           container
           mt={3}
           spacing={4}
+          p={2}
+          ref={childRef}
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
-          <Grid item md={12}><Node o={org} size={size} /> </Grid>
-        </Grid>
-      </div>
-
-
-          </>
-         
-           
-           
+          <Grid item md={12}><Node o={org} size={size}  /> </Grid>
+        </Grid>    
     );
   }

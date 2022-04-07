@@ -9,10 +9,8 @@
         "id":38,
         "role":"STAFF",
         "type":"area",
-        "collapsed":false,
         "children":[
            {
-              "collapsed":true,
               "id":2,
               "code":"CDR A15000",
               "role":"DIREZIONE AFFARI LEGALI E ISTITUZIONALI",
@@ -43,7 +41,6 @@
               ]
            },
            {
-            "collapsed":true,
             "id":12,
             "code":"CDR A16000",
             "role":"DIREZIONE RISORSE UMANE, ORGANIZZAZIONE E AFFARI GENERALI",
@@ -97,7 +94,6 @@
             ]
            },
            {
-              "collapsed":true,
               "id":6,
               "code":"CDR A17000",
               "role":"DIREZIONE AMMINISTRAZIONE E FINANZA",
@@ -128,7 +124,6 @@
               ]
            },
            {
-              "collapsed":true,
               "id":10,
               "code":"CDR A12000",
               "role":"APPROVVIGIONAMENTI",
@@ -136,7 +131,6 @@
               "type":2
            },
            {
-              "collapsed":true,
               "id":11,
               "code":"CDR A13000",
               "role":"PIANIFICAZIONE E CONTROLLO",
@@ -147,12 +141,12 @@
      },
      {
         "id":39,
+        "collapsed":true,
         "role":"BUSINESS UNIT",
         "type":"area",
         "collapsed":false,
         "children":[
            {
-              "collapsed":true,
               "id":18,
               "code":"CDR C10000",
               "role":"CCIAA: SERVIZI STANDARD E DI SISTEMA",
@@ -238,7 +232,6 @@
               ]
            },
            {
-              "collapsed":true,
               "id":30,
               "code":"CDR D10000",
               "role":"CCIAA: SERVIZI A RICHIESTA E INIZIATIVE TERRITORIALI",
@@ -398,7 +391,6 @@
               ]
            },
            {
-              "collapsed":true,
               "id":33,
               "code":"CDR E10000",
               "role":"PA IMPRESE E RETAIL:  PUBBLICI REGISTRI E INIZIATIVE DI DIGITALIZZAZIONE",
@@ -491,7 +483,6 @@
               ]
            },
            {
-              "collapsed":true,
               "id":34,
               "code":"CDR F10000",
               "role":"SERVIZI CERTIFICATI E FINANZIARI",
@@ -534,12 +525,12 @@
      },
      {
         "id":40,
+        "collapsed":true,
         "role":"FUNZIONI TRASVERSALI",
         "type":"area",
         "collapsed":false,
         "children":[
           {
-            "collapsed":true,
             "id":35,
             "code":"CDR T10000",
             "role":"TECNOLOGIE E IMPIANTI",
@@ -623,7 +614,6 @@
             ]
          },
            {
-              "collapsed":true,
               "id":25,
               "code":"CDR B10000",
               "role":"SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
