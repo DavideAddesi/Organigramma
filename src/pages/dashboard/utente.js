@@ -25,6 +25,12 @@ import userJson from "./json-strutture/user.json"
 import LinkIcon from '@mui/icons-material/Link'
 import Skeleton from '@mui/material/Skeleton';
 import CalendarUser from './calendarUser';
+import { styled } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+
+
+
+
 
 const tabs = [
   { label: 'Attività', value: 'attivita' },
@@ -32,7 +38,7 @@ const tabs = [
 ];
 
 const color = (stato) =>{
-  if(stato==1) return "#008450"
+  if(stato==1) return "#44b700"
   if(stato==2) return "#EFB700"
   if(stato==3) return "#B81D13"
 }
@@ -56,6 +62,36 @@ const useStyles = makeStyles((theme) => ({
 const CustomerDetails = () => {
   const classes = useStyles();
   const [currentTab, setCurrentTab] = useState('attivita');
+  const StyledBadge = styled(Badge)(({ theme }) => ({
+    '& .MuiBadge-badge': {
+      width: '15px',
+      height: '15px',
+      backgroundColor: color(userJson.stato),
+      color: color(userJson.stato),
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      '&::after': {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        borderRadius: '50%',
+        animation: 'ripple 1.2s infinite ease-in-out',
+        border: '1px solid currentColor',
+        content: '""',
+      },
+    },
+    '@keyframes ripple': {
+      '0%': {
+        transform: 'scale(.8)',
+        opacity: 1,
+      },
+      '100%': {
+        transform: 'scale(2.4)',
+        opacity: 0,
+      },
+    },
+  })); 
 
   const handleTabsChange = (event, value) => {
     setCurrentTab(value);
@@ -105,17 +141,25 @@ const CustomerDetails = () => {
                   display: 'flex',
                   overflow: 'hidden'
                  }}>
-                   
-                    <Avatar
+                   <StyledBadge
+                      overlap="circular"
+                      anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                      variant="dot"
+                    >
+                        <Avatar
                       // src={userDetail.avatar}
                       src={"https://randomuser.me/api/portraits/men/"+9+".jpg"}
                       sx={{
                         height: 120,
-                        mr: 2,
+                        // mr: 2,
                         width: 120
                       }}
                     />
-                    <div>
+
+                    </StyledBadge>
+                   
+                    
+                    <div style={{marginLeft:20}}>
                     <Typography variant="h4" >
                         {userJson.nome}
                       </Typography>
@@ -221,14 +265,7 @@ const CustomerDetails = () => {
                         {userJson.ufficio}
                         </Typography> 
                         </div>
-                        <div className={classes.label}>
-                         
-                        <FiberManualRecordIcon sx={{color: color(userJson.stato)}} />
-                        <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                          In sede
-                        </Typography> 
-                        </div>
-                        
+                   
                        
                       </div>   
                         
