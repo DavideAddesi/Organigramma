@@ -1,13 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, createRef } from 'react';
 import Head from 'next/head';
 import {
   Box,
   Container,
   Grid,
   Typography,
-  Switch,
   MenuItem,
-  TextField,
   Button  
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
@@ -22,16 +20,27 @@ import Legenda from '../../components/dashboard/organigramma/Legenda'
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import PrintIcon from '@mui/icons-material/Print';
+import {useReactToPrint} from "react-to-print";
+
+const options = [
+  {value:"small", label:"Piccolo"},
+  {value:"medium", label:"Medio"},
+  {value:"large", label:"Grande"}
+ ];
 
 const Organigramma = () => {
   const [size, setsize] = useState("small")
   const [displayMore, setDisplayMore] = useState(false)
   const [organization, setOrganization] = useState(org) 
-  // const [anchorEl, setAnchorEl] = useState(null);
-  // const open = Boolean(anchorEl);
-  const anchorRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
 
+  const anchorRef = useRef(null);
+
+  const componentRef = createRef(null)
+  const handlePrint = useReactToPrint({
+    content: ()=>componentRef.current
+  })
 
   const handleClick = () => {
     setOpenMenu(true);
@@ -43,10 +52,8 @@ const Organigramma = () => {
   const handleSize = (newSize) => {
     setsize(newSize)
     setOpenMenu(false);
-    // setAnchorEl(null);
   };
 
-  // collapsed: displayMore ? false : true
   useEffect(() => {
       const newChildren = organization.children.map(child =>{
         return {...child, 
@@ -56,14 +63,12 @@ const Organigramma = () => {
       setOrganization({...organization, children:newChildren})
   }, [displayMore])
 
-  const options = [
-   {value:"small", label:"Piccolo"},
-   {value:"medium", label:"Medio"},
-   {value:"large", label:"Grande"}
-  ];
+//   useEffect(() => {
+//     const newChildren = organization.children.map(child =>({...child, collapsed:   ? false : true}))
+//     setOrganization({...organization, children:newChildren})
+// }, [displayMore])
 
 
-  
 
   return (
     <>
@@ -115,6 +120,16 @@ const Organigramma = () => {
                       >
                           {displayMore ? "Riduci":"Espandi"} Organigramma
                       </Button>
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        size="small"
+                        // onClick={downloadScreenshot}
+                        onClick={handlePrint}
+                        
+                      >
+                          <PrintIcon/>
+                      </Button>
                       <div>
                         <IconButton onClick={handleClick} ref={anchorRef}>
                           <MoreVertIcon />
@@ -148,9 +163,15 @@ const Organigramma = () => {
             spacing={4}
           >
               <Grid item md={12}>
-                    {/* <div style={{overflowY: "scroll"}}> */}
-                      {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization}  cda={cda} presidenza={presidenza} /> } 
-                      {/* </div>  */}
+                      {organization && 
+                        <OrganigrammaComponent 
+                            size={size} 
+                            displayMore={displayMore} 
+                            org={organization}  
+                            cda={cda} 
+                            presidenza={presidenza} 
+                            childRef={componentRef} 
+                        /> } 
               </Grid>
               
             
