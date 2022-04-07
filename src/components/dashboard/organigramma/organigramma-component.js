@@ -151,7 +151,7 @@ import html2canvas from "html2canvas";
             </Box>
           </Box>      
         </div>
-        {org.children && org.type != "area"  &&   <IconButton 
+        {org.children  &&   <IconButton 
           size="small"
           onClick={onCollapse}
           className={clsx(classes.expand, {
