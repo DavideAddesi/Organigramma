@@ -2,21 +2,23 @@ import { useEffect, useState } from 'react';
 import _ from "lodash";
 import clsx from "clsx"
 import { Avatar, Grid, Switch, Box, IconButton, Button, Card, CardContent, CardHeader,Menu, MenuItem,ListItemIcon, ListItemText, Badge, Tooltip,CardActions, Divider, Typography, TextField } from '@mui/material';
-import { Tree, TreeNode } from "react-organizational-chart";
+// import { Tree, TreeNode } from "react-organizational-chart";
+import Tree from "./Tree.tsx"
+import TreeNode from "./TreeNode.tsx"
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { useDrag, useDrop } from "react-dnd";
+// import { HTML5Backend } from "react-dnd-html5-backend";
+// import { useDrag, useDrop } from "react-dnd";
 
 import makeStyles from '@mui/styles/makeStyles';
 
-import BusinessIcon from "@mui/icons-material/Business";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+// import BusinessIcon from "@mui/icons-material/Business";
+// import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import { InvoicePDF } from '../invoice/invoice-pdf';
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
+// import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+// import { InvoicePDF } from '../invoice/invoice-pdf';
+// import { jsPDF } from "jspdf";
+// import html2canvas from "html2canvas"; 
 
 
 
@@ -177,6 +179,10 @@ import html2canvas from "html2canvas";
     useEffect(() => {
       o.collapsed = collapsed;
     });
+
+    if(o.direction){
+      console.log(o.direction)
+    }
     
     const T = parent
       ? TreeNode
@@ -186,12 +192,15 @@ import html2canvas from "html2canvas";
             lineWidth={"2px"}
             lineColor={"#bbc"}
             lineBorderRadius={"12px"}
+            
+            // direction="column"
           >
             {props.children}
           </Tree>
         );
     return collapsed ? (
       <T
+      direction={o.direction ? o.direction : "unset"}
         label={
           <Organization
             org={o}
@@ -204,6 +213,7 @@ import html2canvas from "html2canvas";
       />
     ) : (
       <T
+      direction={o.direction ? o.direction : "unset"}
         label={
           <Organization
             org={o}
@@ -228,18 +238,6 @@ import html2canvas from "html2canvas";
   export default function Organigramma(props) {
     const {org, size, cda, presidenza, childRef} = props
 
-    const printDocument= () => {
-      const input = document.getElementById('divToPrint');
-      html2canvas(input)
-        .then((canvas) => {
-          const imgData = canvas.toDataURL('image/png');
-          const pdf = new jsPDF();
-          pdf.addImage(imgData, 'JPEG', 0, 0);
-          // pdf.output('dataurlnewwindow');
-          pdf.save("download.pdf");
-        })
-      ;
-    }
 
     return ( 
         <Grid
@@ -247,7 +245,7 @@ import html2canvas from "html2canvas";
           mt={3}
           spacing={4}
           p={2}
-          ref={childRef}
+          // ref={childRef}
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>

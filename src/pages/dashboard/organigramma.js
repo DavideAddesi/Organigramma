@@ -22,6 +22,7 @@ import Menu from '@mui/material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import PrintIcon from '@mui/icons-material/Print';
 import {useReactToPrint} from "react-to-print";
+import  ReactToPrint from "react-to-print"
 
 const options = [
   {value:"small", label:"Piccolo"},
@@ -34,12 +35,26 @@ const Organigramma = () => {
   const [displayMore, setDisplayMore] = useState(false)
   const [organization, setOrganization] = useState(org) 
   const [openMenu, setOpenMenu] = useState(false);
+  const [displayTitolo, setDisplayTitolo] = useState({label:null, resolve: undefined});
 
   const anchorRef = useRef(null);
 
   const componentRef = createRef(null)
+
+  useEffect(() => {
+    const {resolve} = displayTitolo;
+    if (resolve) {
+        resolve();
+        setDisplayTitolo({ label:null, resolve: undefined });
+    }
+  }, [displayTitolo]);
   const handlePrint = useReactToPrint({
-    content: ()=>componentRef.current
+    // onBeforeGetContent: () => {
+    //   return new Promise((resolve) => {
+    //     setDisplayTitolo(() => ({ label: "titolo" + 1, resolve }));
+    //   });
+    // },
+    content: ()=> componentRef.current
   })
 
   const handleClick = () => {
@@ -120,7 +135,7 @@ const Organigramma = () => {
                       >
                           {displayMore ? "Riduci":"Espandi"} Organigramma
                       </Button>
-                      <Button
+                      {/* <Button
                         color="primary"
                         variant="contained"
                         size="small"
@@ -128,8 +143,22 @@ const Organigramma = () => {
                         onClick={handlePrint}
                         
                       >
+                       
                           <PrintIcon/>
-                      </Button>
+                      </Button> */}
+                      <ReactToPrint
+                          trigger={() => (
+                            <Button size="small" type="primary" variant="contained">
+                               <PrintIcon/>
+                            </Button>
+                          )}
+                          content={() => componentRef.current}
+                          onBeforeGetContent={() =>{
+                            return new Promise((resolve) => {
+                              setDisplayTitolo(() => ({ label:"titolo", resolve }));
+                            });
+                          }}
+                        />
                       <div>
                         <IconButton onClick={handleClick} ref={anchorRef}>
                           <MoreVertIcon />
@@ -162,16 +191,16 @@ const Organigramma = () => {
             container
             spacing={4}
           >
-              <Grid item md={12}>
-                      {organization && 
-                        <OrganigrammaComponent 
+              <Grid item md={12} ref={componentRef} >
+                          {displayTitolo.label}
+                          <OrganigrammaComponent 
                             size={size} 
                             displayMore={displayMore} 
                             org={organization}  
                             cda={cda} 
                             presidenza={presidenza} 
-                            childRef={componentRef} 
-                        /> } 
+                            // childRef={componentRef} 
+                        /> 
               </Grid>
               
             
