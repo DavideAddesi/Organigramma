@@ -61,7 +61,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     },
     unit:{
       minWidth: "100px",
-      minHeight: "130px",
+      minHeight: "80px",
       maxHeight:"160px", 
       paddingLeft:"10px",
       paddingRight:"10px",
@@ -201,6 +201,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     return collapsed ? (
       <T
       direction={o.direction ? o.direction : "unset"}
+      childrendirection={o.childrendirection ? o.childrendirection : "unset"}
         label={
           <Organization
             org={o}
@@ -214,6 +215,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     ) : (
       <T
       direction={o.direction ? o.direction : "unset"}
+      childrendirection={o.childrendirection ? o.childrendirection : "unset"}
         label={
           <Organization
             org={o}

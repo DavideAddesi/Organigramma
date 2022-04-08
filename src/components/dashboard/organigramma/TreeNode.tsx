@@ -10,7 +10,8 @@ export interface TreeNodeProps {
   label: React.ReactNode;
   className?: string;
   children?: ReactNode;
-  direction: string
+  direction: string;
+  childrendirection:string;
 }
 
 const verticalLine = css`
@@ -50,10 +51,11 @@ const childrenContainerOrizzontale = css`
   padding-top: var(--tree-line-height);
   position: relative;
   ::before {
-    ${orizontalLine};
-    left: 9%;
+    ${verticalLine};
+    left: 0%;
     width: 0;
     border-left: var(--tree-line-width) solid var(--tree-line-color);
+
   }
   
 `;
@@ -109,49 +111,49 @@ const nodeLines = css`
   }
 `;
 const nodeLinesOrizzontale = css`
-  ::before,
-  ::after {
-    ${verticalLine};
-    right: 50%;
-    width: 50%;
-    border-top: var(--tree-line-width) solid var(--tree-line-color);
-  }
-  ::after {
-    left: 50%;
-    border-left: var(--tree-line-width) solid var(--tree-line-color);
-  }
-  :only-of-type {
-    padding: 0;
-    ::after,
-    :before {
-      display: none;
-    }
-  }
-  :first-of-type {
-    ::before {
-      border: 0 none;
-    }
-    ::after {
-      border-radius: var(--tree-line-border-radius) 0 0 0;
-    }
-  }
-  :last-of-type {
-    ::before {
-      border-right: var(--tree-line-width) solid var(--tree-line-color);
-      border-radius: 0 var(--tree-line-border-radius) 0 0;
-    }
-    ::after {
-      border: 0 none;
-    }
+
+padding-left: 15px ;
+
+::before{
+  ${verticalLine};
+  left: 0%;
+  width: 15px;
+  height: 100%;
+  border-left: var(--tree-line-width) solid var(--tree-line-color);
+}
+::after {
+  ${verticalLine};
+  left: 0%;
+  width: 15px;
+  height: 55px;
+  border-bottom: var(--tree-line-width) solid var(--tree-line-color);
+  border-radius: 0 var(--tree-line-border-radius);
+}
+
+:last-of-type {
+  ::before {
+    left: 0%;
+  width: 15px;
+  height: 55px;
+  border-top: 0 px;
+  border-right: 0 px;
+  
+  border-left: var(--tree-line-width) solid var(--tree-line-color);
+  border-radius: 0 0 0 var(--tree-line-border-radius);
+}
+
+}
+ 
+   
   }
 `;
 
-function TreeNode({ children, label, className, direction }: TreeNodeProps) {
+function TreeNode({ children, label, className, direction, childrendirection }: TreeNodeProps) {
   return (
     <li className={cx(node, direction == "column" ? nodeLinesOrizzontale : nodeLines, className)}>
       {label}
       {React.Children.count(children) > 0 && (
-        <ul className={clsx( {[flexDir]: direction=="column", [childrenContainerOrizzontale]: direction == "column", [childrenContainer]: direction!="column"})} >{children}</ul>
+        <ul className={clsx( {[flexDir]: childrendirection=="column", [childrenContainerOrizzontale]: childrendirection == "column", [childrenContainer]: childrendirection!="column"})} >{children}</ul>
         // <ul className={childrenContainer} >{children}</ul>
       )}
     </li>

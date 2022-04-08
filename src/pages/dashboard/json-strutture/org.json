@@ -15,12 +15,14 @@
               "code":"CDR A15000",
               "role":"VERTICALE",
               "name":"G. Sessa",
-              "direction":"column",
+             
+              "childrendirection":"column",
               "type":1,
               "children":[
                  {
                     "id":3,
                     "code":"CDR A15000",
+                    "direction":"column",
                     
                     "role":"SERVIZI LEGALI",
                     "name":"S. Marchetti",
@@ -29,6 +31,7 @@
                  {
                     "id":4,
                     "code":"CDR A15000",
+                    "direction":"column",
                     
                     "role":"SERVIZI SOCIETARI",
                     "name":"F. Castrica",
@@ -37,6 +40,7 @@
                  {
                     "id":5,
                     "code":"CDR A15000",
+                    "direction":"column",
                     
                     "role":"RELAZIONI ISTITUZIONALI",
                     "name":"G. Da Rin",
@@ -49,7 +53,8 @@
             "code":"CDR A16000",
             "role":"DIREZIONE RISORSE UMANE, ORGANIZZAZIONE E AFFARI GENERALI",
             "name":"M. Bergamasco",
-            "direction":"column",
+            "childrendirection":"column",
+                   
             "type":1,
             "children":[
                 {
@@ -58,6 +63,8 @@
                   "role":"PERSONE, COMPETENZE E PROCESSI",
                   "name":"E. PROIETTI",
                   "direction":"column",
+                  "childrendirection":"column",
+                   
                   "type":2,
                   "children":[
                     {
@@ -104,13 +111,17 @@
               "code":"CDR C10000",
               "role":"CCIAA: SERVIZI STANDARD E DI SISTEMA",
               "name":"S. Nasoni",
+                 
+                
               "type":1,
+              "childrendirection" :"column",
               "children":[
                 {
                   "id":53,
                   "code":"CDR C11000",
                   "role":"RELAZIONI CON UNIONCAMERE E SOCIETA' DI SISTEMA",
                   "name":"A. Meloni",
+                  "direction":"column",
                   "type":2
                },
                  {
@@ -118,6 +129,10 @@
                     "code":"CDR C21000",
                     "role":"SVILUPPO E GESTIONE ISTRUTTORIA RI E REA",
                     "name":"F. Dolzan",
+                    "direction":"column",
+                    "childrendirection":"column",
+                    
+                
                     "type":2,
                     "children":[
                        {
@@ -125,6 +140,8 @@
                           "code":"CDR C21000",
                           "role":"PROCEDUREE SERVIZI APPLICATIVI",
                           "name":"A. Balest",
+                          "direction":"column",
+                          "childrendirection":"column",
                           "type":3
                        },
                        {
@@ -132,6 +149,9 @@
                           "code":"CDR C21000",
                           "role":"SERVIZI DI ISTRUTTORIA AMMINISTRATIVA",
                           "name":"P. Marzo",
+                          "direction":"column",
+                          "childrendirection":"column",
+                
                           "type":3
                        }
                     ]
@@ -140,7 +160,10 @@
                     "id":22,
                     "code":"CDR C22000",
                     "role":"SVILUPPO E GESTIONE SERVIZI STANDARD",
+                    "direction":"column",
+                    "childrendirection":"column",
                     "name":"M. Romualdi",
+
                     "type":2,
                     "children":[
                        {
@@ -148,6 +171,8 @@
                           "code":"CDR C22000",
                           "role":"PIATTAFORME E PROCESSI DIGITALI",
                           "name":"P. Graffi",
+                          "direction":"column",
+                
                           "type":3
                        },
                        {
@@ -155,6 +180,7 @@
                           "code":"CDR C22000",
                           "role":"CONDUZIONE OPERATIVA DEI SERVIZI",
                           "name":"L. Beltramin",
+                          "direction":"column",
                           "type":3
                        }
                     ]
@@ -164,6 +190,9 @@
                   "code":"CDR C23000",
                   "role":"SVILUPPO GESTIONE E SUPPORTO OPERATIVO SUAP",
                   "name":"A. Craig",
+                  "direction":"column",
+
+                  "childrendirection":"column",
                   "type":2,
                   "children":[
                      {
@@ -171,6 +200,7 @@
                         "code":"CDR C23000",
                         "role":"EROGAZIONE E SVILUPPO",
                         "name":"A. Craig ad interim",
+                        "direction":"column",
                         "type":3
                      },
                      {
@@ -178,6 +208,7 @@
                         "code":"CDR C23000",
                         "role":"PRESIDIO NORMATIVO TERRITORIALE",
                         "name":"S. Volatile",
+                        "direction":"column",
                         "type":3
                      }
                   ]
@@ -189,6 +220,8 @@
               "code":"CDR D10000",
               "role":"CCIAA: SERVIZI A RICHIESTA E INIZIATIVE TERRITORIALI",
               "name":"A. Tonini - A. Panella",
+             
+              "childrendirection":"column",
               "type":1,
               "children":[
                 {
@@ -196,27 +229,35 @@
                   "code":"CDR D10000",
                   "role":"SUPPORTO ALLE INIZIATIVE PER LE CAMERE",
                   "name":"A. Pascarella",
-                  "type":3
-                },
+                  "type":3,
+                  "direction":"column",
+                  "childrendirection":"column"
+               },
                  {
                     "id":31,
                     "code":"CDR D11000",
                     "role":"SVILUPPOCAMERE E TERRITORI AREA1",
                     "name":"M. Maccalli",
                     "type":2,
-                    "children":[
+                    "direction":"column",
+                    "childrendirection":"column",
+                      "children":[
                       {
                         "id":60,
                         "code":"CDR D11000",
                         "role":"INIZIATIVE TERRITORIALI",
                         "name":"Diego Tarantino",
-                        "type":3
+                        "direction":"column",
+                        "childrendirection":"column",
+                              "type":3
                      },
                      {
                       "id":61,
                       "code":"CDR D11000",
                       "role":"SERVIZI PER LA CAMERA DIGITALE",
-                      "name":"M. Maccalli ad interim",
+                      "direction":"column",
+                      "childrendirection":"column",
+                     "name":"M. Maccalli ad interim",
                       "type":3
                       }
                     ]                          
@@ -225,21 +266,27 @@
                     "id":32,
                     "code":"CDR D12000",
                     "role":"SVILUPPOCAMERE E TERRITORI AREA2",
-                    "name":"F. Romano",
+                    "direction":"column",
+                    "childrendirection":"column",
+                   "name":"F. Romano",
                     "type":2,
                     "children":[
                       {
                         "id":63,
                         "code":"CDR D13000",
                         "role":"INIZIATIVE TERRITORIALI",
-                        "name":"R. Napoli",
+                        "direction":"column",
+                        "childrendirection":"column",
+                            "name":"R. Napoli",
                         "type":3
                      },
                      {
                       "id":64,
                       "code":"CDR D12000",
                       "role":"SERVIZI PER LA CAMERA DIGITALE",
-                      "name":"F. Romano ad interim",
+                      "direction":"column",
+                      "childrendirection":"column",
+                     "name":"F. Romano ad interim",
                       "type":3
                       }
                     ]   
@@ -249,7 +296,9 @@
                   "code":"CDR D21000",
                   "role":"CONSULENZA FORMAZIONE E SERV. AMMINISTRATIVI",
                   "name":"V. Acagnino",
-                  "type":2,
+                  "direction":"column",
+                  "childrendirection":"column",
+                 "type":2,
                   "children":[
                     {
                       "id":67,
@@ -473,168 +522,6 @@
                 "type":2
                }
               ]
-           }
-        ]
-     },
-     {
-        "id":40,
-        "collapsed":true,
-        "role":"FUNZIONI TRASVERSALI",
-        "type":"area",
-        "collapsed":false,
-        "children":[
-          {
-            "id":35,
-            "code":"CDR T10000",
-            "role":"TECNOLOGIE E IMPIANTI",
-            "name":"L. Candiani",
-            "type":1,
-            "children":[
-              {
-                "id":100,
-                "code":"CDR T21000",
-                "role":"IT GOVERNANCE E CUSTOMER SOLUTIONS",
-                "name":"E. Notariale",
-                "type":2,
-                "children":[
-                  {
-                    "id":101,
-                    "code":"CDR T21000",
-                    "role":"DIGITAL WORKPLACES",
-                    "name":"L. Frigo",
-                    "type":3
-                },
-                {
-                    "id":102,
-                    "code":"CDR T21000",
-                    "role":"SOLUZIONI ITIL, DEVOPS E ACCESS MGMT",
-                    "name":"S. Busato",
-                    "type":3
-                  },
-                  {
-                    "id":103,
-                    "code":"CDR T21000",
-                    "role":"HYBRID CUSTOMER SOLUTION ",
-                    "name":"D. Danieli",
-                    "type":3
-                  }     
-                ]   
-              },
-              {
-                "id":104,
-                "code":"CDR T22000",
-                "role":"TECHNOLOGY INFRASTRUCTURE ",
-                "name":"R. Di Gennaro",
-                "type":2,
-                "children":[
-                  {
-                    "id":105,
-                    "code":"CDR T22000",
-                    "role":"MIDDLEWARE & OPERATION MGMT",
-                    "name":"G. Geron",
-                    "type":3
-                },
-                {
-                    "id":106,
-                    "code":"CDR T22000",
-                    "role":"NETWORK MGMT",
-                    "name":"R. Bertolini",
-                    "type":3
-                  },
-                  {
-                    "id":107,
-                    "code":"CDR T22000",
-                    "role":"SYSTEM & AUTOMATION MGMT",
-                    "name":"M. Fasolo",
-                    "type":3
-                  },
-                  {
-                    "id":108,
-                    "code":"CDR T22000",
-                    "role":"DATA BASE MGMT",
-                    "name":"A. Ceccon",
-                    "type":3
-                  }      
-                ]   
-              },
-              {
-                "id":109,
-                "code":"CDR T23000",
-                "role":"SERVIZI TECNICI PER IMMOBILI E IMPIANTI",
-                "name":"A. La Greca",
-                "type":2
-              }
-            ]
-         },
-           {
-              "id":25,
-              "code":"CDR B10000",
-              "role":"SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
-              "name":"G. Coppa",
-              "type":1,
-              "children":[
-                {
-                  "id":110,
-                  "code":"CDR B10000",
-                  "role":"GOVERNO CONTRATTI",
-                  "name":"L. Pallottini",
-                  "type":3
-                },      
-                 {
-                    "id":26,
-                    "code":"CDR B21000",
-                    "role":"INFORMATION SECURITY",
-                    "name":"C. De Rossi",
-                    "type":2,
-                    "children":[
-                       {
-                          "id":27,
-                          "code":"CDR B21000",
-                          "role":"INFORMATION SECURITY ENGINEERING & OPERATIONS",
-                          "name":"C. De Rossi ad interim",
-                          "type":3
-                       },
-                       {
-                          "id":28,
-                          "code":"CDR B21000",
-                          "role":"INFORMATION SECURITY GOVERNANCE",
-                          "name":"L. Brusutti",
-                          "type":3
-                       }
-                    ]
-                 },
-                 {
-                    "id":29,
-                    "code":"CDR B22000",
-                    "role":" ARCHITETTURE APPLICATIVE",
-                    "name":"E. Trivellato",
-                    "type":2
-                 }
-              ]
-           },
-          
-           {
-              "id":36,
-              "code":"CDR A14000",
-              "role":"MARKETING",
-              "name":"F. Vudafieri",
-              "type":2,
-              "children":[
-                {
-                  "id":111  ,
-                  "code": "CDR A14000",
-                  "role":"MARKETING INTELLIGENCE & AUTOMATION",
-                  "name":"F. Lion",
-                  "type":3
-               }
-              ]
-           },
-           {
-              "id":37,
-              "code":"CDR G10000",
-              "role":"STATISTICHE E ANALISI EVOLUTA DEL DATO",
-              "name":"Do. Tarantino",
-              "type":2
            }
         ]
      }
