@@ -579,7 +579,203 @@
                }
               ]
            }
+          
         ]
-     }
+     },
+     {
+      "id":40,
+      "collapsed":true,
+      "role":"FUNZIONI TRASVERSALI",
+      "type":"area",
+      "collapsed":false,
+      "children":[
+        {
+          "id":35,
+          "code":"CDR T10000",
+          "role":"TECNOLOGIE E IMPIANTI",
+        
+          "childrendirection":"column",
+          "name":"L. Candiani",
+          "type":1,
+          "children":[
+            {
+              "id":100,
+              "code":"CDR T21000",
+              "role":"IT GOVERNANCE E CUSTOMER SOLUTIONS",
+              "direction":"column",
+              "childrendirection":"column",
+              "name":"E. Notariale",
+              "type":2,
+              "children":[
+                {
+                  "id":101,
+                  "code":"CDR T21000",
+                  "role":"DIGITAL WORKPLACES",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"L. Frigo",
+                  "type":3
+              },
+              {
+                  "id":102,
+                  "code":"CDR T21000",
+                  "role":"SOLUZIONI ITIL, DEVOPS E ACCESS MGMT",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"S. Busato",
+                  "type":3
+                },
+                {
+                  "id":103,
+                  "code":"CDR T21000",
+                  "role":"HYBRID CUSTOMER SOLUTION ",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"D. Danieli",
+                  "type":3
+                }     
+              ]   
+            },
+            {
+              "id":104,
+              "code":"CDR T22000",
+              "role":"TECHNOLOGY INFRASTRUCTURE ",
+              "name":"R. Di Gennaro",
+              "direction":"column",
+              "childrendirection":"column",
+              "type":2,
+              "children":[
+                {
+                  "id":105,
+                  "code":"CDR T22000",
+                  "role":"MIDDLEWARE & OPERATION MGMT",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"G. Geron",
+                  "type":3
+              },
+              {
+                  "id":106,
+                  "code":"CDR T22000",
+                  "role":"NETWORK MGMT",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"R. Bertolini",
+                  "type":3
+                },
+                {
+                  "id":107,
+                  "code":"CDR T22000",
+                  "role":"SYSTEM & AUTOMATION MGMT",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"M. Fasolo",
+                  "type":3
+                },
+                {
+                  "id":108,
+                  "code":"CDR T22000",
+                  "role":"DATA BASE MGMT",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"A. Ceccon",
+                  "type":3
+                }      
+              ]   
+            },
+            {
+              "id":109,
+              "code":"CDR T23000",
+              "role":"SERVIZI TECNICI PER IMMOBILI E IMPIANTI",
+              "direction":"column",
+              "childrendirection":"column",
+              "name":"A. La Greca",
+              "type":2
+            }
+          ]
+       },
+         {
+            "id":25,
+            "code":"CDR B10000",
+            "role":"SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
+            "childrendirection":"column",
+            "name":"G. Coppa",
+            "type":1,
+            "children":[
+              {
+                "id":110,
+                "code":"CDR B10000",
+                "role":"GOVERNO CONTRATTI",
+                "name":"L. Pallottini",
+                "direction":"column",
+                "childrendirection":"column",
+                "type":3
+              },      
+               {
+                  "id":26,
+                  "code":"CDR B21000",
+                  "role":"INFORMATION SECURITY",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"C. De Rossi",
+                  "type":2,
+                  "children":[
+                     {
+                        "id":27,
+                        "code":"CDR B21000",
+                        "role":"INFORMATION SECURITY ENGINEERING & OPERATIONS",
+                        "direction":"column",
+                        "childrendirection":"column",
+                        "name":"C. De Rossi ad interim",
+                        "type":3
+                     },
+                     {
+                        "id":28,
+                        "code":"CDR B21000",
+                        "role":"INFORMATION SECURITY GOVERNANCE",
+                        "direction":"column",
+                        "childrendirection":"column",
+                        "name":"L. Brusutti",
+                        "type":3
+                     }
+                  ]
+               },
+               {
+                  "id":29,
+                  "code":"CDR B22000",
+                  "role":" ARCHITETTURE APPLICATIVE",
+                  "direction":"column",
+                  "childrendirection":"column",
+                  "name":"E. Trivellato",
+                  "type":2
+               }
+            ]
+         },
+        
+         {
+            "id":36,
+            "code":"CDR A14000",
+            "role":"MARKETING",
+            "name":"F. Vudafieri",
+            "type":2,
+            "children":[
+              {
+                "id":111  ,
+                "code": "CDR A14000",
+                "role":"MARKETING INTELLIGENCE & AUTOMATION",
+                "name":"F. Lion",
+                "type":3
+             }
+            ]
+         },
+         {
+            "id":37,
+            "code":"CDR G10000",
+            "role":"STATISTICHE E ANALISI EVOLUTA DEL DATO",
+            "name":"Do. Tarantino",
+            "type":2
+         }
+      ]
+   }
   ]
 }
