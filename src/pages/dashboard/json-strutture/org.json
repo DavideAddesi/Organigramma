@@ -13,9 +13,8 @@
            {
               "id":2,
               "code":"CDR A15000",
-              "role":"VERTICALE",
-              "name":"G. Sessa",
-             
+              "role":"DIREZIONE AFFARI LEGALI E ISTITUZIONALI",
+              "name":"G. Sessa",    
               "childrendirection":"column",
               "type":1,
               "children":[
@@ -40,8 +39,7 @@
                  {
                     "id":5,
                     "code":"CDR A15000",
-                    "direction":"column",
-                    
+                    "direction":"column",              
                     "role":"RELAZIONI ISTITUZIONALI",
                     "name":"G. Da Rin",
                     "type":3
@@ -95,7 +93,55 @@
                 }
 
             ]
-           }
+           },
+           {
+            "id":6,
+            "code":"CDR A17000",
+            "role":"DIREZIONE AMMINISTRAZIONE E FINANZA",
+            "childrendirection":"column",
+            "name":"V. Padula",
+            "type":1,
+            "children":[
+               {
+                  "id":7,
+                  "code":"CDR A17000",
+                  "role":"AMMINISTRAZIONE CLIENTI",
+                  "direction":"column", 
+                  "name":"R. Ragazzon",
+                  "type":3
+               },
+               {
+                  "id":8,
+                  "code":"CDR A17000",
+                  "role":"CONTABILITÀ E BILANCIO",
+                  "direction":"column", 
+                  "name":"F. Cappellato",
+                  "type":3
+               },
+               {
+                  "id":9,
+                  "code":"CDR A17100",
+                  "role":"SERVIZI AMMINISTRATIVI DI GRUPPO",
+                  "direction":"column", 
+                  "name":"M. Ravelli",
+                  "type":3
+               }
+            ]
+         },
+         {
+            "id":10,
+            "code":"CDR A12000",
+            "role":"APPROVVIGIONAMENTI",
+            "name":"A. Marchesin",
+            "type":2
+         },
+         {
+            "id":11,
+            "code":"CDR A13000",
+            "role":"PIANIFICAZIONE E CONTROLLO",
+            "name":"M. Martorella",
+            "type":2
+         }        
        
         ]
      },

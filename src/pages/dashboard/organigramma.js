@@ -100,7 +100,7 @@ const Organigramma = () => {
         }}
       >
         <Container maxWidth="3000px" >
-          <Box maxWidth="3000px"sx={{ mb: 4 }}>
+          <Box sx={{ mb: 4 }}>
             <Grid
               container
               justifyContent="space-between"
@@ -117,11 +117,11 @@ const Organigramma = () => {
                       display:"flex", 
                       flexDirection:"column", 
                       gap:"10px", 
-                      position:"fixed", 
+                      // position:"fixed", 
                       right:"0", 
                       marginRight:"20px",
                       marginBottom:"50px",
-                      zIndex:1000
+                      // zIndex:1000
                       // height:"100px"  
                     }}>
                     <Legenda />

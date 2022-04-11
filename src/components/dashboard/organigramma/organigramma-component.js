@@ -23,32 +23,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
 
-  const invoice = {
-    id: '5ecb86785312dcc69b5799ad',
-    currency: '$',
-    customer: {
-      address: '271 Richmond Rd, Grey Lynn, Auckland 1022, New Zealand',
-      company: 'Countdown Grey Lynn',
-      email: 'contact@acme.com',
-      name: 'ACME SRL',
-      taxId: '6934656584231'
-    },
-    dueDate: 222,
-    issueDate: 222,
-    items: [
-      {
-        id: '5ecb8694db1760a701dfbf74',
-        currency: '$',
-        description: 'Freelancer Subscription (12/05/2019 - 11/06/2019)',
-        unitAmount: 55.50
-      }
-    ],
-    number: 'INV-0019',
-    status: 'paid',
-    subtotalAmount: 50.00,
-    taxAmount: 5.50,
-    totalAmount: 55.50
-  };
+  
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -61,7 +36,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     },
     unit:{
       minWidth: "100px",
-      minHeight: "80px",
+      // width:"110px",
+      maxWidth:"200px",
+      margin:"auto",
+      minHeight: "130px",
       maxHeight:"160px", 
       paddingLeft:"10px",
       paddingRight:"10px",
@@ -71,10 +49,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       padding:"5px 10px"
     },
     others:{
-      width:"110px",
+      width:"190px",
       height:"110px", 
       paddingLeft:"10px",
-      paddingRight:"10px", 
+      paddingRight:"10px",
+      margin:"auto", 
     },
     expand: {
       marginLeft:"auto",
@@ -84,7 +63,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       marginLeft: "auto",
       transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.short,
-      }),
+      }), 
     },
     expandOpen: {
       marginLeft:"auto",
