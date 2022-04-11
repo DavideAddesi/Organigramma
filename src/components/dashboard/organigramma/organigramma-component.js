@@ -2,51 +2,28 @@ import { useEffect, useState } from 'react';
 import _ from "lodash";
 import clsx from "clsx"
 import { Avatar, Grid, Switch, Box, IconButton, Button, Card, CardContent, CardHeader,Menu, MenuItem,ListItemIcon, ListItemText, Badge, Tooltip,CardActions, Divider, Typography, TextField } from '@mui/material';
-import { Tree, TreeNode } from "react-organizational-chart";
+// import { Tree, TreeNode } from "react-organizational-chart";
+import Tree from "./Tree.tsx"
+import TreeNode from "./TreeNode.tsx"
 import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { useDrag, useDrop } from "react-dnd";
+// import { HTML5Backend } from "react-dnd-html5-backend";
+// import { useDrag, useDrop } from "react-dnd";
 
 import makeStyles from '@mui/styles/makeStyles';
 
-import BusinessIcon from "@mui/icons-material/Business";
-import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+// import BusinessIcon from "@mui/icons-material/Business";
+// import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+// import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
-import { InvoicePDF } from '../invoice/invoice-pdf';
-import { jsPDF } from "jspdf";
-import html2canvas from "html2canvas";
+// import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer';
+// import { InvoicePDF } from '../invoice/invoice-pdf';
+// import { jsPDF } from "jspdf";
+// import html2canvas from "html2canvas"; 
 
 
 
 
-  const invoice = {
-    id: '5ecb86785312dcc69b5799ad',
-    currency: '$',
-    customer: {
-      address: '271 Richmond Rd, Grey Lynn, Auckland 1022, New Zealand',
-      company: 'Countdown Grey Lynn',
-      email: 'contact@acme.com',
-      name: 'ACME SRL',
-      taxId: '6934656584231'
-    },
-    dueDate: 222,
-    issueDate: 222,
-    items: [
-      {
-        id: '5ecb8694db1760a701dfbf74',
-        currency: '$',
-        description: 'Freelancer Subscription (12/05/2019 - 11/06/2019)',
-        unitAmount: 55.50
-      }
-    ],
-    number: 'INV-0019',
-    status: 'paid',
-    subtotalAmount: 50.00,
-    taxAmount: 5.50,
-    totalAmount: 55.50
-  };
+  
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -59,6 +36,9 @@ import html2canvas from "html2canvas";
     },
     unit:{
       minWidth: "100px",
+      // width:"110px",
+      maxWidth:"200px",
+      margin:"auto",
       minHeight: "130px",
       maxHeight:"160px", 
       paddingLeft:"10px",
@@ -69,10 +49,11 @@ import html2canvas from "html2canvas";
       padding:"5px 10px"
     },
     others:{
-      width:"110px",
+      width:"190px",
       height:"110px", 
       paddingLeft:"10px",
-      paddingRight:"10px", 
+      paddingRight:"10px",
+      margin:"auto", 
     },
     expand: {
       marginLeft:"auto",
@@ -82,7 +63,7 @@ import html2canvas from "html2canvas";
       marginLeft: "auto",
       transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.short,
-      }),
+      }), 
     },
     expandOpen: {
       marginLeft:"auto",
@@ -177,6 +158,10 @@ import html2canvas from "html2canvas";
     useEffect(() => {
       o.collapsed = collapsed;
     });
+
+    if(o.direction){
+      console.log(o.direction)
+    }
     
     const T = parent
       ? TreeNode
@@ -186,12 +171,16 @@ import html2canvas from "html2canvas";
             lineWidth={"2px"}
             lineColor={"#bbc"}
             lineBorderRadius={"12px"}
+            
+            // direction="column"
           >
             {props.children}
           </Tree>
         );
     return collapsed ? (
       <T
+      direction={o.direction ? o.direction : "unset"}
+      childrendirection={o.childrendirection ? o.childrendirection : "unset"}
         label={
           <Organization
             org={o}
@@ -204,6 +193,8 @@ import html2canvas from "html2canvas";
       />
     ) : (
       <T
+      direction={o.direction ? o.direction : "unset"}
+      childrendirection={o.childrendirection ? o.childrendirection : "unset"}
         label={
           <Organization
             org={o}
@@ -228,18 +219,6 @@ import html2canvas from "html2canvas";
   export default function Organigramma(props) {
     const {org, size, cda, presidenza, childRef} = props
 
-    const printDocument= () => {
-      const input = document.getElementById('divToPrint');
-      html2canvas(input)
-        .then((canvas) => {
-          const imgData = canvas.toDataURL('image/png');
-          const pdf = new jsPDF();
-          pdf.addImage(imgData, 'JPEG', 0, 0);
-          // pdf.output('dataurlnewwindow');
-          pdf.save("download.pdf");
-        })
-      ;
-    }
 
     return ( 
         <Grid
@@ -247,7 +226,7 @@ import html2canvas from "html2canvas";
           mt={3}
           spacing={4}
           p={2}
-          ref={childRef}
+          // ref={childRef}
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
