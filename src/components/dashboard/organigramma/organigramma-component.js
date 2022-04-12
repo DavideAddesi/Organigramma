@@ -234,7 +234,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
-          <Grid item md={12}><Node o={org} size={size}  /> </Grid>
+          <Grid style={{marginTop:"-163px"}} item md={12}><Node o={org} size={size}  /> </Grid>
         </Grid>    
     );
   }
