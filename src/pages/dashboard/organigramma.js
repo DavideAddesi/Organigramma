@@ -184,7 +184,6 @@ const Organigramma = () => {
             // spacing={4}
           >
               <Grid item md={12} ref={componentRef} >
-                          {displayTitolo.label}
                           <OrganigrammaComponent 
                             size={size} 
                             displayMore={displayMore} 
