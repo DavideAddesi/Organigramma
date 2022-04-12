@@ -10,7 +10,8 @@
         "code":"CDR P11000",
         "role": "COMUNICAZIONE",
         "name":"M. T. Capacchione",
-        "type": 2
+        "type": 2,
+        "subtype":"presidenza"
       }
      
     ]

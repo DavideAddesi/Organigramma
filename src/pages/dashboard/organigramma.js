@@ -32,7 +32,7 @@ const options = [
 
 const Organigramma = () => {
   const [size, setsize] = useState("small")
-  const [displayMore, setDisplayMore] = useState(false)
+  const [displayMore, setDisplayMore] = useState(true)
   const [organization, setOrganization] = useState(org) 
   const [openMenu, setOpenMenu] = useState(false);
   const [displayTitolo, setDisplayTitolo] = useState({label:null, resolve: undefined});
@@ -99,14 +99,14 @@ const Organigramma = () => {
           py: 8
         }}
       >
-        <Container maxWidth="3000px" >
+        <Container maxWidth="4000px" style={{paddingLeft:"3px"}} >
           <Box sx={{ mb: 4 }}>
             <Grid
               container
               justifyContent="space-between"
               spacing={3}
-              // width={"3000px"}
-              // maxWidth="3000px"
+              sx={{marginLeft: 0 }}
+              
             >
                 <Box display="flex" sx={{width:"100%", justifyContent:"space-between"}}>
                   <Typography variant="h4" >
@@ -135,17 +135,6 @@ const Organigramma = () => {
                       >
                           {displayMore ? "Riduci":"Espandi"} Organigramma
                       </Button>
-                      {/* <Button
-                        color="primary"
-                        variant="contained"
-                        size="small"
-                        // onClick={downloadScreenshot}
-                        onClick={handlePrint}
-                        
-                      >
-                       
-                          <PrintIcon/>
-                      </Button> */}
                       <ReactToPrint
                           trigger={() => (
                             <Button size="small" type="primary" variant="contained">
@@ -153,11 +142,11 @@ const Organigramma = () => {
                             </Button>
                           )}
                           content={() => componentRef.current}
-                          onBeforeGetContent={() =>{
-                            return new Promise((resolve) => {
-                              setDisplayTitolo(() => ({ label:"titolo", resolve }));
-                            });
-                          }}
+                          // onBeforeGetContent={() =>{
+                          //   return new Promise((resolve) => {
+                          //     setDisplayTitolo(() => ({ label:"titolo", resolve }));
+                          //   });
+                          // }}
                         />
                       <div>
                         <IconButton onClick={handleClick} ref={anchorRef}>
@@ -189,7 +178,7 @@ const Organigramma = () => {
           </Box>
           <Grid
             container
-            spacing={4}
+            // spacing={4}
           >
               <Grid item md={12} ref={componentRef} >
                           {displayTitolo.label}

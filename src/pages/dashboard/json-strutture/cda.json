@@ -9,7 +9,8 @@
         "code":"CDR A11000",
         "role": "INTERNAL AUDIT",
         "name":"M. C. Mazzucato",
-        "type": 2
+        "type": 2,
+        "subtype":"cda"
       }
      
     ]

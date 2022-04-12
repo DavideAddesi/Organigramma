@@ -37,7 +37,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     unit:{
       minWidth: "100px",
       // width:"110px",
-      maxWidth:"200px",
+      // maxWidth:"200px",
       margin:"auto",
       minHeight: "130px",
       maxHeight:"160px", 
@@ -45,15 +45,19 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       paddingRight:"10px",
     },
     area:{
-      width:"100%",
+      // width:"100%",
+      minWidth: "150px  ",
       padding:"5px 10px"
     },
     others:{
-      width:"190px",
+      maxWidth:"190px",
       height:"110px", 
       paddingLeft:"10px",
       paddingRight:"10px",
       margin:"auto", 
+    },
+    setMaxWidth:{
+      maxWidth:"190px"
     },
     expand: {
       marginLeft:"auto",
@@ -107,6 +111,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           [classes.area]: org.type == "area",
           [classes.unit] : org.type!= "area" && org.type!= "cda" && org.type!= "presidenza",
           [classes.others] :  org.type == "cda" || org.type== "presidenza",
+          [classes.setMaxWidth] : org.type==0 || org.subtype=="presidenza" || org.subtype=="cda"
         })}
         style={{ backgroundColor: backgroundColor()}}
       >
@@ -217,7 +222,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     );
   }
   export default function Organigramma(props) {
-    const {org, size, cda, presidenza, childRef} = props
+    const {org, size, cda, presidenza, childRef, displayMore} = props
 
 
     return ( 
@@ -225,8 +230,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           container
           mt={3}
           spacing={4}
-          p={2}
-          // ref={childRef}
+          p={displayMore ? "3px"  : 1}
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
