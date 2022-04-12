@@ -72,6 +72,7 @@ const Organigramma = () => {
   useEffect(() => {
       const newChildren = organization.children.map(child =>{
         return {...child, 
+          collapsed: child.collapsed && displayMore ? false: child.collapsed,
           children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
         }
       })

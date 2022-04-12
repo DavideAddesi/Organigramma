@@ -87,14 +87,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     const classes = useStyles();
     const backgroundColor = () =>{
 
-      if(org.type=="presidenza") return "#D66666"
-      if(org.type=="cda") return "#f8873b"
-      if(org.type=="area") return "#F5F5F5"
+      if(org.type=="presidenza") return "#D66666" //presidenza
+      if(org.type=="cda") return "#f8873b" //cda
+      if(org.type=="area") return "#F5F5F5" //area (staff, business unit, ecc...)
 
-      if(org.type==0) return "#ffd27f"
-      if(org.type==1) return "#ddffd2"
-      if(org.type==2) return "#A7C7E7"
-      if(org.type==3) return "#fff"
+      if(org.type==0) return "#ffd27f" //direzione generale
+      if(org.type==1) return "#ddffd2" //direzione
+      if(org.type==2) return "#A7C7E7" //struttura
+      if(org.type==3) return "#fff"  //unità operativa
     }
 
     const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
