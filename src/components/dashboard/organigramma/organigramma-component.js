@@ -97,9 +97,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       if(org.type==3) return "#fff"  //unità operativa
     }
 
-    const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
-    const roleSize = size == "small" ? "10px": size== "medium" ? "13px":"18px" 
-    const nameSize = size == "small" ? "10px": size== "medium" ? "12px":"13px" 
+    const codeSize = size == "small" ? "9px": size== "medium" ? "11px":"10px" 
+    const roleSize = size == "small" ? "9px": size== "medium" ? "13px":"18px" 
+    const nameSize = size == "small" ? "9px": size== "medium" ? "12px":"13px" 
 
 
     return (
