@@ -97,9 +97,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       if(org.type==3) return "#fff"  //unità operativa
     }
 
-    const codeSize = size == "small" ? "10px": size== "medium" ? "11px":"10px" 
-    const roleSize = size == "small" ? "10px": size== "medium" ? "13px":"18px" 
-    const nameSize = size == "small" ? "10px": size== "medium" ? "12px":"13px" 
+    const codeSize = size == "small" ? "9px": size== "medium" ? "11px":"10px" 
+    const roleSize = size == "small" ? "9px": size== "medium" ? "13px":"18px" 
+    const nameSize = size == "small" ? "9px": size== "medium" ? "12px":"13px" 
 
 
     return (
@@ -234,7 +234,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
-          <Grid item md={12}><Node o={org} size={size}  /> </Grid>
+          <Grid style={{marginTop:"-163px"}} item md={12}><Node o={org} size={size}  /> </Grid>
         </Grid>    
     );
   }

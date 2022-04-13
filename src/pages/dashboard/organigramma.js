@@ -73,7 +73,10 @@ const Organigramma = () => {
       const newChildren = organization.children.map(child =>{
         return {...child, 
           collapsed: child.collapsed && displayMore ? false: child.collapsed,
-          children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
+          children: child.children.map(c=>({
+            ...c, collapsed: displayMore ? false : true,
+            children: c.children?.map(child2=>({...child2, collapsed: !displayMore}))
+          }))
         }
       })
       setOrganization({...organization, children:newChildren})
@@ -109,10 +112,8 @@ const Organigramma = () => {
               sx={{marginLeft: 0 }}
               
             >
-                <Box display="flex" sx={{width:"100%", justifyContent:"space-between"}}>
-                  <Typography variant="h4" >
-                  Organigramma suddiviso in funzioni
-                  </Typography>
+                <Box display="flex" sx={{width:"100%", flexDirection:"row-reverse"}}>
+                 
                   <Box 
                     sx={{
                       display:"flex", 
@@ -179,10 +180,10 @@ const Organigramma = () => {
           </Box>
           <Grid
             container
+            style={{marginTop: '-200px'}}
             // spacing={4}
           >
               <Grid item md={12} ref={componentRef} >
-                          {displayTitolo.label}
                           <OrganigrammaComponent 
                             size={size} 
                             displayMore={displayMore} 

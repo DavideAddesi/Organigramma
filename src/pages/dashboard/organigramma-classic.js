@@ -1,13 +1,11 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, createRef } from 'react';
 import Head from 'next/head';
 import {
   Box,
   Container,
   Grid,
   Typography,
-  Switch,
   MenuItem,
-  TextField,
   Button  
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
@@ -22,16 +20,42 @@ import Legenda from '../../components/dashboard/organigramma/Legenda'
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import PrintIcon from '@mui/icons-material/Print';
+import {useReactToPrint} from "react-to-print";
+import  ReactToPrint from "react-to-print"
+
+const options = [
+  {value:"small", label:"Piccolo"},
+  {value:"medium", label:"Medio"},
+  {value:"large", label:"Grande"}
+ ];
 
 const Organigramma = () => {
   const [size, setsize] = useState("small")
-  const [displayMore, setDisplayMore] = useState(false)
+  const [displayMore, setDisplayMore] = useState(true)
   const [organization, setOrganization] = useState(org) 
-  // const [anchorEl, setAnchorEl] = useState(null);
-  // const open = Boolean(anchorEl);
-  const anchorRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
+  const [displayTitolo, setDisplayTitolo] = useState({label:null, resolve: undefined});
 
+  const anchorRef = useRef(null);
+
+  const componentRef = createRef(null)
+
+  useEffect(() => {
+    const {resolve} = displayTitolo;
+    if (resolve) {
+        resolve();
+        setDisplayTitolo({ label:null, resolve: undefined });
+    }
+  }, [displayTitolo]);
+  const handlePrint = useReactToPrint({
+    // onBeforeGetContent: () => {
+    //   return new Promise((resolve) => {
+    //     setDisplayTitolo(() => ({ label: "titolo" + 1, resolve }));
+    //   });
+    // },
+    content: ()=> componentRef.current
+  })
 
   const handleClick = () => {
     setOpenMenu(true);
@@ -43,38 +67,30 @@ const Organigramma = () => {
   const handleSize = (newSize) => {
     setsize(newSize)
     setOpenMenu(false);
-    // setAnchorEl(null);
   };
 
-  // collapsed: displayMore ? false : true
-  // useEffect(() => {
-  //     const newChildren = organization.children.map(child =>{
-  //       return {...child, 
-  //         children: child.children.map(c=>({...c, collapsed: displayMore ? false : true}))
-  //       }
-  //     })
-  //     setOrganization({...organization, children:newChildren})
-  // }, [displayMore])
-
   useEffect(() => {
-    const newChildren = organization.children.map(child =>({...child, collapsed: displayMore ? false : true}))
-    setOrganization({...organization, children:newChildren})
-}, [displayMore])
+      const newChildren = organization.children.map(child =>{
+        return {...child, 
+          collapsed: displayMore ? false : true,
+          children: child.children?.map(child2=>({...child2, collapsed: !displayMore}))
+        }
+      })
+      setOrganization({...organization, children:newChildren})
+  }, [displayMore])
 
-  const options = [
-   {value:"small", label:"Piccolo"},
-   {value:"medium", label:"Medio"},
-   {value:"large", label:"Grande"}
-  ];
+//   useEffect(() => {
+//     const newChildren = organization.children.map(child =>({...child, collapsed:   ? false : true}))
+//     setOrganization({...organization, children:newChildren})
+// }, [displayMore])
 
 
-  
 
   return (
     <>
       <Head>
         <title>
-          Organigramma con box ordinati
+          Esempio Organigramma
         </title>
       </Head>
       <Box
@@ -84,29 +100,27 @@ const Organigramma = () => {
           py: 8
         }}
       >
-        <Container maxWidth="3000px" >
-          <Box maxWidth="3000px"sx={{ mb: 4 }}>
+        <Container maxWidth="4000px" style={{paddingLeft:"3px"}} >
+          <Box sx={{ mb: 4 }}>
             <Grid
               container
               justifyContent="space-between"
               spacing={3}
-              // width={"3000px"}
-              // maxWidth="3000px"
+              sx={{marginLeft: 0 }}
+              
             >
-                <Box display="flex" sx={{width:"100%", justifyContent:"space-between"}}>
-                  <Typography variant="h4" >
-                  Organigramma con box ordinati
-                  </Typography>
+                <Box display="flex" sx={{width:"100%", flexDirection:"row-reverse"}}>
+                 
                   <Box 
                     sx={{
                       display:"flex", 
                       flexDirection:"column", 
                       gap:"10px", 
-                      position:"fixed", 
+                      // position:"fixed", 
                       right:"0", 
                       marginRight:"20px",
                       marginBottom:"50px",
-                      zIndex:1000
+                      // zIndex:1000
                       // height:"100px"  
                     }}>
                     <Legenda />
@@ -120,6 +134,19 @@ const Organigramma = () => {
                       >
                           {displayMore ? "Riduci":"Espandi"} Organigramma
                       </Button>
+                      <ReactToPrint
+                          trigger={() => (
+                            <Button size="small" type="primary" variant="contained">
+                               <PrintIcon/>
+                            </Button>
+                          )}
+                          content={() => componentRef.current}
+                          // onBeforeGetContent={() =>{
+                          //   return new Promise((resolve) => {
+                          //     setDisplayTitolo(() => ({ label:"titolo", resolve }));
+                          //   });
+                          // }}
+                        />
                       <div>
                         <IconButton onClick={handleClick} ref={anchorRef}>
                           <MoreVertIcon />
@@ -150,12 +177,18 @@ const Organigramma = () => {
           </Box>
           <Grid
             container
-            spacing={4}
+            style={{marginTop: '-200px'}}
+            // spacing={4}
           >
-              <Grid item md={12}>
-                    {/* <div style={{overflowY: "scroll"}}> */}
-                      {organization && <OrganigrammaComponent size={size} displayMore={displayMore} org={organization}  cda={cda} presidenza={presidenza} /> } 
-                      {/* </div>  */}
+              <Grid item md={12} ref={componentRef} >
+                          <OrganigrammaComponent 
+                            size={size} 
+                            displayMore={displayMore} 
+                            org={organization}  
+                            cda={cda} 
+                            presidenza={presidenza} 
+                            // childRef={componentRef} 
+                        /> 
               </Grid>
               
             
