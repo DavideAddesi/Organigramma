@@ -16,7 +16,7 @@ import {
   Card,
   Switch
 } from '@mui/material';
-import { customerApi } from '../../__fake-api__/customer-api';
+import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import { Mission } from '../../components/dashboard/customer/mission';
@@ -37,7 +37,7 @@ const tabs = [
 
 const CustomerDetails = () => {
   const isMounted = useMounted();
-  const [userDetail, setUserDetail] = useState(null);
+  const [schedaDetail, setSchedaDetail] = useState(null);
   const [currentTab, setCurrentTab] = useState('mission');
   const [displayTreeview, setDisplayTreeview] = useState(false);
 
@@ -46,11 +46,11 @@ const CustomerDetails = () => {
 
   
 
-  const getUser = useCallback(async () => {
+  const getScheda = useCallback(async () => {
     try {
-      const data = await customerApi.getUserDetail();
+      const data = await infoCamereAPI.getScheda({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
       if (isMounted()) {
-        setUserDetail(data);
+        setSchedaDetail(data);
       }
     } catch (err) {
       console.error(err);
@@ -58,7 +58,7 @@ const CustomerDetails = () => {
   }, [isMounted]);
 
   useEffect(() => {
-      getUser();
+      getScheda();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []);
@@ -78,7 +78,7 @@ const CustomerDetails = () => {
 
 
 
-  if (!userDetail) {
+  if (!schedaDetail) {
     return null;
   }
 
@@ -117,9 +117,9 @@ const CustomerDetails = () => {
                   color="primary"
                   variant="h4"
                 >
-                  {userDetail.area}
+                  {schedaDetail.area}
                 </Typography>
-                {chip(userDetail.codice)}
+                {chip(schedaDetail.codice)}
               </Grid>
               {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
               <Grid
@@ -206,10 +206,10 @@ const CustomerDetails = () => {
                             color="textSecondary"
                             variant="overline"
                             > 
-                            {userDetail.nome}
+                            {schedaDetail.nome}
                             </Typography>
                             <Typography variant="subtitle2" sx={{mt:"-4px"}}>
-                            Sede: {userDetail.sede}
+                            Sede: {schedaDetail.sede}
                             </Typography>
                             <Box
                               sx={{
@@ -219,7 +219,7 @@ const CustomerDetails = () => {
                               }}
                             >              
                               <Typography variant="subtitle2">
-                                Email: {userDetail.email}
+                                Email: {schedaDetail.email}
                               </Typography>               
                             </Box>
                           </div>                   
@@ -262,7 +262,7 @@ const CustomerDetails = () => {
                     <Box > 
                     <Typography variant="h5" >Mission</Typography>
                   </Box> 
-                  <Mission mission={userDetail.mission}/>
+                  <Mission mission={schedaDetail.mission}/>
                   {/* {currentTab === 'mission' && <Mission mission={userDetail.mission}/>} */}
                   {/* {currentTab === 'documenti' && <Mission />}
                   {currentTab === 'gdp' && <Mission />}
@@ -316,8 +316,8 @@ const CustomerDetails = () => {
                 </Box>
                 
                 <Box p={3}>
-                  {!displayTreeview && <PosizionamentoAziendale organization={userDetail.posizionamentoAziendale}/>}
-                  { displayTreeview && <TreeviewComponent org={userDetail.posizionamentoAziendale} h={300} dettaglio={true} />}
+                  {!displayTreeview && <PosizionamentoAziendale organization={schedaDetail.posizionamentoAziendale}/>}
+                  { displayTreeview && <TreeviewComponent org={schedaDetail.posizionamentoAziendale} h={300} dettaglio={true} />}
                 </Box>
               </Box>
             </Card>
@@ -325,7 +325,7 @@ const CustomerDetails = () => {
           <Box sx={{ mt: 3 }}>
             <Typography variant="h5" sx={{ mb : 1 }}>Personale Assegnato</Typography>
             <Card>
-              <PersonaleAssegnato personale={userDetail.personaleAssegnato}/>
+              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato}/>
             </Card>
           </Box>
             

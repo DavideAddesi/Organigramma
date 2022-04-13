@@ -4,6 +4,16 @@ import userDetailJson from "../components/dashboard/organigramma/dettaglio/userD
 const now = new Date();
 
 class CustomerApi {
+
+
+  getScheda() {
+   
+    const schedaDetail = userDetailJson
+
+    return Promise.resolve(schedaDetail);
+  }
+
+
   getCustomers() {
     const customers = [
       {
@@ -170,12 +180,6 @@ class CustomerApi {
     return Promise.resolve(customers);
   }
 
-  getUserDetail() {
-   
-    const userDetail = userDetailJson
-
-    return Promise.resolve(userDetail);
-  }
 
   getCustomerEmails() {
     const emails = [

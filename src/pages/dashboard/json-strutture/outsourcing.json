@@ -1,88 +1,88 @@
 {
     "id":"1os",
-    "role": "IcOutsourcing",
+    "name": "IcOutsourcing",
     "type": 9,
     "avatar":false,
     "children": [
       {
         "id":"2os",
-        "role": "Ufficio Personale"
+        "name": "Ufficio Personale"
       },
       {
         "id":"3os",
-        "role": "Ufficio Servizi Generali e Assistenza Informatica"
+        "name": "Ufficio Servizi Generali e Assistenza Informatica"
       },
       {
         "id":"4os",
-        "role": "Area Servizi Tecnici e Logistici"
+        "name": "Area Servizi Tecnici e Logistici"
       },
       {
         "id":"5os",
-        "role": "Area Servizi Informatici e Gestionali"
+        "name": "Area Servizi Informatici e Gestionali"
       },
       {
         "id":"6os",
-        "role": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
+        "name": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
       },
       {
         "id":"7os",
-        "role": "Area Corporate"
+        "name": "Area Corporate"
       },
       {
         "id":"8os",
-        "role": "Ufficio Tecnico e Sicurezza"
+        "name": "Ufficio Tecnico e Sicurezza"
       },
       {
         "id":"9os",
-        "role": "Ufficio Personale"
+        "name": "Ufficio Personale"
       },
       {
         "id":"10os",
-        "role": "Ufficio Servizi Generali e Assistenza Informatica"
+        "name": "Ufficio Servizi Generali e Assistenza Informatica"
       },
       {
         "id":"11os",
-        "role": "Area Servizi Tecnici e Logistici"
+        "name": "Area Servizi Tecnici e Logistici"
       },
       {
         "id":"12os",
-        "role": "Area Servizi Informatici e Gestionali"
+        "name": "Area Servizi Informatici e Gestionali"
       },
       {
         "id":"2os",
-        "role": "Ufficio Servizi Generali e Assistenza Informatica"
+        "name": "Ufficio Servizi Generali e Assistenza Informatica"
       },
       {
         "id":"13os",
-        "role": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
+        "name": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
       },
       {
         "id":"14os",
-        "role": "Area Corporate"
+        "name": "Area Corporate"
       },
       {
         "id":"15os",
-        "role": "Ufficio Tecnico e Sicurezza"
+        "name": "Ufficio Tecnico e Sicurezza"
       },
       {
         "id":"16os",
-        "role": "Ufficio Personale"
+        "name": "Ufficio Personale"
       },
       {
         "id":"17os",
-        "role": "Area Corporate"
+        "name": "Area Corporate"
       },
       {
         "id":"18os",
-        "role": "Area Servizi Tecnici e Logistici"
+        "name": "Area Servizi Tecnici e Logistici"
       },
       {
         "id":"19os",
-        "role": "Area Servizi Informatici e Gestionali"
+        "name": "Area Servizi Informatici e Gestionali"
       },
       {
         "id":"20os",
-        "role": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
+        "name": "Area vendite, Gestione clienti, e nuove iniziative di sistema"
       }
      
     ]

@@ -1,35 +1,35 @@
 {
     "id":"1iconto",
-    "role": "ICONTO",
+    "name": "ICONTO",
     "type": 9,
     "avatar":false,
     "children": [
       {
         "id":"2iconto",
-        "role": "CDA ICONTO",
+        "name": "CDA ICONTO",
         "children": [
             {
               "id":"3iconto",
-              "role": "Compliance and Risk Management"
+              "name": "Compliance and Risk Management"
             },
             {
               "id":"4iconto",
-              "role": " Antiriciclaggio e Del. SOS "
+              "name": " Antiriciclaggio e Del. SOS "
             }
            
           ]
       },
       {
         "id":"5iconto",
-        "role": " Direzione Generale ICONTO",
+        "name": " Direzione Generale ICONTO",
         "children": [
             {
               "id":"6iconto",
-              "role": "Operation"
+              "name": "Operation"
             },
             {
               "id":"7iconto",
-              "role": "Serv Applicativi"
+              "name": "Serv Applicativi"
             }
            
           ]

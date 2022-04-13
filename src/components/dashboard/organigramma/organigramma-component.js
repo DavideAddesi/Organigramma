@@ -90,11 +90,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       if(org.type=="presidenza") return "#D66666" //presidenza
       if(org.type=="cda") return "#f8873b" //cda
       if(org.type=="area") return "#F5F5F5" //area (staff, business unit, ecc...)
-
-      if(org.type==0) return "#ffd27f" //direzione generale
-      if(org.type==1) return "#ddffd2" //direzione
-      if(org.type==2) return "#A7C7E7" //struttura
-      if(org.type==3) return "#fff"  //unità operativa
+      if(org.type=="dirGenerale") return "#ffd27f" //direzione generale
+      if(org.type=="direzione") return "#ddffd2" //direzione
+      if(org.type=="struttura") return "#A7C7E7" //struttura
+      if(org.type=="unita") return "#fff"  //unità operativa
     }
 
     const codeSize = size == "small" ? "9px": size== "medium" ? "11px":"10px" 
@@ -111,7 +110,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           [classes.area]: org.type == "area",
           [classes.unit] : org.type!= "area" && org.type!= "cda" && org.type!= "presidenza",
           [classes.others] :  org.type == "cda" || org.type== "presidenza",
-          [classes.setMaxWidth] : org.type==0 || org.subtype=="presidenza" || org.subtype=="cda"
+          [classes.setMaxWidth] : org.type=="dirGenerale" || org.subtype=="presidenza" || org.subtype=="cda"
         })}
         style={{ backgroundColor: backgroundColor()}}
       >
@@ -130,9 +129,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           }}>
             <Typography variant="caption" sx={{fontSize:codeSize}}>{org.code}</Typography>
             <Box display="flex" sx={{flexDirection:"column"}}>
-                <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.role}</Typography>
+                <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.name}</Typography>
                 <Box display="flex" sx={{gap:"7px", alignItems: "center", justifyContent: "center"}}>
-                <Typography variant="subtitle2" sx={{fontSize:nameSize}}>{org.name}</Typography>
+                <Typography variant="subtitle2" sx={{fontSize:nameSize}}>{org.responsabile}</Typography>
                 </Box>
               
             </Box>

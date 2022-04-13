@@ -1,16 +1,16 @@
 {
     "id":"1pres",
     "code":"CDR P10000",
-    "role": "PRESIDENZA",
-    "name":"L. Tagliavanti",
+    "name": "PRESIDENZA",
+    "responsabile":"L. Tagliavanti",
     "type": "presidenza",
     "children": [
       {
         "id":"2pres",
         "code":"CDR P11000",
-        "role": "COMUNICAZIONE",
-        "name":"M. T. Capacchione",
-        "type": 2,
+        "name": "COMUNICAZIONE",
+        "responsabile":"M. T. Capacchione",
+        "type": "struttura",
         "subtype":"presidenza"
       }
      

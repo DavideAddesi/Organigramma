@@ -55,20 +55,14 @@ const useStyles = makeStyles((theme) => ({
     
     const classes = useStyles();
     const backgroundColor = () =>{
-        if(org.type==0){
-            return "#ffd27f"
-        }
-        if(org.type==1){
-            return "#ddffd2"
-        }
-        if(org.type==2){
-            return "#A7C7E7"
-        }
-        if(org.type==3){
-            return "#fff"
-        }
 
-         return "#000"
+      if(org.type=="presidenza") return "#D66666" //presidenza
+      if(org.type=="cda") return "#f8873b" //cda
+      if(org.type=="area") return "#F5F5F5" //area (staff, business unit, ecc...)
+      if(org.type=="dirGenerale") return "#ffd27f" //direzione generale
+      if(org.type=="direzione") return "#ddffd2" //direzione
+      if(org.type=="struttura") return "#A7C7E7" //struttura
+      if(org.type=="unita") return "#fff"  //unità operativa
     }
 
 
@@ -88,12 +82,12 @@ const useStyles = makeStyles((theme) => ({
         <CardContent sx={{padding:"10px 5px"}}>
             <Typography variant="caption" sx={{fontSize:codeSize}}>{org.code}</Typography>
             <Box display="flex" sx={{flexDirection:"column"}}>
-                <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.role}</Typography>
+                <Typography  sx={{fontSize:roleSize, fontWeight: 600,}}>{org.name}</Typography>
                 <Box display="flex" sx={{gap:"7px", alignItems: "center", justifyContent: "center"}}>
                 {/* <Avatar className={classes.avatar} sx={{ width: 24, height: 24 }}>
                   <BusinessIcon color="primary" />
                 </Avatar> */}
-                <Typography variant="subtitle2" sx={{fontSize:nameSize}}>{org.name}</Typography>
+                <Typography variant="subtitle2" sx={{fontSize:nameSize}}>{org.responsabile}</Typography>
                 </Box>
               
             </Box>

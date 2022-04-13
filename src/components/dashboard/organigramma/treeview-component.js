@@ -60,13 +60,13 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
 
   const chip = (type, code) =>{ 
     const withNoCDR = code ? code.split("CDR").pop(): ""
-    if(type==1) return   <Chip label={withNoCDR} color="direzione" />
+    if(type=="direzione") return   <Chip label={withNoCDR} color="direzione" />
 
     // <FontAwesomeIcon icon={faBuilding} />
-    if(type==2) return  <Chip label={withNoCDR} color="struttura" />
+    if(type=="struttura") return  <Chip label={withNoCDR} color="struttura" />
 
     // <FontAwesomeIcon icon={faBriefcase} />
-    if(type==3) return <Chip label={withNoCDR || "******"} variant="outlined"  />
+    if(type=="unita") return <Chip label={withNoCDR || "******"} variant="outlined"  />
   }
 
   const cap = (value) =>{
@@ -79,10 +79,10 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
           <Box display="flex" sx={{justifyContent:"space-between", p:"7px"}} >
             <Box sx={{display:"flex", alignItems: "center", gap:"7px"}}>
                 {node.type!== 0 ? dettaglio ? null: chip(node.type, node.code): null}
-                <Typography variant="body2">{cap(node.role)}</Typography> 
+                <Typography variant="body2">{cap(node.name)}</Typography> 
             </Box>
             {/* <Typography variant="caption" sx={{fontSize:"10px"}} >{node.code}</Typography>  */}
-            <Typography variant="caption" sx={{fontSize:"10px"}} >{node.name}</Typography> 
+            <Typography variant="caption" sx={{fontSize:"10px"}} >{node.responsabile}</Typography> 
           </Box>
       )
   }
@@ -117,7 +117,7 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
       >
         {!dettaglio ? (
           <>
-             <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({role:"InfoCamere"})} sx={{my:"10px"}}>
+             <TreeItem key={"infoRoot"} nodeId={"infoRoot"} label={treeItemLabel({name:"InfoCamere"})} sx={{my:"10px"}}>
               {renderTree(cda)}
               {renderTree(pres)}
               {renderTree(org)}

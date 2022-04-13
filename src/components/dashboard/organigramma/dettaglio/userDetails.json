@@ -8,46 +8,43 @@
     "sede": "Milano",
     "email":"alexander.balest@gmail.com",
     "mission":"Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-
-
-
     "posizionamentoAziendale":{
         "id":1,
-        "role": "CCIAA: SERVIZI STANDARD E DI SISTEMA",
-        "type": 1,
+        "name": "CCIAA: SERVIZI STANDARD E DI SISTEMA",
+        "type": "direzione",
         "children":[
             {
                 "id": 2,
-                "role": "Relazioni con UC e soc. di sistema",
-                "type": 2
+                "name": "Relazioni con UC e soc. di sistema",
+                "type": "struttura"
             },
             {
                 "id": 3,
-                "role": "Sviluppo gestione istruttoria RI e REA",
-                "type": 2,
+                "name": "Sviluppo gestione istruttoria RI e REA",
+                "type": "struttura",
                 "children":[
                     {
                         "id": 4,
-                        "role": "Procedure e servizi applicativi",
-                        "type": 3,
+                        "name": "Procedure e servizi applicativi",
+                        "type": "unita",
                         "owned":true
                     },
                     {
                         "id": 5,
-                        "role": "Servizi di istruttoria amministrativa",
-                        "type": 3
+                        "name": "Servizi di istruttoria amministrativa",
+                        "type": "unita"
                     }
                 ]
             },
             {
                 "id": 6,
-                "role": "Sviluppo e gestione servizi standard",
-                "type": 2
+                "name": "Sviluppo e gestione servizi standard",
+                "type": "struttura"
             },
             {
                 "id": 7,
-                "role": "Sviluppo Gestione e supporto operativo SUAP",
-                "type": 2
+                "name": "Sviluppo Gestione e supporto operativo SUAP",
+                "type": "struttura"
             }
         ]
     },
