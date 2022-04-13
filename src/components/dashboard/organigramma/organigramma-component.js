@@ -97,7 +97,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     }
 
     const codeSize = size == "small" ? "9px": size== "medium" ? "11px":"10px" 
-    const roleSize = size == "small" ? "9px": size== "medium" ? "13px":"18px" 
+    const roleSize = size == "small" ? "8px": size== "medium" ? "13px":"18px" 
     const nameSize = size == "small" ? "9px": size== "medium" ? "12px":"13px" 
 
 
