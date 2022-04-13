@@ -110,7 +110,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           [classes.area]: org.type == "area",
           [classes.unit] : org.type!= "area" && org.type!= "cda" && org.type!= "presidenza",
           [classes.others] :  org.type == "cda" || org.type== "presidenza",
-          [classes.setMaxWidth] : org.type=="dirGenerale" || org.subtype=="presidenza" || org.subtype=="cda"
+          [classes.setMaxWidth] : org.type=="dirGenerale" || org.fatherType=="presidenza" || org.fatherType=="cda"
         })}
         style={{ backgroundColor: backgroundColor()}}
       >

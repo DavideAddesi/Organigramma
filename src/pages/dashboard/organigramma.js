@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, createRef } from 'react';
+import { useCallback, useEffect, useState, useRef, createRef } from 'react';
 import Head from 'next/head';
 import {
   Box,
@@ -11,7 +11,7 @@ import {
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 
-import org from "./json-strutture/org.json";
+// import org from "./json-strutture/org.json";
 import cda from "./json-strutture/cda.json";
 import presidenza from "./json-strutture/presidenza.json";
 import OrganigrammaComponent from '../../components/dashboard/organigramma/organigramma-component'
@@ -23,6 +23,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import PrintIcon from '@mui/icons-material/Print';
 import {useReactToPrint} from "react-to-print";
 import  ReactToPrint from "react-to-print"
+import { useMounted } from '../../hooks/use-mounted';
+import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
 
 const options = [
   {value:"small", label:"Piccolo"},
@@ -33,13 +35,32 @@ const options = [
 const Organigramma = () => {
   const [size, setsize] = useState("small")
   const [displayMore, setDisplayMore] = useState(true)
-  const [organization, setOrganization] = useState(org) 
+  const [organization, setOrganization] = useState(null) 
   const [openMenu, setOpenMenu] = useState(false);
   const [displayTitolo, setDisplayTitolo] = useState({label:null, resolve: undefined});
+  const isMounted = useMounted();
 
   const anchorRef = useRef(null);
 
   const componentRef = createRef(null)
+
+
+  const getOrg = useCallback(async () => {
+    try {
+      const data = await infoCamereAPI.getOrgInfocamere({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      if (isMounted()) {
+        setOrganization(data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    getOrg();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []);
 
   useEffect(() => {
     const {resolve} = displayTitolo;
@@ -70,7 +91,8 @@ const Organigramma = () => {
   };
 
   useEffect(() => {
-      const newChildren = organization.children.map(child =>{
+    if(organization){
+      const newChildren = organization.organigramma.children.map(child =>{
         return {...child, 
           collapsed: child.collapsed && displayMore ? false: child.collapsed,
           children: child.children.map(c=>({
@@ -79,7 +101,9 @@ const Organigramma = () => {
           }))
         }
       })
-      setOrganization({...organization, children:newChildren})
+      setOrganization({...organization, organigramma:{...organization.organigramma, children:newChildren}})
+    }
+      
   }, [displayMore])
 
 //   useEffect(() => {
@@ -87,7 +111,9 @@ const Organigramma = () => {
 //     setOrganization({...organization, children:newChildren})
 // }, [displayMore])
 
-
+if(!organization){
+  return null
+}
 
   return (
     <>
@@ -187,9 +213,9 @@ const Organigramma = () => {
                           <OrganigrammaComponent 
                             size={size} 
                             displayMore={displayMore} 
-                            org={organization}  
-                            cda={cda} 
-                            presidenza={presidenza} 
+                            org={organization.organigramma}  
+                            cda={organization.cda} 
+                            presidenza={organization.presidenza} 
                             // childRef={componentRef} 
                         /> 
               </Grid>

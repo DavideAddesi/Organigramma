@@ -9,6 +9,19 @@ export const errorHandler = (error) => {
 
 class InfoCamereAPI {
 
+  getOrgInfocamere({restPrefix}) {  
+    const http = axios.create({
+      baseURL: restPrefix
+    });
+    return http
+    .get('/api/v1/organigramma/get/struttura/infocamere')
+      .then(response => {
+        const resp = response.data;
+        return resp;
+      })
+      .catch(error => errorHandler(error));
+  }
+
   getScheda({restPrefix}) {  
     const http = axios.create({
       baseURL: restPrefix
