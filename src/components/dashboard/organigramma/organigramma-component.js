@@ -138,7 +138,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
             </Box>
           </Box>      
         </div>
-        {org.children  &&   <IconButton 
+        {org.children  && org.type!="cda" &&org.type!="presidenza" &&   <IconButton 
           size="small"
           onClick={onCollapse}
           className={clsx(classes.expand, {
