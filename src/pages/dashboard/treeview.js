@@ -57,7 +57,7 @@ const Treeview = () => {
             spacing={4}
           >
               <Grid item>
-                    <TreeviewComponent org={org} h={600} cda={cda} pres={presidenza} outsourcing={outsourcing} ecocerved={ecocerved} iconto={iconto} />
+                    <TreeviewComponent org={org.organigramma} h={600} cda={org.cda} pres={org.presidenza} outsourcing={outsourcing} ecocerved={ecocerved} iconto={iconto} />
               </Grid>
               
             
