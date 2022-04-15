@@ -24,8 +24,8 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
   const [ids, setIds] = React.useState([])
 
   React.useEffect(() => {
-    const firstCode= org.id
-    recursiveIds(org.children, [firstCode, "infoRoot", "1cda", "1pres"])
+    const firstCodes= ["infoRoot", org.id, cda.id, pres.id, outsourcing.id, ecocerved.id, iconto.id]
+    recursiveIds(org.children, firstCodes)
   }, [])
   
 

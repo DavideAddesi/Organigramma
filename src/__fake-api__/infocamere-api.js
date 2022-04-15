@@ -48,6 +48,44 @@ class InfoCamereAPI {
       .catch(error => errorHandler(error));
   }
 
+  getOrgicoutsourcing({restPrefix}) {  
+    const http = axios.create({
+      baseURL: restPrefix
+    });
+    return http
+    .get('/api/v1/organigramma/get/struttura/icoutsourcing')
+      .then(response => {
+        const resp = response.data;
+        return resp;
+      })
+      .catch(error => errorHandler(error));
+  }
+
+  getOrgiconto({restPrefix}) {  
+    const http = axios.create({
+      baseURL: restPrefix
+    });
+    return http
+    .get('/api/v1/organigramma/get/struttura/iconto')
+      .then(response => {
+        const resp = response.data;
+        return resp;
+      })
+      .catch(error => errorHandler(error));
+  }
+  getOrgecocerved({restPrefix}) {  
+    const http = axios.create({
+      baseURL: restPrefix
+    });
+    return http
+    .get('/api/v1/organigramma/get/struttura/ecocerved')
+      .then(response => {
+        const resp = response.data;
+        return resp;
+      })
+      .catch(error => errorHandler(error));
+  }
+
 
   
 }

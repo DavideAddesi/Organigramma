@@ -38,11 +38,11 @@ const Organigramma = () => {
   const [organization, setOrganization] = useState(null) 
   const [openMenu, setOpenMenu] = useState(false);
   const [displayTitolo, setDisplayTitolo] = useState({label:null, resolve: undefined});
-  const isMounted = useMounted();
-
-  const anchorRef = useRef(null);
-
+  
   const componentRef = createRef(null)
+  const anchorRef = useRef(null);
+  
+  const isMounted = useMounted();
 
 
   const getOrg = useCallback(async () => {
