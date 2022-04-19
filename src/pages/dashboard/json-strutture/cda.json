@@ -10,7 +10,8 @@
         "name": "INTERNAL AUDIT",
         "responsabile":"M. C. Mazzucato",
         "type": "struttura",
-        "subtype":"cda"
+        "subtype":"cda",
+        "fatherType":"cda"
       }
      
     ]
