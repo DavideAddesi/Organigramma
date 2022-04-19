@@ -21,12 +21,14 @@ import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import makeStyles from '@mui/styles/makeStyles';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-import userJson from "./json-strutture/user.json"
+// import user from "./json-strutture/user.json"
 import LinkIcon from '@mui/icons-material/Link'
 import Skeleton from '@mui/material/Skeleton';
 import CalendarUser from './calendarUser';
 import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
+import { useMounted } from '../../hooks/use-mounted';
+import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
 
 
 
@@ -61,13 +63,14 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomerDetails = () => {
   const classes = useStyles();
+  const [user, setUser] = useState(null);
   const [currentTab, setCurrentTab] = useState('attivita');
   const StyledBadge = styled(Badge)(({ theme }) => ({
     '& .MuiBadge-badge': {
       width: '15px',
       height: '15px',
-      backgroundColor: color(userJson.stato),
-      color: color(userJson.stato),
+      backgroundColor: color(user?.stato),
+      color: color(user?.stato),
       boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
       '&::after': {
         position: 'absolute',
@@ -93,6 +96,25 @@ const CustomerDetails = () => {
     },
   })); 
 
+  const isMounted = useMounted();
+
+  const getUtente = useCallback(async () => {
+    try {
+      const data = await infoCamereAPI.getUtente({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      if (isMounted()) {
+        setUser(data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    getUtente();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    []);
+
   const handleTabsChange = (event, value) => {
     setCurrentTab(value);
   };
@@ -100,6 +122,10 @@ const CustomerDetails = () => {
   const handleClick = () => {
     console.info('You clicked the Chip.');
   };
+
+  if(!user){
+    return null
+  }
   return (
     <>
       <Head>
@@ -161,14 +187,14 @@ const CustomerDetails = () => {
                     
                     <div style={{marginLeft:20}}>
                     <Typography variant="h4" >
-                        {userJson.nome}
+                        {user.nome}
                       </Typography>
                       <div style={{display: 'flex', flexDirection: 'column', gap: 5}}>
                         <Typography
                         color="textSecondary"
                         variant="overline"
                         >
-                           {userJson.ruolo}, {userJson.sede}
+                           {user.ruolo}, {user.sede}
                         </Typography>
                      
 
@@ -181,7 +207,7 @@ const CustomerDetails = () => {
                             color="secondary"
                             variant="overline"
                           >
-                            {userJson.area}
+                            {user.area}
                           </Typography> 
                         </NextLink>
                       </div>
@@ -235,7 +261,7 @@ const CustomerDetails = () => {
                           EMAIL: 
                         </Typography> 
                         <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                           {userJson.email}
+                           {user.email}
                         </Typography> 
                         </div>
                         <div className={classes.label}>
@@ -243,7 +269,7 @@ const CustomerDetails = () => {
                         TEL/CELL: 
                         </Typography> 
                         <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                        {userJson.tel}
+                        {user.tel}
                         </Typography> 
                         </div>
                          </div>
@@ -253,7 +279,7 @@ const CustomerDetails = () => {
                         MATRICOLA: 
                         </Typography> 
                         <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                        {userJson.matricola}
+                        {user.matricola}
                         </Typography> 
                         </div>
 
@@ -262,7 +288,7 @@ const CustomerDetails = () => {
                         UFFICIO: 
                         </Typography> 
                         <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                        {userJson.ufficio}
+                        {user.ufficio}
                         </Typography> 
                         </div>
                    
@@ -288,7 +314,7 @@ const CustomerDetails = () => {
                     <Card>
                       <Box p={3}>
                         <Typography>
-                          {userJson.descrizione}
+                          {user.descrizione}
                         </Typography>
                       </Box>
                     </Card>              
@@ -305,7 +331,7 @@ const CustomerDetails = () => {
                     </Box> 
                     <Card>
                       <Box p={3}>
-                       {userJson.competenze.map(competenza=>(
+                       {user.competenze.map(competenza=>(
                          <Box key={competenza} sx={{display: 'flex', justifyContent:"space-between"}}>
                            <Typography variant="overline">{competenza.nome}</Typography>
                            <Typography variant="overline">{competenza.percentuale}</Typography>
@@ -320,8 +346,8 @@ const CustomerDetails = () => {
                     </Box>
                     <Card>
                       <Box p={3}>
-                      {userJson.corsi.map((corso, i)=>(
-                         <Box key={i} sx={{display: 'flex', flexDirection:"column", mb: userJson.corsi.length == i+1 ? 0 : 3}}>
+                      {user.corsi.map((corso, i)=>(
+                         <Box key={i} sx={{display: 'flex', flexDirection:"column", mb: user.corsi.length == i+1 ? 0 : 3}}>
                            <Typography variant="overline"  sx={{lineHeight:"0.5"}}>{corso.data}</Typography>
                            <Typography variant="subtitle2" >{corso.nome}</Typography>
                          </Box>
@@ -403,7 +429,7 @@ const CustomerDetails = () => {
                     <Card sx={{ mt: 2 }}>
                       <Box p={3}>
                         {currentTab == "attivita" ? (
-                           userJson.attività.map(att=>(
+                           user.attività.map(att=>(
                             <Box key={att} sx={{display: 'flex'}}>
                               <Typography variant="overline">{att}</Typography>
                             </Box>
@@ -425,7 +451,7 @@ const CustomerDetails = () => {
                     </Box> 
                     <Card>
                       <Box p={3} sx={{ display: 'flex', gap:"7px"}}>
-                        {userJson.interessi.map(interesse=>(
+                        {user.interessi.map(interesse=>(
                           <Chip key={interesse} label={interesse} variant="outlined" onClick={handleClick} color="primary" />
                         ))}
                       </Box>

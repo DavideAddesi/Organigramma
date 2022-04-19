@@ -9,7 +9,9 @@ import {
   ButtonBase,
   IconButton,
   Toolbar,
-  Tooltip
+  Tooltip,
+  Textfield,
+  TextField,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Menu as MenuIcon } from '../../icons/menu';
@@ -284,6 +286,8 @@ export const DashboardNavbar = (props) => {
           {/* <ContactsButton /> */}
           {/* <NotificationsButton /> */}
           {/* <AccountButton /> */}
+          {/* <TextField id="outlined-basic" label="end-point" variant="outlined" size="small"  /> */}
+
         </Toolbar>
       </DashboardNavbarRoot>
     </>

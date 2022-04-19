@@ -1,16 +1,17 @@
 {
     "id":"1cda",
-    "role": "Rispondono al CDA",
+    "name": "Rispondono al CDA",
     "type": "cda",
     "avatar":false,
     "children": [
       {
         "id":"2cda",
         "code":"CDR A11000",
-        "role": "INTERNAL AUDIT",
-        "name":"M. C. Mazzucato",
-        "type": 2,
-        "subtype":"cda"
+        "name": "INTERNAL AUDIT",
+        "responsabile":"M. C. Mazzucato",
+        "type": "struttura",
+        "subtype":"cda",
+        "fatherType":"cda"
       }
      
     ]

@@ -1,88 +1,88 @@
 {
    "id":1,
    "code":"CDR A10000",
-   "role":"DIREZIONE GENERALE",
-   "name":"P.Ghezzi",
-   "type":0,
+   "name":"DIREZIONE GENERALE",
+   "responsabile":"P.Ghezzi",
+   "type": "dirGenerale",
          "children":[
             {
                "id":2,
                "code":"CDR A15000",
-               "role":"DIREZIONE AFFARI LEGALI E ISTITUZIONALI",
-               "name":"G. Sessa",    
+               "name":"DIREZIONE AFFARI LEGALI E ISTITUZIONALI",
+               "responsabile":"G. Sessa",    
                "childrendirection":"column",
-               "type":1,
+               "type": "direzione",
                "children":[
                   {
                      "id":3,
                      "code":"CDR A15000",
                      "direction":"column",
                      
-                     "role":"SERVIZI LEGALI",
-                     "name":"S. Marchetti",
-                     "type":3
+                     "name":"SERVIZI LEGALI",
+                     "responsabile":"S. Marchetti",
+                     "type": "unita"
                   },
                   {
                      "id":4,
                      "code":"CDR A15000",
                      "direction":"column",
                      
-                     "role":"SERVIZI SOCIETARI",
-                     "name":"F. Castrica",
-                     "type":3
+                     "name":"SERVIZI SOCIETARI",
+                     "responsabile":"F. Castrica",
+                     "type": "unita"
                   },
                   {
                      "id":5,
                      "code":"CDR A15000",
                      "direction":"column",              
-                     "role":"RELAZIONI ISTITUZIONALI",
-                     "name":"G. Da Rin",
-                     "type":3
+                     "name":"RELAZIONI ISTITUZIONALI",
+                     "responsabile":"G. Da Rin",
+                     "type": "unita"
                   }
                ]
             },
             {
              "id":12,
              "code":"CDR A16000",
-             "role":"DIREZIONE RISORSE UMANE, ORGANIZZAZIONE E AFFARI GENERALI",
-             "name":"M. Bergamasco",
+             "name":"DIREZIONE RISORSE UMANE, ORGANIZZAZIONE E AFFARI GENERALI",
+             "responsabile":"M. Bergamasco",
              "childrendirection":"column",
                     
-             "type":1,
+             "type": "direzione",
              "children":[
                  {
                    "id":41,
                    "code":"CDR A16000",
-                   "role":"PERSONE, COMPETENZE E PROCESSI",
-                   "name":"E. PROIETTI",
+                   "name":"PERSONE, COMPETENZE E PROCESSI",
+                   "responsabile":"E. PROIETTI",
                    "direction":"column",
                    "childrendirection":"column",
                     
-                   "type":2,
+                   "type": "struttura",
                    "children":[
                      {
                        "id":13,
                        "code":"CDR A16000",
-                       "role":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA",
-                       "name":"R. Sibilio",
+                       "name":"SVILUPPO RISORSE UMANE E COMUNICAZIONE INTERNA",
+                       "responsabile":"R. Sibilio",
                        "direction":"column",
-                       "type":3
+                       "type": "unita"
                     },
                     {
                        "id":14,
                        "code":"CDR A16000",
-                       "role":"AMMINISTRAZIONE RISORSE UMANE",
-                       "name":"S. Schipilliti",
+                       "name":"AMMINISTRAZIONE RISORSE UMANE",
+                       "responsabile":"S. Schipilliti",
                        "direction":"column",
-                       "type":3
+                       "type": "unita"
                     },
                     {
                        "id":15,
                        "code":"CDR A16000",
-                       "role":"ORGANIZZAZIONE, QUALITA' E PROCESSI",
-                       "name":"A. Lasaracina",
+                       "name":"ORGANIZZAZIONE, QUALITA' E PROCESSI",
+                       "responsabile":"A. Lasaracina",
                        "direction":"column",
-                       "type":3
+                       "type": "unita"
                     }
                    ]
                  }
@@ -92,50 +92,50 @@
             {
              "id":6,
              "code":"CDR A17000",
-             "role":"DIREZIONE AMMINISTRAZIONE E FINANZA",
+             "name":"DIREZIONE AMMINISTRAZIONE E FINANZA",
              "childrendirection":"column",
-             "name":"V. Padula",
-             "type":1,
+             "responsabile":"V. Padula",
+             "type": "direzione",
              "children":[
                 {
                    "id":7,
                    "code":"CDR A17000",
-                   "role":"AMMINISTRAZIONE CLIENTI",
+                   "name":"AMMINISTRAZIONE CLIENTI",
                    "direction":"column", 
-                   "name":"R. Ragazzon",
-                   "type":3
+                   "responsabile":"R. Ragazzon",
+                   "type": "unita"
                 },
                 {
                    "id":8,
                    "code":"CDR A17000",
-                   "role":"CONTABILITÀ E BILANCIO",
+                   "name":"CONTABILITÀ E BILANCIO",
                    "direction":"column", 
-                   "name":"F. Cappellato",
-                   "type":3
+                   "responsabile":"F. Cappellato",
+                   "type": "unita"
                 },
                 {
                    "id":9,
                    "code":"CDR A17100",
-                   "role":"SERVIZI AMMINISTRATIVI DI GRUPPO",
+                   "name":"SERVIZI AMMINISTRATIVI DI GRUPPO",
                    "direction":"column", 
-                   "name":"M. Ravelli",
-                   "type":3
+                   "responsabile":"M. Ravelli",
+                   "type": "unita"
                 }
              ]
             },
             {
              "id":10,
              "code":"CDR A12000",
-             "role":"APPROVVIGIONAMENTI",
-             "name":"A. Marchesin",
-             "type":2
+             "name":"APPROVVIGIOresponsabileNTI",
+             "responsabile":"A. Marchesin",
+             "type": "struttura"
             },
             {
              "id":11,
              "code":"CDR A13000",
-             "role":"PIANIFICAZIONE E CONTROLLO",
-             "name":"M. Martorella",
-             "type":2
+             "name":"PIANIFICAZIONE E CONTROLLO",
+             "responsabile":"M. Martorella",
+             "type": "struttura"
             } ,       
         
        
@@ -143,107 +143,107 @@
             {
                "id":18,
                "code":"CDR C10000",
-               "role":"CCIAA: SERVIZI STANDARD E DI SISTEMA",
-               "name":"S. Nasoni",
+               "name":"CCIAA: SERVIZI STANDARD E DI SISTEMA",
+               "responsabile":"S. Nasoni",
                   
                  
-               "type":1,
+               "type": "direzione",
                "childrendirection" :"column",
                "children":[
                  {
                    "id":53,
                    "code":"CDR C11000",
-                   "role":"RELAZIONI CON UNIONCAMERE E SOCIETA' DI SISTEMA",
-                   "name":"A. Meloni",
+                   "name":"RELAZIONI CON UNIONCAMERE E SOCIETA' DI SISTEMA",
+                   "responsabile":"A. Meloni",
                    "direction":"column",
-                   "type":2
+                   "type": "struttura"
                 },
                   {
                      "id":19,
                      "code":"CDR C21000",
-                     "role":"SVILUPPO E GESTIONE ISTRUTTORIA RI E REA",
-                     "name":"F. Dolzan",
+                     "name":"SVILUPPO E GESTIONE ISTRUTTORIA RI E REA",
+                     "responsabile":"F. Dolzan",
                      "direction":"column",
                      "childrendirection":"column",
                      
                  
-                     "type":2,
+                     "type": "struttura",
                      "children":[
                         {
                            "id":20,
                            "code":"CDR C21000",
-                           "role":"PROCEDUREE SERVIZI APPLICATIVI",
-                           "name":"A. Balest",
+                           "name":"PROCEDUREE SERVIZI APPLICATIVI",
+                           "responsabile":"A. Balest",
                            "direction":"column",
                            "childrendirection":"column",
-                           "type":3
+                           "type": "unita"
                         },
                         {
                            "id":21,
                            "code":"CDR C21000",
-                           "role":"SERVIZI DI ISTRUTTORIA AMMINISTRATIVA",
-                           "name":"P. Marzo",
+                           "name":"SERVIZI DI ISTRUTTORIA AMMINISTRATIVA",
+                           "responsabile":"P. Marzo",
                            "direction":"column",
                            "childrendirection":"column",
                  
-                           "type":3
+                           "type": "unita"
                         }
                      ]
                   },
                   {
                      "id":22,
                      "code":"CDR C22000",
-                     "role":"SVILUPPO E GESTIONE SERVIZI STANDARD",
+                     "name":"SVILUPPO E GESTIONE SERVIZI STANDARD",
                      "direction":"column",
                      "childrendirection":"column",
-                     "name":"M. Romualdi",
+                     "responsabile":"M. Romualdi",
  
-                     "type":2,
+                     "type": "struttura",
                      "children":[
                         {
                            "id":23,
                            "code":"CDR C22000",
-                           "role":"PIATTAFORME E PROCESSI DIGITALI",
-                           "name":"P. Graffi",
+                           "name":"PIATTAFORME E PROCESSI DIGITALI",
+                           "responsabile":"P. Graffi",
                            "direction":"column",
                  
-                           "type":3
+                           "type": "unita"
                         },
                         {
                            "id":24,
                            "code":"CDR C22000",
-                           "role":"CONDUZIONE OPERATIVA DEI SERVIZI",
-                           "name":"L. Beltramin",
+                           "name":"CONDUZIONE OPERATIVA DEI SERVIZI",
+                           "responsabile":"L. Beltramin",
                            "direction":"column",
-                           "type":3
+                           "type": "unita"
                         }
                      ]
                   },
                   {
                    "id":50,
                    "code":"CDR C23000",
-                   "role":"SVILUPPO GESTIONE E SUPPORTO OPERATIVO SUAP",
-                   "name":"A. Craig",
+                   "name":"SVILUPPO GESTIONE E SUPPORTO OPERATIVO SUAP",
+                   "responsabile":"A. Craig",
                    "direction":"column",
  
                    "childrendirection":"column",
-                   "type":2,
+                   "type": "struttura",
                    "children":[
                       {
                          "id":51,
                          "code":"CDR C23000",
-                         "role":"EROGAZIONE E SVILUPPO",
-                         "name":"A. Craig ad interim",
+                         "name":"EROGAZIONE E SVILUPPO",
+                         "responsabile":"A. Craig ad interim",
                          "direction":"column",
-                         "type":3
+                         "type": "unita"
                       },
                       {
                          "id":52,
                          "code":"CDR C23000",
-                         "role":"PRESIDIO NORMATIVO TERRITORIALE",
-                         "name":"S. Volatile",
+                         "name":"PRESIDIO NORMATIVO TERRITORIALE",
+                         "responsabile":"S. Volatile",
                          "direction":"column",
-                         "type":3
+                         "type": "unita"
                       }
                    ]
                 }
@@ -252,198 +252,198 @@
             {
                "id":30,
                "code":"CDR D10000",
-               "role":"CCIAA: SERVIZI A RICHIESTA E INIZIATIVE TERRITORIALI",
-               "name":"A. Tonini - A. Panella",
+               "name":"CCIAA: SERVIZI A RICHIESTA E INIZIATIVE TERRITORIALI",
+               "responsabile":"A. Tonini - A. Panella",
               
                "childrendirection":"column",
-               "type":1,
+               "type": "direzione",
                "children":[
                  {
                    "id":65,
                    "code":"CDR D10000",
-                   "role":"SUPPORTO ALLE INIZIATIVE PER LE CAMERE",
-                   "name":"A. Pascarella",
-                   "type":3,
+                   "name":"SUPPORTO ALLE INIZIATIVE PER LE CAMERE",
+                   "responsabile":"A. Pascarella",
+                   "type": "unita",
                    "direction":"column",
                    "childrendirection":"column"
                 },
                   {
                      "id":31,
                      "code":"CDR D11000",
-                     "role":"SVILUPPOCAMERE E TERRITORI AREA1",
-                     "name":"M. Maccalli",
-                     "type":2,
+                     "name":"SVILUPPOCAMERE E TERRITORI AREA1",
+                     "responsabile":"M. Maccalli",
+                     "type": "struttura",
                      "direction":"column",
                      "childrendirection":"column",
                        "children":[
                        {
                          "id":60,
                          "code":"CDR D11000",
-                         "role":"INIZIATIVE TERRITORIALI",
-                         "name":"Diego Tarantino",
+                         "name":"INIZIATIVE TERRITORIALI",
+                         "responsabile":"Diego Tarantino",
                          "direction":"column",
                          "childrendirection":"column",
-                               "type":3
+                               "type": "unita"
                       },
                       {
                        "id":61,
                        "code":"CDR D11000",
-                       "role":"SERVIZI PER LA CAMERA DIGITALE",
+                       "name":"SERVIZI PER LA CAMERA DIGITALE",
                        "direction":"column",
                        "childrendirection":"column",
-                      "name":"M. Maccalli ad interim",
-                       "type":3
+                      "responsabile":"M. Maccalli ad interim",
+                       "type": "unita"
                        }
                      ]                          
                   },
                   {
                      "id":32,
                      "code":"CDR D12000",
-                     "role":"SVILUPPOCAMERE E TERRITORI AREA2",
+                     "name":"SVILUPPOCAMERE E TERRITORI AREA2",
                      "direction":"column",
                      "childrendirection":"column",
-                    "name":"F. Romano",
-                     "type":2,
+                    "responsabile":"F. Romano",
+                     "type": "struttura",
                      "children":[
                        {
                          "id":63,
                          "code":"CDR D13000",
-                         "role":"INIZIATIVE TERRITORIALI",
+                         "name":"INIZIATIVE TERRITORIALI",
                          "direction":"column",
                          "childrendirection":"column",
-                             "name":"R. Napoli",
-                         "type":3
+                             "responsabile":"R. Napoli",
+                         "type": "unita"
                       },
                       {
                        "id":64,
                        "code":"CDR D12000",
-                       "role":"SERVIZI PER LA CAMERA DIGITALE",
+                       "name":"SERVIZI PER LA CAMERA DIGITALE",
                        "direction":"column",
                        "childrendirection":"column",
-                      "name":"F. Romano ad interim",
-                       "type":3
+                      "responsabile":"F. Romano ad interim",
+                       "type": "unita"
                        }
                      ]   
                   },
                   {
                    "id":66,
                    "code":"CDR D21000",
-                   "role":"CONSULENZA FORMAZIONE E SERV. AMMINISTRATIVI",
-                   "name":"V. Acagnino",
+                   "name":"CONSULENZA FORMAZIONE E SERV. AMMINISTRATIVI",
+                   "responsabile":"V. Acagnino",
                    "direction":"column",
                    "childrendirection":"column",
-                  "type":2,
+                  "type": "struttura",
                    "children":[
                      {
                        "id":67,
                        "code":"CDR D21000",
-                       "role":"CONSULENZE PROFESSIONALI",
+                       "name":"CONSULENZE PROFESSIONALI",
                        "direction":"column",
                    "childrendirection":"column",
-                       "name":"L. Squarcina",
-                       "type":3
+                       "responsabile":"L. Squarcina",
+                       "type": "unita"
                     },
                     {
                      "id":68,
                      "code":"CDR D21000",
-                     "role":"SERVIZI DI OUTSOURCING HR",
+                     "name":"SERVIZI DI OUTSOURCING HR",
                      "direction":"column",
                      "childrendirection":"column",
-                                         "name":"R. Rizzato",
-                     "type":3
+                                         "responsabile":"R. Rizzato",
+                     "type": "unita"
                      },
                      {
                        "id":69,
                        "code":"CDR D21000",
                        "direction":"column",
                        "childrendirection":"column",
-                         "role":"FORMAZIONE E KNOWLEDGE",
-                       "name":"S. Campoli",
-                       "type":3
+                         "name":"FORMAZIONE E KNOWLEDGE",
+                       "responsabile":"S. Campoli",
+                       "type": "unita"
                      }
                    ]   
                 },
                 {
                  "id":70,
                  "code":"CDR D22000",
-                 "role":"GESTIONE SERVIZI E PROCESSI",
+                 "name":"GESTIONE SERVIZI E PROCESSI",
                  "direction":"column",
                    "childrendirection":"column",
-                 "name":"V. Acagnino",
-                 "type":2,
+                 "responsabile":"V. Acagnino",
+                 "type": "struttura",
                  "children":[
                    {
                      "id":71,
                      "code":"CDR D22000",
-                     "role":"ALBO GESTORI AMBIENTALI",
+                     "name":"ALBO GESTORI AMBIENTALI",
                      "direction":"column",
                    "childrendirection":"column",
-                     "name":"M.A. Merlo",
-                     "type":3
+                     "responsabile":"M.A. Merlo",
+                     "type": "unita"
                   },
                   {
                      "id":72,
                      "code":"CDR D22000",
-                     "role":"DIGITAL CUSTOMER CARE",
-                     "name":"G. Bianchi ad interim",
+                     "name":"DIGITAL CUSTOMER CARE",
+                     "responsabile":"G. Bianchi ad interim",
                      "direction":"column",
                    "childrendirection":"column",
-                     "type":3
+                     "type": "unita"
                    },
                    {
                      "id":73,
                      "code":"CDR D22000",
-                     "role":"SERVIZI DI CONTACT CENTER PER LE CAMERE",
+                     "name":"SERVIZI DI CONTACT CENTER PER LE CAMERE",
                      "direction":"column",
-                   "childrendirection":"column","name":"A. Balbo",
-                     "type":3
+                   "childrendirection":"column","responsabile":"A. Balbo",
+                     "type": "unita"
                    }
                  ]   
               },
               {
                "id":74,
                "code":"CDR D23000",
-               "role":"PROGETTAZIONE E SVILUPPO IT",
-               "name":"V. Girola",
+               "name":"PROGETTAZIONE E SVILUPPO IT",
+               "responsabile":"V. Girola",
                "direction":"column",
                "childrendirection":"column",
-               "type":2,
+               "type": "struttura",
                "children":[
                  {
                    "id":75,
                    "code":"CDR D23000",
-                   "role":"SVILUPPO PROGETTI CAMERA DIGITALE",
-                   "name":"A. Lussana",
+                   "name":"SVILUPPO PROGETTI CAMERA DIGITALE",
+                   "responsabile":"A. Lussana",
                    "direction":"column",
                    "childrendirection":"column",
-                   "type":3
+                   "type": "unita"
                 },
                 {
                    "id":76,
                    "code":"CDR D23000",
-                   "role":"SVILUPPO INIZIATIVE TERRITORIALI",
-                   "name":"G. Costanzino",
+                   "name":"SVILUPPO INIZIATIVE TERRITORIALI",
+                   "responsabile":"G. Costanzino",
                    "direction":"column",
                    "childrendirection":"column",
-                   "type":3
+                   "type": "unita"
                  },
                  {
                    "id":77,
                    "code":"CDR D23000",
-                   "role":"SVILUPPO E PRESIDIO SERVIZI FACOLTATIVI",
-                   "name":"M.G. Villa",
+                   "name":"SVILUPPO E PRESIDIO SERVIZI FACOLTATIVI",
+                   "responsabile":"M.G. Villa",
                    "direction":"column",
                    "childrendirection":"column",
-                   "type":3
+                   "type": "unita"
                  },
                  {
                    "id":78,
                    "code":"CDR D23000",
-                   "role":"CONSULENZA E ASSISTENZA IT",
-                   "name":"M. Galbiati",
+                   "name":"CONSULENZA E ASSISTENZA IT",
+                   "responsabile":"M. Galbiati",
                    "direction":"column",
                    "childrendirection":"column",
-                   "type":3
+                   "type": "unita"
                  }
                ]   
             }
@@ -452,66 +452,66 @@
             {
                "id":33,
                "code":"CDR E10000",
-               "role":"PA IMPRESE E RETAIL:  PUBBLICI REGISTRI E INIZIATIVE DI DIGITALIZZAZIONE",
+               "name":"PA IMPRESE E RETAIL:  PUBBLICI REGISTRI E INIZIATIVE DI DIGITALIZZAZIONE",
            
-               "childrendirection":"column", "name":"A. Acquaviva",
-               "type":1,
+               "childrendirection":"column", "responsabile":"A. Acquaviva",
+               "type": "direzione",
                "children":[
                  {
                    "id":80,
                    "code":"CDR E11000",
-                   "role":"MERCATO IMPRESE E PA",
+                   "name":"MERCATO IMPRESE E PA",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"F. Florio",
-                   "type":2,
+                   "responsabile":"F. Florio",
+                   "type": "struttura",
                    "children":[
                      {
                        "id":81,
                        "code":"CDR E11000",
-                       "role":"OPERATORI E IMPRESE",
+                       "name":"OPERATORI E IMPRESE",
                        "direction":"column",
                    "childrendirection":"column",
-                       "name":"M. Savili",
-                       "type":3
+                       "responsabile":"M. Savili",
+                       "type": "unita"
                     },
                     {
                      "id":82,
                      "code":"CDR E11000",
-                     "role":"PUBBLICA AMMINISTRAZIONE",
+                     "name":"PUBBLICA AMMINISTRAZIONE",
                      "direction":"column",
                    "childrendirection":"column",
-                     "name":"A. Ganga",
-                     "type":3
+                     "responsabile":"A. Ganga",
+                     "type": "unita"
                      }
                    ]   
                 },
                 {
                  "id":83,
                  "code":"CDR E12000",
-                 "role":"MERCATO RETAIL E CUSTOMER CARE",
+                 "name":"MERCATO RETAIL E CUSTOMER CARE",
                  "direction":"column",
                    "childrendirection":"column",
-                 "name":"D. Verni",
-                 "type":2,
+                 "responsabile":"D. Verni",
+                 "type": "struttura",
                  "children":[
                    {
                      "id":84,
                      "code":"CDR E12000",
                      "direction":"column",
                    "childrendirection":"column",
-                     "role":"MERCATO RETAIL",
-                     "name":"A. Recchia",
-                     "type":3
+                     "name":"MERCATO RETAIL",
+                     "responsabile":"A. Recchia",
+                     "type": "unita"
                   },
                   {
                    "id":85,
                    "code":"CDR E12000",
                    "direction":"column",
                    "childrendirection":"column",
-                   "role":"SERVIZI DI CUSTOMER CARE MERCATO",
-                   "name":"C. Servino",
-                   "type":3
+                   "name":"SERVIZI DI CUSTOMER CARE MERCATO",
+                   "responsabile":"C. Servino",
+                   "type": "unita"
                    }
                  ]   
                },
@@ -520,45 +520,45 @@
                  "code":"CDR E21000",
                  "direction":"column",
                    "childrendirection":"column",
-                 "role":"SVILUPPO E GESTIONE PUBBLICI REGISTRI E BD",
-                 "name":"M. Giannini",
-                 "type":2,
+                 "name":"SVILUPPO E GESTIONE PUBBLICI REGISTRI E BD",
+                 "responsabile":"M. Giannini",
+                 "type": "struttura",
                  "children":[
                    {
                      "id":87,
                      "code":"CDR E21000",
                      "direction":"column",
                    "childrendirection":"column",
-                     "role":"COMUNICAZIONI TELEMATICHE",
-                     "name":"D. Pasinato",
-                     "type":3
+                     "name":"COMUNICAZIONI TELEMATICHE",
+                     "responsabile":"D. Pasinato",
+                     "type": "unita"
                  },
                  {
                      "id":88,
                      "code":"CDR E21000",
                      "direction":"column",
                    "childrendirection":"column",
-                     "role":"CONSULTAZIONE E SERVIZI DIGITALI",
-                     "name":"I. Bruno",
-                     "type":3
+                     "name":"CONSULTAZIONE E SERVIZI DIGITALI",
+                     "responsabile":"I. Bruno",
+                     "type": "unita"
                    },
                    {
                      "id":89,
                      "code":"CDR E21000",
                      "direction":"column",
                    "childrendirection":"column",
-                     "role":"PROCESSI DI GESTIONE E QUALITÀ BD",
-                     "name":"C. Caldieron",
-                     "type":3
+                     "name":"PROCESSI DI GESTIONE E QUALITÀ BD",
+                     "responsabile":"C. Caldieron",
+                     "type": "unita"
                    }     
                  ]   
                },
                {
                  "id":90,
                  "code":"CDR E22000",
-                 "role":"SVILUPPO E GESTIONE INIZIATIVE DI DIGITALIZZAZIONE PER LA PA",
-                 "name":"G. Colaciccio",
-                 "type":2,
+                 "name":"SVILUPPO E GESTIONE INIZIATIVE DI DIGITALIZZAZIONE PER LA PA",
+                 "responsabile":"G. Colaciccio",
+                 "type": "struttura",
                  "direction":"column",
                    "childrendirection":"column"
                }
@@ -567,49 +567,49 @@
             {
                "id":34,
                "code":"CDR F10000",
-               "role":"SERVIZI CERTIFICATI E FINANZIARI",
+               "name":"SERVIZI CERTIFICATI E FINANZIARI",
                
                    "childrendirection":"column",
-               "name":"P. Soleti",
-               "type":1,
+               "responsabile":"P. Soleti",
+               "type": "direzione",
                "children":[
                  {
                    "id":91,
                    "code":"CDR F21000",
-                   "role":"SVILUPPO E GESTIONE SERVIZI DI IDENTITÀ E CERTIFICAZIONE DIGITALE",
+                   "name":"SVILUPPO E GESTIONE SERVIZI DI IDENTITÀ E CERTIFICAZIONE DIGITALE",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"P. Fiorenzani",
-                   "type":2,
+                   "responsabile":"P. Fiorenzani",
+                   "type": "struttura",
                    "children":[
                      {
                        "id":92,
                        "code":"CDR F21000",
-                       "role":"GOVERNO, GESTIONE E SVILUPPO",
+                       "name":"GOVERNO, GESTIONE E SVILUPPO",
                        "direction":"column",
                    "childrendirection":"column",
-                       "name":"A. Palazzo",
-                       "type":3
+                       "responsabile":"A. Palazzo",
+                       "type": "unita"
                     },
                     {
                      "id":93,
                      "code":"CDR F21000",
-                     "role":"OPERATION CENTER E CUSTOMER CARE",
+                     "name":"OPERATION CENTER E CUSTOMER CARE",
                      "direction":"column",
                    "childrendirection":"column",
-                     "name":"R. Maletta",
-                     "type":3
+                     "responsabile":"R. Maletta",
+                     "type": "unita"
                      }
                    ]   
                 },
                 {
                  "id":94,
                  "code":"CDR F22000",
-                 "role":"SVILUPPO E GESTIONE PIATTAFORME DI DIGITAL TRUST",
+                 "name":"SVILUPPO E GESTIONE PIATTAFORME DI DIGITAL TRUST",
                  "direction":"column",
                    "childrendirection":"column",
-                 "name":"L. Marangon",
-                 "type":2
+                 "responsabile":"L. Marangon",
+                 "type": "struttura"
                 }
                ]
             },
@@ -617,162 +617,162 @@
          {
            "id":35,
            "code":"CDR T10000",
-           "role":"TECNOLOGIE E IMPIANTI",
+           "name":"TECNOLOGIE E IMPIANTI",
          
            "childrendirection":"column",
-           "name":"L. Candiani",
-           "type":1,
+           "responsabile":"L. Candiani",
+           "type": "direzione",
            "children":[
              {
                "id":100,
                "code":"CDR T21000",
-               "role":"IT GOVERNANCE E CUSTOMER SOLUTIONS",
+               "name":"IT GOVERNANCE E CUSTOMER SOLUTIONS",
                "direction":"column",
                "childrendirection":"column",
-               "name":"E. Notariale",
-               "type":2,
+               "responsabile":"E. Notariale",
+               "type": "struttura",
                "children":[
                  {
                    "id":101,
                    "code":"CDR T21000",
-                   "role":"DIGITAL WORKPLACES",
+                   "name":"DIGITAL WORKPLACES",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"L. Frigo",
-                   "type":3
+                   "responsabile":"L. Frigo",
+                   "type": "unita"
                },
                {
                    "id":102,
                    "code":"CDR T21000",
-                   "role":"SOLUZIONI ITIL, DEVOPS E ACCESS MGMT",
+                   "name":"SOLUZIONI ITIL, DEVOPS E ACCESS MGMT",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"S. Busato",
-                   "type":3
+                   "responsabile":"S. Busato",
+                   "type": "unita"
                  },
                  {
                    "id":103,
                    "code":"CDR T21000",
-                   "role":"HYBRID CUSTOMER SOLUTION ",
+                   "name":"HYBRID CUSTOMER SOLUTION ",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"D. Danieli",
-                   "type":3
+                   "responsabile":"D. Danieli",
+                   "type": "unita"
                  }     
                ]   
              },
              {
                "id":104,
                "code":"CDR T22000",
-               "role":"TECHNOLOGY INFRASTRUCTURE ",
-               "name":"R. Di Gennaro",
+               "name":"TECHNOLOGY INFRASTRUCTURE ",
+               "responsabile":"R. Di Gennaro",
                "direction":"column",
                "childrendirection":"column",
-               "type":2,
+               "type": "struttura",
                "children":[
                  {
                    "id":105,
                    "code":"CDR T22000",
-                   "role":"MIDDLEWARE & OPERATION MGMT",
+                   "name":"MIDDLEWARE & OPERATION MGMT",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"G. Geron",
-                   "type":3
+                   "responsabile":"G. Geron",
+                   "type": "unita"
                },
                {
                    "id":106,
                    "code":"CDR T22000",
-                   "role":"NETWORK MGMT",
+                   "name":"NETWORK MGMT",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"R. Bertolini",
-                   "type":3
+                   "responsabile":"R. Bertolini",
+                   "type": "unita"
                  },
                  {
                    "id":107,
                    "code":"CDR T22000",
-                   "role":"SYSTEM & AUTOMATION MGMT",
+                   "name":"SYSTEM & AUTOMATION MGMT",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"M. Fasolo",
-                   "type":3
+                   "responsabile":"M. Fasolo",
+                   "type": "unita"
                  },
                  {
                    "id":108,
                    "code":"CDR T22000",
-                   "role":"DATA BASE MGMT",
+                   "name":"DATA BASE MGMT",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"A. Ceccon",
-                   "type":3
+                   "responsabile":"A. Ceccon",
+                   "type": "unita"
                  }      
                ]   
              },
              {
                "id":109,
                "code":"CDR T23000",
-               "role":"SERVIZI TECNICI PER IMMOBILI E IMPIANTI",
+               "name":"SERVIZI TECNICI PER IMMOBILI E IMPIANTI",
                "direction":"column",
                "childrendirection":"column",
-               "name":"A. La Greca",
-               "type":2
+               "responsabile":"A. La Greca",
+               "type": "struttura"
              }
            ]
         },
           {
              "id":25,
              "code":"CDR B10000",
-             "role":"SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
+             "name":"SICUREZZA COMPLIANCE E ARCHITETTURE APPLICATIVE",
              "childrendirection":"column",
-             "name":"G. Coppa",
-             "type":1,
+             "responsabile":"G. Coppa",
+             "type": "direzione",
              "children":[
                {
                  "id":110,
                  "code":"CDR B10000",
-                 "role":"GOVERNO CONTRATTI",
-                 "name":"L. Pallottini",
+                 "name":"GOVERNO CONTRATTI",
+                 "responsabile":"L. Pallottini",
                  "direction":"column",
                  "childrendirection":"column",
-                 "type":3
+                 "type": "unita"
                },      
                 {
                    "id":26,
                    "code":"CDR B21000",
-                   "role":"INFORMATION SECURITY",
+                   "name":"INFORMATION SECURITY",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"C. De Rossi",
-                   "type":2,
+                   "responsabile":"C. De Rossi",
+                   "type": "struttura",
                    "children":[
                       {
                          "id":27,
                          "code":"CDR B21000",
-                         "role":"INFORMATION SECURITY ENGINEERING & OPERATIONS",
+                         "name":"INFORMATION SECURITY ENGINEERING & OPERATIONS",
                          "direction":"column",
                          "childrendirection":"column",
-                         "name":"C. De Rossi ad interim",
-                         "type":3
+                         "responsabile":"C. De Rossi ad interim",
+                         "type": "unita"
                       },
                       {
                          "id":28,
                          "code":"CDR B21000",
-                         "role":"INFORMATION SECURITY GOVERNANCE",
+                         "name":"INFORMATION SECURITY GOVERNANCE",
                          "direction":"column",
                          "childrendirection":"column",
-                         "name":"L. Brusutti",
-                         "type":3
+                         "responsabile":"L. Brusutti",
+                         "type": "unita"
                       }
                    ]
                 },
                 {
                    "id":29,
                    "code":"CDR B22000",
-                   "role":" ARCHITETTURE APPLICATIVE",
+                   "name":" ARCHITETTURE APPLICATIVE",
                    "direction":"column",
                    "childrendirection":"column",
-                   "name":"E. Trivellato",
-                   "type":2
+                   "responsabile":"E. Trivellato",
+                   "type": "struttura"
                 }
              ]
           },
@@ -780,25 +780,25 @@
           {
              "id":36,
              "code":"CDR A14000",
-             "role":"MARKETING",
-             "name":"F. Vudafieri",
-             "type":2,
+             "name":"MARKETING",
+             "responsabile":"F. Vudafieri",
+             "type": "struttura",
              "children":[
                {
                  "id":111  ,
                  "code": "CDR A14000",
-                 "role":"MARKETING INTELLIGENCE & AUTOMATION",
-                 "name":"F. Lion",
-                 "type":3
+                 "name":"MARKETING INTELLIGENCE & AUTOMATION",
+                 "responsabile":"F. Lion",
+                 "type": "unita"
               }
              ]
           },
           {
              "id":37,
              "code":"CDR G10000",
-             "role":"STATISTICHE E ANALISI EVOLUTA DEL DATO",
-             "name":"Do. Tarantino",
-             "type":2
+             "name":"STATISTICHE E ANALISI EVOLUTA DEL DATO",
+             "responsabile":"Do. Tarantino",
+             "type": "struttura"
           }
    ]
  }
