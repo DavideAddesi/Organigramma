@@ -24,6 +24,9 @@ import { Bell as BellIcon } from '../../icons/bell';
 import { UserCircle as UserCircleIcon } from '../../icons/user-circle';
 import { Search as SearchIcon } from '../../icons/search';
 import { Users as UsersIcon } from '../../icons/users';
+import Cookies from 'js-cookie';
+import RefreshIcon from '@mui/icons-material/Refresh';
+import { useRouter } from 'next/router';
 
 const languages = {
   en: '/static/icons/uk_flag.svg',
@@ -156,6 +159,7 @@ const NotificationsButton = () => {
   const anchorRef = useRef(null);
   const [unread, setUnread] = useState(0);
   const [openPopover, setOpenPopover] = useState(false);
+ 
   // Unread notifications should come from a context and be shared with both this component and
   // notifications popover. To simplify the demo, we get it from the popover
 
@@ -248,6 +252,16 @@ const AccountButton = () => {
 
 export const DashboardNavbar = (props) => {
   const { onOpenSidebar, ...other } = props;
+  const [endPointValue, setEndPointValue] = useState(localStorage.getItem('endpoint'));
+
+const router = useRouter();
+
+
+  const refreshThePage = () =>{
+    localStorage.setItem('endpoint', endPointValue)
+    router.reload(window.location.pathname)
+
+  }
 
   return (
     <>
@@ -286,7 +300,17 @@ export const DashboardNavbar = (props) => {
           {/* <ContactsButton /> */}
           {/* <NotificationsButton /> */}
           {/* <AccountButton /> */}
-          {/* <TextField id="outlined-basic" label="end-point" variant="outlined" size="small"  /> */}
+          <TextField 
+            id="outlined-basic" 
+            label="end-point" 
+            variant="outlined" 
+            size="small" 
+            onChange={event=>setEndPointValue(event.target.value)} 
+            value={endPointValue} 
+          />
+          <IconButton onClick={refreshThePage}>
+            <RefreshIcon fontSize="small" />
+          </IconButton>
 
         </Toolbar>
       </DashboardNavbarRoot>

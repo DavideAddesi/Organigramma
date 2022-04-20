@@ -100,9 +100,9 @@ const CustomerDetails = () => {
 
   const getUtente = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getUtente({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getUtente();
       if (isMounted()) {
-        setUser(data);
+        setUser(response.data);
       }
     } catch (err) {
       console.error(err);

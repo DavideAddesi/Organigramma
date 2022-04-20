@@ -25,6 +25,7 @@ import {useReactToPrint} from "react-to-print";
 import  ReactToPrint from "react-to-print"
 import { useMounted } from '../../hooks/use-mounted';
 import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
+import {customEndpoint} from './common'
 
 const options = [
   {value:"small", label:"Piccolo"},
@@ -46,10 +47,10 @@ const Organigramma = () => {
 
 
   const getOrg = useCallback(async () => {
-    try {
-      const data = await infoCamereAPI.getOrgInfocamere({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+    try {  
+      const response = await infoCamereAPI.getOrgInfocamere();
       if (isMounted()) {
-        setOrganization(data);
+        setOrganization(response.data);
       }
     } catch (err) {
       console.error(err);
