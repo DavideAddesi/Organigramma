@@ -25,7 +25,6 @@ import {useReactToPrint} from "react-to-print";
 import  ReactToPrint from "react-to-print"
 import { useMounted } from '../../hooks/use-mounted';
 import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
-import {customEndpoint} from './common'
 
 const options = [
   {value:"small", label:"Piccolo"},
