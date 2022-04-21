@@ -14,7 +14,8 @@ import {
   Tabs,
   Typography,
   Card,
-  Switch
+  Switch,
+  IconButton
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
@@ -29,6 +30,7 @@ import { styled } from '@mui/material/styles';
 import Badge from '@mui/material/Badge';
 import { useMounted } from '../../hooks/use-mounted';
 import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 
@@ -50,7 +52,8 @@ const useStyles = makeStyles((theme) => ({
   
   info: {
     display: 'flex',
-    gap:"20px"
+    gap:"20px",
+    flexWrap: 'wrap'
   },
   label: {
     display: 'flex',
@@ -190,12 +193,18 @@ const CustomerDetails = () => {
                         {user.nome}
                       </Typography>
                       <div style={{display: 'flex', flexDirection: 'column', gap: 5}}>
-                        <Typography
-                        color="textSecondary"
-                        variant="overline"
-                        >
-                           {user.ruolo}, {user.sede}
-                        </Typography>
+                        <div style={{display: 'flex', alignItems: 'center'}}>
+
+                          <Typography
+                          color="textSecondary"
+                          variant="overline"
+                          >
+                            {user.ruolo}, {user.sede} 
+                          </Typography>
+                          <IconButton onClick={()=>console.log("linkedin")}>
+                            <LinkedInIcon sx={{color:"#0e76a8"}} />
+                          </IconButton>
+                        </div>
                      
 
                       <NextLink 
@@ -203,7 +212,7 @@ const CustomerDetails = () => {
                           passHref
                         >
                           <Typography
-                            sx={{cursor:"pointer", fontSize:"15px", lineHeight:0}}
+                            sx={{cursor:"pointer", fontSize:"1rem", lineHeight:0}}
                             color="secondary"
                             variant="overline"
                           >
@@ -257,40 +266,45 @@ const CustomerDetails = () => {
                       >      
                       <div className={classes.info}>
                         <div className={classes.label}>
-                        <Typography variant="overline" >
-                          EMAIL: 
+                        <Typography variant="body2" >
+                          email: 
                         </Typography> 
-                        <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                           {user.email}
+                        <Typography variant="subtitle2" sx={{ color:"#65748B", fontWeight:700}} >
+                          {user.email}
                         </Typography> 
                         </div>
                         <div className={classes.label}>
-                        <Typography variant="overline" >
-                        TEL/CELL: 
+                        <Typography variant="body2" >
+                          tel/cell: 
                         </Typography> 
-                        <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
-                        {user.tel}
+                        <Typography variant="subtitle2" sx={{ color:"#65748B", fontWeight:700}} >
+                          {user.tel}
                         </Typography> 
                         </div>
-                         </div>
-                         <div className={classes.info}>
+                         {/* </div>
+                         <div className={classes.info}> */}
                         <div className={classes.label}>
-                        <Typography variant="overline" >
-                        MATRICOLA: 
+                        <Typography variant="body2" >
+                        matricola: 
                         </Typography> 
-                        <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
+                        <Typography variant="subtitle2" sx={{ color:"#65748B", fontWeight:700}} >
                         {user.matricola}
                         </Typography> 
                         </div>
 
                         <div className={classes.label}>
-                        <Typography variant="overline" >
-                        UFFICIO: 
+                        <Typography variant="body2" >
+                        ufficio: 
                         </Typography> 
-                        <Typography variant="subtitle2" sx={{marginBottom:"3px"}} >
+                        <Typography variant="subtitle2" sx={{ color:"#65748B", fontWeight:700}} >
                         {user.ufficio}
                         </Typography> 
                         </div>
+                        {/* <div className={classes.label}> */}
+                          {/* <IconButton onClick={()=>console.log("linkedin")}>
+                            <LinkedInIcon sx={{color:"#0e76a8"}} />
+                          </IconButton> */}
+                        {/* </div> */}
                    
                        
                       </div>   
@@ -429,12 +443,18 @@ const CustomerDetails = () => {
                     <Card sx={{ mt: 2 }}>
                       <Box p={3}>
                         {currentTab == "attivita" ? (
-                           user.attività.map(att=>(
+                           user.attività?.map(att=>(
                             <Box key={att} sx={{display: 'flex'}}>
                               <Typography variant="overline">{att}</Typography>
                             </Box>
                           ))
-                        ):null}
+                        ):(
+                          user.abilitazioni?.map(abil=>(
+                            <Box key={abil} sx={{display: 'flex'}}>
+                              <Typography variant="overline">{abil}</Typography>
+                            </Box>
+                          ))
+                        )}
 
                       </Box>
                     </Card>              
