@@ -15,7 +15,8 @@ import {
   Typography,
   Card,
   Switch,
-  IconButton
+  IconButton,
+  CircularProgress 
 } from '@mui/material';
 import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
@@ -31,7 +32,8 @@ import Badge from '@mui/material/Badge';
 import { useMounted } from '../../hooks/use-mounted';
 import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SchoolIcon from '@mui/icons-material/School';
 
 
 
@@ -125,6 +127,30 @@ const CustomerDetails = () => {
   const handleClick = () => {
     console.info('You clicked the Chip.');
   };
+
+  function CircularProgressWithLabel(props) {
+    return (
+      <Box sx={{ position: 'relative', display: 'inline-flex' }}>
+        <CircularProgress color={"secondary"} variant="determinate" {...props} />
+        <Box
+          sx={{
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            position: 'absolute',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Typography variant="caption" component="div" >
+            {`${props.value}%`}
+          </Typography>
+        </Box>
+      </Box>
+    );
+  }
 
   if(!user){
     return null
@@ -346,9 +372,10 @@ const CustomerDetails = () => {
                     <Card>
                       <Box p={3}>
                        {user.competenze.map(competenza=>(
-                         <Box key={competenza} sx={{display: 'flex', justifyContent:"space-between"}}>
+                         <Box key={competenza} sx={{display: 'flex', justifyContent:"space-between", mb:"10px"}}>
                            <Typography variant="overline">{competenza.nome}</Typography>
-                           <Typography variant="overline">{competenza.percentuale}</Typography>
+                           <Typography variant="overline">{competenza.percentuale}%</Typography>
+                           {/* <CircularProgressWithLabel value={competenza.percentuale} /> */}
                          </Box>
                        ))}
                       </Box>
@@ -362,8 +389,15 @@ const CustomerDetails = () => {
                       <Box p={3}>
                       {user.corsi.map((corso, i)=>(
                          <Box key={i} sx={{display: 'flex', flexDirection:"column", mb: user.corsi.length == i+1 ? 0 : 3}}>
+                           <div style={{display: 'flex', alignItems: 'center', gap:"5px"}}>
+                            <AccessTimeIcon fontSize="small" />
                            <Typography variant="overline"  sx={{lineHeight:"0.5"}}>{corso.data}</Typography>
-                           <Typography variant="subtitle2" >{corso.nome}</Typography>
+                           </div>
+                           <div style={{display: 'flex', alignItems: 'center', gap:"5px"}}>
+                            <SchoolIcon fontSize="small" />
+                            <Typography variant="subtitle2" >{corso.nome}</Typography>
+                           </div>
+                           
                          </Box>
                        ))}
                       </Box>
