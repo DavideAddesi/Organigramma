@@ -18,7 +18,7 @@ const verticalLine = css`
   content: '';
   position: absolute;
   top: 0;
-  height: var(--tree-line-height);
+  height: calc(var(--tree-line-height));
   box-sizing: border-box;
 `;
 
@@ -34,7 +34,7 @@ const childrenContainer = css`
   display:flex;
   padding-inline-start: 0;
   margin: 0;
-  padding-top: var(--tree-line-height);
+  padding-top: calc(var(--tree-line-height)) ;
   position: relative;
   ::before {
     ${verticalLine};

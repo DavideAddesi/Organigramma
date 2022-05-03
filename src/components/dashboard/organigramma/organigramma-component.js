@@ -39,7 +39,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       // width:"110px",
       // maxWidth:"200px",
       margin:"auto",
-      minHeight: "100px",
+      minHeight: "90px",
       maxHeight:"160px", 
       paddingLeft:"2px",
       paddingRight:"2px",
@@ -60,10 +60,10 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       maxWidth:"190px"
     },
     expand: {
+      padding:0,
       marginLeft:"auto",
       marginRight:"auto",
       transform: "rotate(0deg)",
-      marginTop: -10,
       marginLeft: "auto",
       transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.short,
