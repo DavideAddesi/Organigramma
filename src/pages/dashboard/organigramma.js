@@ -51,7 +51,7 @@ const Organigramma = () => {
 
 
 
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 800 })
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 767 })
   useEffect(() => {
     if(isTabletOrMobile){
       setIsTabletorMobile(true)
