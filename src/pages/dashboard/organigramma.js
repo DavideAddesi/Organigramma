@@ -66,7 +66,10 @@ const Organigramma = () => {
     const {resolve} = displayTitolo;
     if (resolve) {
         resolve();
-        setDisplayTitolo({ label:null, resolve: undefined });
+        setTimeout(() => {
+          // console.log('Hello, World!')
+          setDisplayTitolo({ label:null, resolve: undefined });
+        }, 3000);
     }
   }, [displayTitolo]);
   const handlePrint = useReactToPrint({
@@ -170,11 +173,11 @@ if(!organization){
                             </Button>
                           )}
                           content={() => componentRef.current}
-                          // onBeforeGetContent={() =>{
-                          //   return new Promise((resolve) => {
-                          //     setDisplayTitolo(() => ({ label:"titolo", resolve }));
-                          //   });
-                          // }}
+                          onBeforeGetContent={() =>{
+                            return new Promise((resolve) => {
+                              setDisplayTitolo(() => ({ label:"titolo", resolve }));
+                            });
+                          }}
                         />
                       <div>
                         <IconButton onClick={handleClick} ref={anchorRef}>
@@ -216,6 +219,7 @@ if(!organization){
                             org={organization.organigramma}  
                             cda={organization.cda} 
                             presidenza={organization.presidenza} 
+                            displayTitolo={displayTitolo}
                             // childRef={componentRef} 
                         /> 
               </Grid>
