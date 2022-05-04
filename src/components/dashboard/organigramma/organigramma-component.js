@@ -31,39 +31,39 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
       flexDirection:"column",
       alignItems: "center", 
       justifyContent: "center",
-      borderRadius: "16px  !important",
+      borderRadius: "16px  !important", 
       border:"1px solid #bbc !important",
     },
     unit:{
-      minWidth: "100px",
+      minWidth: "90px",
       // width:"110px",
       // maxWidth:"200px",
       margin:"auto",
-      minHeight: "130px",
+      minHeight: "90px",
       maxHeight:"160px", 
-      paddingLeft:"10px",
-      paddingRight:"10px",
+      paddingLeft:"2px",
+      paddingRight:"2px",
     },
     area:{
       // width:"100%",
       minWidth: "150px  ",
-      padding:"5px 10px"
+      padding:"5px 2px"
     },
     others:{
       maxWidth:"190px",
       height:"110px", 
-      paddingLeft:"10px",
-      paddingRight:"10px",
+      paddingLeft:"2px",
+      paddingRight:"2px",
       margin:"auto", 
     },
     setMaxWidth:{
       maxWidth:"190px"
     },
     expand: {
+      padding:0,
       marginLeft:"auto",
       marginRight:"auto",
       transform: "rotate(0deg)",
-      marginTop: -10,
       marginLeft: "auto",
       transition: theme.transitions.create("transform", {
         duration: theme.transitions.duration.short,
@@ -81,7 +81,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     },
   }));
 
-  function Organization({ org, onCollapse, collapsed, size, fix }) {
+  function Organization({ org, onCollapse, collapsed, size, fix, displayTitolo }) {
    
     
     const classes = useStyles();
@@ -89,7 +89,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
       if(org.type=="presidenza") return "#D66666" //presidenza
       if(org.type=="cda") return "#f8873b" //cda
-      if(org.type=="area") return "#F5F5F5" //area (staff, business unit, ecc...)
+      if(org.type=="area" || org.type=="area-unit") return "#F5F5F5" //area (staff, business unit, ecc...)
       if(org.type=="dirGenerale") return "#ffd27f" //direzione generale
       if(org.type=="direzione") return "#ddffd2" //direzione
       if(org.type=="struttura") return "#A7C7E7" //struttura
@@ -97,7 +97,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     }
 
     const codeSize = size == "small" ? "9px": size== "medium" ? "11px":"10px" 
-    const roleSize = size == "small" ? "8px": size== "medium" ? "13px":"18px" 
+    const roleSize = size == "small" ? "8px": size== "medium" ? "10px":"18px" 
     const nameSize = size == "small" ? "9px": size== "medium" ? "12px":"13px" 
 
 
@@ -137,7 +137,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
             </Box>
           </Box>      
         </div>
-        {org.children  && org.type!="cda" &&org.type!="presidenza" &&   <IconButton 
+        {org.children  && org.type!="cda" &&org.type!="presidenza" && !displayTitolo.label && <IconButton 
           size="small"
           onClick={onCollapse}
           className={clsx(classes.expand, {
@@ -154,7 +154,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 
 
-  function Node({ o, parent, size, fix }) {
+  function Node({ o, parent, size, fix, displayTitolo }) {
     const [collapsed, setCollapsed] = useState(o.collapsed);
     const handleCollapse = () => {
       setCollapsed(!collapsed);
@@ -192,6 +192,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
             collapsed={collapsed}
             size={size}
             fix={fix}
+            displayTitolo={displayTitolo}
           />
         }
       />
@@ -206,6 +207,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
             collapsed={collapsed}
             size={size}
             fix={fix}
+            displayTitolo={displayTitolo}
           />
         }
       >
@@ -215,13 +217,13 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           </TreeNode>
         ))} */}
         {_.map(o.children, (c) => (
-          <Node o={c} parent={o} size={size} />
+          <Node o={c} parent={o} size={size} displayTitolo={displayTitolo} />
         ))}
       </T>
     );
   }
   export default function Organigramma(props) {
-    const {org, size, cda, presidenza, childRef, displayMore} = props
+    const {org, size, cda, presidenza, childRef, displayMore, displayTitolo} = props
 
 
     return ( 
@@ -233,7 +235,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
         > 
           <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
-          <Grid style={{marginTop:"-163px"}} item md={12}><Node o={org} size={size}  /> </Grid>
+          <Grid style={{marginTop:"-132px"}} item md={12}><Node o={org} size={size} displayTitolo={displayTitolo}  /> </Grid>
         </Grid>    
     );
   }

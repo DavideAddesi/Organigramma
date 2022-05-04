@@ -6,21 +6,12 @@ import {
   Grid,
   Typography
 } from '@mui/material';
-import { AuthGuard } from '../../components/authentication/auth-guard';
-import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
-import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component'
-import Legenda from '../../components/dashboard/organigramma/legenda-treeview'
-// import org from './json-strutture/org.json'
-// import cda from './json-strutture/cda.json'
-// import presidenza from './json-strutture/presidenza.json'
-// import outsourcing from './json-strutture/outsourcing.json'
-// import ecocerved from './json-strutture/ecocerved.json'
-// import iconto from './json-strutture/iconto.json'
-import { useMounted } from '../../hooks/use-mounted';
-import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
+import TreeviewComponent from './treeview-component'
+import { useMounted } from '../../../hooks/use-mounted';
+import { infoCamereAPI } from '../../../__fake-api__/infocamere-api';
 
 
-const Treeview = () => {
+const Albero = () => {
   const [organization, setOrganization] = useState(null)
   const [icoutsourcing, seticoutsourcing] = useState(null)
   const [iconto, seticonto] = useState(null)
@@ -88,19 +79,6 @@ const Treeview = () => {
     if(!ecocerved) return null
 
   return (
-    <>
-      <Head>
-        <title>
-          Esempio Organigramma
-        </title>
-      </Head>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          py: 8
-        }}
-      >
         <Container style={{backgroundColor: "#fff"}} >
           <Grid container>
               <Grid item md={12} sx={12}>
@@ -109,23 +87,16 @@ const Treeview = () => {
                       cda={organization.cda} 
                       pres={organization.presidenza} 
                       outsourcing={icoutsourcing} 
-                      ecocer  ved={ecocerved} 
+                      ecocerved={ecocerved} 
                       iconto={iconto} 
                     />
               </Grid>
           </Grid>
         </Container>
-      </Box>
-    </>
+     
   );
 };
 
-Treeview.getLayout = (page) => (
-  <AuthGuard>
-    <DashboardLayout>
-      {page}
-    </DashboardLayout>
-  </AuthGuard>
-);
 
-export default Treeview;
+
+export default Albero;
