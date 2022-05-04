@@ -49,7 +49,7 @@ const CustomerDetails = () => {
 
   const getScheda = useCallback(async () => {
     try {
-      const response = await infoCamereAPI.getScheda();
+      const response = await infoCamereAPI.getSchedaDirezione();
       if (isMounted()) {
         setSchedaDetail(response.data);
       }
@@ -70,7 +70,7 @@ const CustomerDetails = () => {
         let color = null 
         if(type=="direzione") color = "#84997E"
         if(type=="struttura") color = "#748BA1"
-        if(type=="unita") color = "#999999"
+        if(type=="unita") color = "#"
 
         setColorByType(color)    
       }else null
@@ -109,8 +109,8 @@ const CustomerDetails = () => {
 
   const getMissionColor = type =>{
     if(type=="direzione") return '#F8FFF6'
-    if(type=="struttura") return  '#E4EEF7'
-    if(type=="unita") return '#fff '
+    if(type=="struttura") return  '#E3E7EC'
+    if(type=="unita") return '#fff'
   }
 
 
@@ -384,6 +384,7 @@ const CustomerDetails = () => {
                   {"Torna all'organigramma"}
                 </Link>
               </NextLink>}
+              
             </Box>
             <Card>
               <Box>
@@ -415,7 +416,7 @@ const CustomerDetails = () => {
           <Box sx={{ mt: 3 }}>
             <Typography variant="h5"  sx={{mb : 1, color: colorByType}} >Personale Assegnato</Typography>
             <Card>
-              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato} headerColor={getBgColor(schedaDetail.type)} bgColor={getMissionColor(schedaDetail.type)} />
+              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato} headerColor={getBgColor(schedaDetail.type)} bgColor={getMissionColor(schedaDetail.type)}/>
             </Card>
           </Box>
             

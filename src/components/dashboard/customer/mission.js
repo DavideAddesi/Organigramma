@@ -1,10 +1,10 @@
 import {  Card, Typography, Box } from '@mui/material';
 
 export const Mission = (props) => {
-  const { mission } = props;
+  const { mission, bgColor } = props;
 
   return (
-    <Card>
+    <Card sx={{backgroundColor:bgColor}}>
       <Box p={3}>
         <Typography>
           {mission}
