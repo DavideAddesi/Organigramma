@@ -24,7 +24,7 @@ const Albero = () => {
     try {
       const data = await infoCamereAPI.getOrgInfocamere({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
       if (isMounted()) {
-        setOrganization(data);
+        setOrganization(data.data);
       }
     } catch (err) {
       console.error(err);
@@ -35,7 +35,7 @@ const Albero = () => {
     try {
       const data = await infoCamereAPI.getOrgicoutsourcing({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
       if (isMounted()) {
-        seticoutsourcing(data);
+        seticoutsourcing(data.data);
       }
     } catch (err) {
       console.error(err);
@@ -46,7 +46,7 @@ const Albero = () => {
     try {
       const data = await infoCamereAPI.getOrgiconto({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
       if (isMounted()) {
-        seticonto(data);
+        seticonto(data.data);
       }
     } catch (err) {
       console.error(err);
@@ -57,7 +57,7 @@ const Albero = () => {
     try {
       const data = await infoCamereAPI.getOrgecocerved({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
       if (isMounted()) {
-        setecocerved(data);
+        setecocerved(data.data);
       }
     } catch (err) {
       console.error(err);

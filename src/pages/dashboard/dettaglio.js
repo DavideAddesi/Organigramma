@@ -48,9 +48,9 @@ const CustomerDetails = () => {
 
   const getScheda = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getScheda({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getScheda();
       if (isMounted()) {
-        setSchedaDetail(data);
+        setSchedaDetail(response.data);
       }
     } catch (err) {
       console.error(err);

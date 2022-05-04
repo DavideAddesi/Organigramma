@@ -31,9 +31,9 @@ const Treeview = () => {
 
   const getOrg = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getOrgInfocamere({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getOrgInfocamere();
       if (isMounted()) {
-        setOrganization(data);
+        setOrganization(response.data);
       }
     } catch (err) {
       console.error(err);
@@ -42,9 +42,9 @@ const Treeview = () => {
 
   const getOrgicoutsourcing = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getOrgicoutsourcing({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getOrgicoutsourcing();
       if (isMounted()) {
-        seticoutsourcing(data);
+        seticoutsourcing(response.data);
       }
     } catch (err) {
       console.error(err);
@@ -53,9 +53,9 @@ const Treeview = () => {
 
   const getOrgiconto = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getOrgiconto({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getOrgiconto();
       if (isMounted()) {
-        seticonto(data);
+        seticonto(response.data);
       }
     } catch (err) {
       console.error(err);
@@ -64,9 +64,9 @@ const Treeview = () => {
 
   const getOrgecocerved = useCallback(async () => {
     try {
-      const data = await infoCamereAPI.getOrgecocerved({restPrefix:"https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"});
+      const response = await infoCamereAPI.getOrgecocerved();
       if (isMounted()) {
-        setecocerved(data);
+        setecocerved(response.data);
       }
     } catch (err) {
       console.error(err);

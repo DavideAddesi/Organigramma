@@ -6,84 +6,48 @@ export const errorHandler = (error) => {
   return  response.data
 }
 
+const postManPrefix = "https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"
+
+
+const getEndPoint = () => {
+  if (typeof window !== 'undefined') {
+    const customEndpoint=localStorage.getItem('endpoint')
+    if(customEndpoint && customEndpoint != ""){
+      return customEndpoint
+    } else return postManPrefix    
+  }else return postManPrefix
+}
+
+
+const http = axios.create({
+  baseURL:  getEndPoint()
+});
+
 
 class InfoCamereAPI {
 
-  getOrgInfocamere({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/struttura/infocamere')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
+  getOrgInfocamere() {  
+    return http.get('/api/v1/organigramma/get/struttura/infocamere')
   }
 
-  getScheda({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/scheda/2')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
+  getScheda() {  
+    return http.get('/api/v1/organigramma/get/scheda/2')
   }
 
-  getUtente({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/user/2')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
+  getUtente() {  
+    return http.get('/api/v1/organigramma/get/user/2')
   }
 
-  getOrgicoutsourcing({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/struttura/icoutsourcing')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
+  getOrgicoutsourcing() {  
+    return http.get('/api/v1/organigramma/get/struttura/icoutsourcing')
   }
 
-  getOrgiconto({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/struttura/iconto')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
-  }
-  getOrgecocerved({restPrefix}) {  
-    const http = axios.create({
-      baseURL: restPrefix
-    });
-    return http
-    .get('/api/v1/organigramma/get/struttura/ecocerved')
-      .then(response => {
-        const resp = response.data;
-        return resp;
-      })
-      .catch(error => errorHandler(error));
+  getOrgiconto() {  
+    return http.get('/api/v1/organigramma/get/struttura/iconto')
+  } 
+  
+  getOrgecocerved() { 
+    return http.get('/api/v1/organigramma/get/struttura/ecocerved')
   }
 
 
