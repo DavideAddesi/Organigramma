@@ -44,21 +44,21 @@ const getSections = (t) => [
         path: '/dashboard/organigramma',
         icon: <AccountTreeIcon fontSize="small" />
       },
-      {
-        title: "Organigramma ",
-        path: '/dashboard/organigramma-classic',
-        icon: <AccountTreeIcon fontSize="small" />
-      },
+      // {
+      //   title: "Organigramma ",
+      //   path: '/dashboard/organigramma-classic',
+      //   icon: <AccountTreeIcon fontSize="small" />
+      // },
       // {
       //   title: "Organigramma 2",
       //   path: '/dashboard/organigramma-2',
       //   icon: <AccountTreeIcon fontSize="small" />
       // },
-      {
-        title: "Treeview",
-        path: '/dashboard/treeview',
-        icon: <CorporateFareIcon fontSize="small" />
-      },
+      // {
+      //   title: "Treeview",
+      //   path: '/dashboard/treeview',
+      //   icon: <CorporateFareIcon fontSize="small" />
+      // },
       // {
       //   title: "Treeview 2",
       //   path: '/dashboard/treeview-2',

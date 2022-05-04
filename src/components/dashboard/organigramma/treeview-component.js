@@ -24,7 +24,7 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
   const [ids, setIds] = React.useState([])
 
   React.useEffect(() => {
-    const firstCodes= ["infoRoot", org.id, cda.id, pres.id, outsourcing.id, ecocerved.id, iconto.id]
+    const firstCodes= ["infoRoot", org?.id, cda?.id, pres?.id, outsourcing?.id, ecocerved?.id, iconto?.id]
     recursiveIds(org.children, firstCodes)
   }, [])
   
@@ -79,10 +79,10 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
           <Box display="flex" sx={{justifyContent:"space-between", p:"7px"}} >
             <Box sx={{display:"flex", alignItems: "center", gap:"7px"}}>
                 {node.type!== 0 ? dettaglio ? null: chip(node.type, node.code): null}
-                <Typography variant="body2">{cap(node.name)}</Typography> 
+                <Typography variant="body2" style={{fontSize: "0.975rem"}}>{cap(node.name)}</Typography> 
             </Box>
             {/* <Typography variant="caption" sx={{fontSize:"10px"}} >{node.code}</Typography>  */}
-            <Typography variant="caption" sx={{fontSize:"10px"}} >{node.responsabile}</Typography> 
+            <Typography variant="caption" sx={{fontSize:"10px", fontWeight:"600"}} >{node.responsabile}</Typography> 
           </Box>
       )
   }
@@ -100,7 +100,7 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
 
 
   return (
-    <Box sx={{ height: h, flexGrow: 1, width: 700, overflowY: 'auto' }}>
+    <Box sx={{margin:"auto"}}>
       <Box sx={{ mb: 1 }}>
         <Button onClick={handleExpandClick}>
           {expanded.length === 0 ? 'Espandi tutto' : 'Riduci tutto'}
