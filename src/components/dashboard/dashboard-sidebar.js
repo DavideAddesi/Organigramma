@@ -83,6 +83,11 @@ const getSections = (t) => [
         title: "Utente",
         path: '/dashboard/utente',
         icon: <PersonIcon fontSize="small" />
+      },
+      {
+        title: "Utente 2",
+        path: '/dashboard/utente-2',
+        icon: <PersonIcon fontSize="small" />
       }
     ]
   }
