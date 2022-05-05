@@ -51,9 +51,10 @@ const Organigramma = () => {
 
 
 
-  const isTabletOrMobile = useMediaQuery({ maxWidth: 767 })
+  const isTooSmall = useMediaQuery({ maxWidth: 767 })
+  const isTablet = useMediaQuery({ maxWidth: 1024 })
   useEffect(() => {
-    if(isTabletOrMobile){
+    if(isTooSmall){
       setIsTabletorMobile(true)
       setValueTab("albero")
     } 
@@ -75,6 +76,15 @@ const Organigramma = () => {
       const response = await infoCamereAPI.getOrgInfocamere();
       if (isMounted()) {
         setOrganization(response.data);
+        const resp = response.data
+        if(!isTooSmall && isTablet){
+        const newChildren = resp.organigramma.children.map(child =>{
+          return {...child, 
+            children: child.children.map(c=>({ ...c, collapsed: true }))
+          }
+        })
+        setOrganization({...resp, organigramma:{...resp.organigramma, children:newChildren}})
+      } 
       }
     } catch (err) {
       console.error(err);
@@ -120,19 +130,37 @@ const Organigramma = () => {
 
   useEffect(() => {
     if(organization){
-      const newChildren = organization.organigramma.children.map(child =>{
-        return {...child, 
-          collapsed: child.collapsed && displayMore ? false: child.collapsed,
-          children: child.children.map(c=>({
-            ...c, collapsed: displayMore ? false : true,
-            children: c.children?.map(child2=>({...child2, collapsed: !displayMore}))
-          }))
-        }
-      })
-      setOrganization({...organization, organigramma:{...organization.organigramma, children:newChildren}})
+      // if(!isTooSmall && isTablet){
+      //   console.log("piccolo")
+      // }else{
+
+        const newChildren = organization.organigramma.children.map(child =>{
+          return {...child, 
+            collapsed: child.collapsed && displayMore ? false: child.collapsed,
+            children: child.children.map(c=>({
+              ...c, collapsed: displayMore ? false : true,
+              children: c.children?.map(child2=>({...child2, collapsed: !displayMore}))
+            }))
+          }
+        })
+        setOrganization({...organization, organigramma:{...organization.organigramma, children:newChildren}})
+      // }
     }
       
   }, [displayMore])
+
+  
+  // useEffect(() => {
+  //     if(!isTooSmall && isTablet){
+  //       const newChildren = organization.organigramma.children.map(child =>{
+  //         return {...child, 
+  //           collapsed: true,
+  //         }
+  //       })
+  //       setOrganization({...organization, organigramma:{...organization.organigramma, children:newChildren}})
+  //     } 
+      
+  // }, [])
 
 //   useEffect(() => {
 //     const newChildren = organization.children.map(child =>({...child, collapsed:   ? false : true}))
