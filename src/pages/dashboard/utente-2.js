@@ -22,6 +22,7 @@ import { AuthGuard } from '../../components/authentication/auth-guard';
 import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import General from '../../components/dashboard/organigramma/General';
 import Competenze from '../../components/dashboard/organigramma/Competenze';
+import Altro from '../../components/dashboard/organigramma/Altro';
 import makeStyles from '@mui/styles/makeStyles';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
@@ -96,6 +97,7 @@ const Utente2 = () => {
     <Box mt={3}>
       {currentTabUser == 'general' && <General user={user} />}
       {currentTabUser == 'competenze' && <Competenze user={user} />}
+      {currentTabUser == 'altro' && <Altro user={user} />}
     </Box>
   </Container>
   )

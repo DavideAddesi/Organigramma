@@ -54,11 +54,13 @@ const General = ({ className, user, ...rest }) => {
           </Box>
         </Card>               
       </Grid>
-      <Grid item md={5}>
+      <Grid item md={5} xs={12} lg={5}  xl={5}>
         <Card>
           <CardHeader title={<Typography  color="primary" variant="h6">Calendar</Typography>}  />
           <Divider />
-          <CalendarUser />
+          <Box p={3}>
+            <CalendarUser />
+          </Box>
         </Card>        
       </Grid>
     </Grid>

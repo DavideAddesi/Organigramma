@@ -2,13 +2,13 @@ import React from 'react';
 import clsx from 'clsx';
 import { Grid, Box, Typography, Card,   CardHeader, Divider } from '@mui/material';
 import makeStyles from '@mui/styles/makeStyles';
-import ProfileDetails from './ProfileDetails';
-import GeneralSettings from './GeneralSettings';
-import CalendarUser from '../../../../pages/dashboard/calendarUser';
+import CompetenzeComponent from './Competenze';
+import Corsi from './Corsi';
+import Skeleton from '@mui/material/Skeleton';
 
 
 
-const General = ({ className, user, ...rest }) => {
+const Competenze = ({ className, user, ...rest }) => {
 
 
 
@@ -21,50 +21,53 @@ const General = ({ className, user, ...rest }) => {
     >
       <Grid
         item
-        lg={4}
+        lg={6}
         md={6}
-        xl={3}
+        xl={6}
         xs={12}
       >
-        <ProfileDetails user={user} />
+        <CompetenzeComponent user={user} />
       </Grid>
       <Grid
         item
-        lg={8}
+        lg={6}
         md={6}
-        xl={9}
+        xl={6}
         xs={12}
       >
-        <GeneralSettings user={user} />
+        <Corsi user={user} />
       </Grid>
       <Grid
         item
-        lg={7}
-        md={7}
-        xl={7}
+        lg={12}
+        md={12}
+        xl={12}
         xs={12}
       > 
         <Card>
-        <CardHeader title={<Typography  color="primary" variant="h6">Su di me</Typography>}  />
+        <CardHeader title={<Typography  color="primary" variant="h6">Certificazioni/Open badge</Typography>}  />
         <Divider />
-          <Box p={3}>
-            <Typography>
-              {user.descrizione}
-            </Typography>
+        <Box p={3}>
+          <Box sx={{display: 'flex',  gap:"30px"}}>
+                <img src="/static/badges/badge1.png" style={{width:50, height:50}} />
+                <img src="/static/badges/badge2.png" style={{width:50, height:50}} />
+                <img src="/static/badges/badge3.png" style={{width:50, height:50}} />
+                <img src="/static/badges/badge4.png" style={{width:50, height:50}} />
+                <Skeleton variant="rectangular" width={50} height={50} />
+                <Skeleton variant="rectangular" width={50} height={50} />
+                {/* <img src="/static/badges/google.png" style={{width:70, height:70}} /> */}
+                <Skeleton variant="rectangular" width={50} height={50} />
+                <Skeleton variant="rectangular" width={50} height={50} />
+                <Skeleton variant="rectangular" width={50} height={50} />
           </Box>
+        </Box>
         </Card>               
       </Grid>
-      <Grid item md={5}>
-        <Card>
-          <CardHeader title={<Typography  color="primary" variant="h6">Calendar</Typography>}  />
-          <Divider />
-          <CalendarUser />
-        </Card>        
-      </Grid>
+      
     </Grid>
   );
 }
 
 
 
-export default General;
+export default Competenze;
