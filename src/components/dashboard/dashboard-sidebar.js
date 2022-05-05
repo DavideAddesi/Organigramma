@@ -65,7 +65,17 @@ const getSections = (t) => [
       //   icon: <CorporateFareIcon fontSize="small" />
       // },
       {
-        title: "Dettaglio",
+        title: "Scheda Direzione",
+        path: '/dashboard/dettaglio-direzione',
+        icon: <SummarizeIcon fontSize="small" />
+      },
+      {
+        title: "Scheda Struttura",
+        path: '/dashboard/dettaglio-struttura',
+        icon: <SummarizeIcon fontSize="small" />
+      },
+      {
+        title: "Scheda UO",
         path: '/dashboard/dettaglio',
         icon: <SummarizeIcon fontSize="small" />
       },

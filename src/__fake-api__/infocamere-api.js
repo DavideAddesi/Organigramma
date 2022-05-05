@@ -31,7 +31,15 @@ class InfoCamereAPI {
   }
 
   getScheda() {  
-    return http.get('/api/v1/organigramma/get/scheda/2')
+    return http.get('/api/v1/organigramma/get/scheda/30')
+  }
+
+  getSchedaDirezione() {  
+    return http.get('/api/v1/organigramma/get/scheda/10')
+  }
+
+  getSchedaStruttura() {  
+    return http.get('/api/v1/organigramma/get/scheda/20')
   }
 
   getUtente() {  

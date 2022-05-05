@@ -137,6 +137,8 @@ const applyPagination = (customers, page, rowsPerPage) => customers.slice(page *
 export const PersonaleAssegnato = (props) => {
   const {
     personale,
+    headerColor,
+    bgColor,
     ...other
   } = props;
 
@@ -232,7 +234,7 @@ export const PersonaleAssegnato = (props) => {
     
       <Scrollbar>
         <Table sx={{ minWidth: 700 }}>
-          <TableHead sx={{ visibility: enableBulkActions ? 'collapse' : 'visible' }}>
+          <TableHead sx={{ visibility: enableBulkActions ? 'collapse' : 'visible', backgroundColor:headerColor }}>
             <TableRow>
               <TableCell>
                 Nome
@@ -261,7 +263,7 @@ export const PersonaleAssegnato = (props) => {
               </TableCell> */}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody sx={{backgroundColor:bgColor}}>
             {personale.map((persona) => {
               // const isCustomerSelected = selectedCustomers.includes(persona.id);
 
