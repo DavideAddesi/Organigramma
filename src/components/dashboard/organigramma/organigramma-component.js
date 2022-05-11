@@ -25,63 +25,64 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
   
 
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display:"flex", 
-      flexDirection:"column",
-      alignItems: "center", 
-      justifyContent: "center",
-      borderRadius: "16px  !important", 
-      border:"1px solid #bbc !important",
-    },
-    unit:{
-      minWidth: "90px",
-      // width:"110px",
-      // maxWidth:"200px",
-      margin:"auto",
-      minHeight: "90px",
-      maxHeight:"160px", 
-      paddingLeft:"2px",
-      paddingRight:"2px",
-    },
-    area:{
-      // width:"100%",
-      minWidth: "150px  ",
-      padding:"5px 2px"
-    },
-    others:{
-      maxWidth:"190px",
-      height:"110px", 
-      paddingLeft:"2px",
-      paddingRight:"2px",
-      margin:"auto", 
-    },
-    setMaxWidth:{
-      maxWidth:"190px"
-    },
-    expand: {
-      padding:0,
-      marginLeft:"auto",
-      marginRight:"auto",
-      transform: "rotate(0deg)",
-      marginLeft: "auto",
-      transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.short,
-      }), 
-    },
-    expandOpen: {
-      marginLeft:"auto",
-      marginRight:"auto",
-      transform: "rotate(180deg)",
-    },
-    avatar: {
-      backgroundColor: "#ECECF4",
-      
-
-    },
-  }));
+  
 
   function Organization({ org, onCollapse, collapsed, size, fix, displayTitolo }) {
+    const useStyles = makeStyles((theme) => ({
+      root: {
+        display:"flex", 
+        flexDirection:"column",
+        alignItems: "center", 
+        justifyContent: "center",
+        borderRadius: "16px  !important", 
+        border:"1px solid #bbc !important",
+      },
+      unit:{
+        minWidth: "90px",
+        // width:"110px",
+        // maxWidth:"200px",
+        margin:"auto",
+        minHeight: displayTitolo?.resolve ? "60px": "90px",
+        maxHeight:"160px", 
+        paddingLeft:"2px",
+        paddingRight:"2px",
+      },
+      area:{
+        // width:"100%",
+        minWidth: "150px  ",
+        padding:"5px 2px"
+      },
+      others:{
+        maxWidth:"190px",
+        minHeight:  displayTitolo?.resolve ? "60px":"90px", 
+        paddingLeft:"2px",
+        paddingRight:"2px",
+        margin:"auto", 
+      },
+      setMaxWidth:{
+        maxWidth:"190px"
+      },
+      expand: {
+        padding:0,
+        marginLeft:"auto",
+        marginRight:"auto",
+        transform: "rotate(0deg)",
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+          duration: theme.transitions.duration.short,
+        }), 
+      },
+      expandOpen: {
+        marginLeft:"auto",
+        marginRight:"auto",
+        transform: "rotate(180deg)",
+      },
+      avatar: {
+        backgroundColor: "#ECECF4",
+        
+  
+      },
+    }));
    
     
     const classes = useStyles();
@@ -233,9 +234,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
           spacing={4}
           p={displayMore ? "3px"  : 1}
         > 
-          <Grid item md={2}><Node o={cda} size={size} fix={true} /></Grid>
-           <Grid item md={2}><Node o={presidenza} size={size} fix={true} /></Grid>
-          <Grid style={{marginTop:"-132px"}} item md={12}><Node o={org} size={size} displayTitolo={displayTitolo}  /> </Grid>
+           <Grid item md={2}><Node o={cda} size={size}  displayTitolo={displayTitolo} /></Grid>
+           <Grid item md={2}><Node o={presidenza} size={size} displayTitolo={displayTitolo}  /></Grid>
+          <Grid style={{marginTop:displayTitolo?.resolve ? "-93px":"-119px"}} item md={12}><Node o={org} size={size} displayTitolo={displayTitolo}  /> </Grid>
         </Grid>    
     );
   }

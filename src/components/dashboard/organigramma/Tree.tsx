@@ -59,11 +59,11 @@ function Tree({
         --line-color: ${lineColor};
         --line-border-radius: ${lineBorderRadius};
         --node-padding: ${nodePadding};
-        --tree-line-height: var(--line-height, 20px);
+        --tree-line-height: 6px;
         --tree-line-width: var(--line-width, 1px);
         --tree-line-color: var(--line-color, black);
         --tree-line-border-radius: var(--line-border-radius, 5px);
-        --tree-node-padding: var(--node-padding, 5px);
+        --tree-node-padding: 2px;
       `}
     >
       <TreeNode label={label} direction={direction}>{children}</TreeNode>
