@@ -182,15 +182,16 @@ if(!organization){
         // component="main"
         sx={{
           flexGrow: 2,
-          py: 8
+          py: isTabletorMobile ? 0: 8
         }}
       >
-           <Box style={{display: "flex", flexDirection: "column",alignItems: "center", marginBottom:"40px"}}>
+        {!isTabletorMobile  && <Box style={{display: "flex", flexDirection: "column",alignItems: "center", marginBottom:"40px"}}>
                     <Tabs  value={valueTab} onChange={handleChangeTab}>
-                      {!isTabletorMobile  &&<Tab icon={<Tooltip title="Visualizzazione organigramma"><AccountTreeIcon/></Tooltip>} label="Organigramma"  value="org" iconPosition="end" /> }  
-                      <Tab  icon={<Tooltip title="Visualizzazione ad albero"><ReorderIcon/></Tooltip>} label="Albero"  value="albero" iconPosition="end" disabled={isTabletorMobile}  />
+                      {<Tab icon={<Tooltip title="Visualizzazione organigramma"><AccountTreeIcon/></Tooltip>} label="Organigramma"  value="org" iconPosition="end" /> }  
+                      <Tab  icon={<Tooltip title="Visualizzazione ad albero"><ReorderIcon/></Tooltip>} label="Albero"  value="albero" iconPosition="end"  />
                     </Tabs>
-                  </Box> 
+                  </Box> }
+           
 
            {valueTab == "org" ? (
              <Container maxWidth="4000px" style={{paddingLeft:"3px"}} >
@@ -289,7 +290,7 @@ if(!organization){
              </Grid>
            </Container>
            ):(
-             <Albero />
+             <Albero isTabletorMobile={isTabletorMobile} />
            )}        
         
       </Box>

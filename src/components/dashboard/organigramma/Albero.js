@@ -6,12 +6,14 @@ import {
   Grid,
   Typography
 } from '@mui/material';
+
 import TreeviewComponent from './treeview-component'
+import TreeviewComponentMobile from './treeview-componentMobile'
 import { useMounted } from '../../../hooks/use-mounted';
 import { infoCamereAPI } from '../../../__fake-api__/infocamere-api';
 
 
-const Albero = () => {
+const Albero = ({isTabletorMobile}) => {
   const [organization, setOrganization] = useState(null)
   const [icoutsourcing, seticoutsourcing] = useState(null)
   const [iconto, seticonto] = useState(null)
@@ -77,19 +79,40 @@ const Albero = () => {
     if(!icoutsourcing) return null
     if(!iconto) return null
     if(!ecocerved) return null
+    if(isTabletorMobile){
+      return (
+        <Container style={{backgroundColor: "#fff", paddingLeft: 0}} >
+             <Grid container>
+              <Grid item md={12} sx={12}>
+        <TreeviewComponentMobile 
+          org={organization.organigramma}
+          cda={organization.cda} 
+          pres={organization.presidenza} 
+          outsourcing={icoutsourcing} 
+          ecocerved={ecocerved} 
+          iconto={iconto} 
+        />
+        </Grid>
+          </Grid>
+        </Container>
+     
+      )
+    }
 
   return (
         <Container style={{backgroundColor: "#fff"}} >
           <Grid container>
               <Grid item md={12} sx={12}>
+               
                    <TreeviewComponent 
-                      org={organization.organigramma}
-                      cda={organization.cda} 
-                      pres={organization.presidenza} 
-                      outsourcing={icoutsourcing} 
-                      ecocerved={ecocerved} 
-                      iconto={iconto} 
-                    />
+                   org={organization.organigramma}
+                   cda={organization.cda} 
+                   pres={organization.presidenza} 
+                   outsourcing={icoutsourcing} 
+                   ecocerved={ecocerved} 
+                   iconto={iconto} 
+                 />
+                  
               </Grid>
           </Grid>
         </Container>
