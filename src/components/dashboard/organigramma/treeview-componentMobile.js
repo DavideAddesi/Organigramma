@@ -58,18 +58,6 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
   //<FontAwesomeIcon icon="fa-solid fa-briefcase" />
 
 
-  // const chip = (type, code) =>{ 
-  //   const withNoCDR = code ? code.split("CDR").pop(): ""
-  //   if(type=="direzione") return   <Chip label={withNoCDR} color="direzione" />
-
-  //   // <FontAwesomeIcon icon={faBuilding} />
-  //   if(type=="struttura") return  <Chip label={withNoCDR} color="struttura" />
-
-  //   // <FontAwesomeIcon icon={faBriefcase} />
-  //   if(type=="unita") return <Chip label={withNoCDR || "******"} variant="outlined"  />
-  // }
-
-
   const chip = (type, code) =>{ 
     const withNoCDR = code ? code.split("CDR").pop(): ""
     if(type!="unita"){
@@ -77,9 +65,9 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
       if(type=="direzione") color="direzione" 
       if(type=="struttura") color="struttura"
       if(type=="presidenza") color= "presidenza" 
-      return <Chip label={withNoCDR} style={{marginBottom:"7px"}}color={color}   />
+      return <Chip label={withNoCDR} style={{marginBottom:"7px"}}color={color} size="small" sx={{width:"66px", fontSize:"10px"}}  />
     }else{
-      return <Chip label={withNoCDR} style={{marginBottom:"7px"}} variant="outlined"   />
+      return <Chip label={withNoCDR} style={{marginBottom:"7px"}} variant="outlined" size="small" sx={{width:"66px", fontSize:"10px"}}  />
     }
 
   }
@@ -89,15 +77,25 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
     return capValue
   }
 
+  const backgroundColor = (type) =>{
+
+    if(type=="presidenza") return "#D66666" //presidenza
+    if(type=="cda") return "#f8873b" //cda
+    if(type=="area" || type=="area-unit") return "#F5F5F5" //area (staff, business unit, ecc...)
+    if(type=="dirGenerale") return "#ffd27f" //direzione generale
+    if(type=="direzione") return "#ddffd2" //direzione
+    if(type=="struttura") return "#A7C7E7" //struttura
+    if(type=="unita") return "#fff"  //unità operativa
+  }
+
   const treeItemLabel = node =>{
       return(
-          <Box display="flex" sx={{justifyContent:"space-between", p:"7px"}} >
-            <Box sx={{display:"flex", alignItems: "center", gap:"7px"}}>
-                {node.code  && node.type!== 0 ? dettaglio ? null: chip(node.type, node.code): null}
-                <Typography variant="body2" style={{fontSize: "0.975rem"}}>{cap(node.name)}</Typography> 
-            </Box>
-            {/* <Typography variant="caption" sx={{fontSize:"10px"}} >{node.code}</Typography>  */}
-            <Typography variant="caption" sx={{fontSize:"10px", fontWeight:"600"}} >{node.responsabile}</Typography> 
+          <Box sx={{display:"flex",  flexDirection:"column", /*borderLeft:`4px solid ${node.type ? backgroundColor(node.type) :"black"}`, borderRadius:"10px"*/ paddingLeft:"10px",/*backgroundColor:backgroundColor(node.type), borderRadius:"8px"*/ }} >
+                <Typography variant="body2" style={{fontSize: "0.975rem", fontWeight:"500"}}>{cap(node.name)}</Typography> 
+                {node.code && node.type!= "dirGenerale"&& node.type!= "area"&& node.type!= "cda" ? dettaglio ? null: chip(node.type, node.code): null}
+                <Typography variant="caption" sx={{fontSize:"12px", fontWeight:"300"}} >{node.responsabile}</Typography> 
+                {/* <Typography variant="caption" sx={{fontSize:"12px", fontWeight:"300"}} >{node.code?.split("CDR").pop()}</Typography>  */}
+                
           </Box>
       )
   }
@@ -115,7 +113,7 @@ export default function ControlledTreeView({org, h, cda, pres, outsourcing, ecoc
 
 
   return (
-    <Box sx={{margin:"auto"}}>
+    <Box sx={{ my:"1px"}}>
       <Box sx={{ mb: 1 }}>
         <Button onClick={handleExpandClick}>
           {expanded.length === 0 ? 'Espandi tutto' : 'Riduci tutto'}

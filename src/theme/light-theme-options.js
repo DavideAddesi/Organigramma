@@ -87,6 +87,12 @@ const unita = {
   dark: '#fff',
   contrastText: '#000000'
 };
+const presidenza = {
+  main: '#D66666',
+  light: '#D66666',
+  dark: '#D66666',
+  contrastText: '#000000'
+};
 
 export const lightThemeOptions = {
   components: {
@@ -201,7 +207,8 @@ export const lightThemeOptions = {
     warning,
     direzione,
     struttura,
-    unita
+    unita,
+    presidenza
   },
   shadows: [
     'none',
