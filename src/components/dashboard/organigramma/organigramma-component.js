@@ -230,9 +230,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
     return ( 
         <Grid
           container
-          mt={3}
+          mt={displayTitolo?.resolve? "-32px":3}
           spacing={4}
-          p={displayMore ? "3px"  : 1}
+          p={displayMore ? "0"  : 1}
         > 
            <Grid item md={2}><Node o={cda} size={size}  displayTitolo={displayTitolo} /></Grid>
            <Grid item md={2}><Node o={presidenza} size={size} displayTitolo={displayTitolo}  /></Grid>
