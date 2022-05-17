@@ -5,7 +5,7 @@ export const errorHandler = (error) => {
   return  response.data
 }
 
-const postManPrefix = "https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"
+const postManPrefix = "https://ed449e2b-48de-4438-bbf1-01bb099e66a8.mock.pstmn.io"
 
 
 const getEndPoint = () => {
