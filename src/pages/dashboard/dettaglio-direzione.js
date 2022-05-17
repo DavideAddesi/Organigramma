@@ -92,13 +92,13 @@ const CustomerDetails = () => {
 
   const chip = (type, code) =>{ 
     const withNoCDR = code ? code.split("CDR").pop(): ""
-    if(type=="direzione") return   <Chip label={withNoCDR}  variant="outlined" sx={{color: colorByType}} />
+    if(type=="direzione") return   <Chip label={withNoCDR} color="primary" variant="outlined" />
 
     // <FontAwesomeIcon icon={faBuilding} />
-    if(type=="struttura") return  <Chip label={withNoCDR} color="struttura" sx={{color: colorByType}} />
+    if(type=="struttura") return  <Chip label={withNoCDR} color="primary" variant="outlined"  />
 
     // <FontAwesomeIcon icon={faBriefcase} />
-    if(type=="unita") return <Chip label={withNoCDR || "******"} sx={{color: colorByType}}  />
+    if(type=="unita") return <Chip label={withNoCDR || "******"} variant="outlined" color="unita"  />
   }
 
   const getBgColor = type =>{
@@ -135,85 +135,68 @@ const CustomerDetails = () => {
         }}
       >
         <Container maxWidth="md">
-          <div>
             <Grid
               container
-              justifyContent="space-between"
               spacing={3}
+              // justifyContent="space-between"
+              // style={{display:"flex"}}
             >
               {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
               <Grid
                 item
-                  md={12}
+                  md={6}
+                  xl={6}
+                  xs={12}
                   sx={{
                     p:"20px 24px",
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
+                    // alignItems: 'center',
+                    // justifyContent: 'space-between',
+                    flexDirection: 'column',
                     display: 'flex',
                     backgroundColor: getBgColor(schedaDetail.type),
                     borderRadius:"8px"
                   }}
                 >
-                  <Typography
-                  // color="primary"
+                 
+                 <Typography
+                  color="primary"
                   variant="h4"
-                  sx={{color: colorByType}}
+                  // sx={{color: "primary"}}
+                >
+                   Direzione 
+                </Typography>
+               
+                 <div style={{alignItems: 'center',
+                    justifyContent: 'space-between',
+                    display: 'flex',}}>
+                <Typography
+                  color="primary"
+                  variant="h5"
+                  // sx={{color: "primary"}}
                 >
                   {schedaDetail.area}
                 </Typography>
                 {chip(schedaDetail.type, schedaDetail.codice, )}
+                </div>
               </Grid>
-              {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
               <Grid
                 item
-                md={12}
+                md={6}
+                xl={6}
+                  xs={12}
                 sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
+                  p:"20px 24px",
+                  // alignItems: 'center',
+                  // justifyContent: 'space-between',
+                  flexDirection: 'column',
                   display: 'flex',
+                  backgroundColor: "#fff",
+                  borderRadius:"8px"
                 }}
               >
-                {/* <Box
-                 sx={{
-                  alignItems: 'center',
-                  display: 'flex',
-                  overflow: 'hidden'
-                 }}>
-                    <Avatar
-                      // src={userDetail.avatar}
-                      src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
-                      sx={{
-                        height: 64,
-                        mr: 2,
-                        width: 64
-                      }}
-                    />
-                    <div>
-                      <Typography
-                      color="textSecondary"
-                      variant="overline"
-                      >
-                        {userDetail.ruolo}, {userDetail.sede}
-                      </Typography>
-                      <Typography variant="subtitle2" sx={{mt:"-4px"}}>
-                        {userDetail.nome}
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                        }}
-                      >              
-                        <Typography variant="subtitle2">
-                          {userDetail.email}
-                        </Typography>               
-                      </Box>
-                    </div>
-                </Box> */}
-                <Box sx={{ mt: 3 }}>
+                {/* <Box sx={{ mt: 3 }}> */}
                   <Box > 
-                    <Typography variant="h5" sx={{color: colorByType}} >Responsabile</Typography>
+                    <Typography variant="h5" color="primary" >Responsabile</Typography>
                   </Box> 
                   <NextLink
                   href="/dashboard/utente"
@@ -226,7 +209,7 @@ const CustomerDetails = () => {
                       flexGrow: 1, 
                       backgroundColor:"#fff", 
                       p:2, 
-                      width: 950, 
+                      // width: 950, 
                       borderRadius:"8px",
                       cursor: 'pointer',
                       '&:hover': {
@@ -268,7 +251,7 @@ const CustomerDetails = () => {
                       </Box>
                     </Box> 
                     </NextLink>
-                </Box>
+                {/* </Box> */}
                 
               </Grid>
          
@@ -290,7 +273,6 @@ const CustomerDetails = () => {
                 />
               ))}
             </Tabs> */}
-          </div>
           <Divider />
           <Box sx={{ mt: 3 }}>
               <Grid
@@ -302,17 +284,17 @@ const CustomerDetails = () => {
                   xs={12}
                   >
                     <Box > 
-                    <Typography variant="h5" sx={{color: colorByType}}  >Mission</Typography>
+                    <Typography variant="h5" color="primary"  >Mission</Typography>
                   </Box> 
-                  <Mission mission={schedaDetail.mission} bgColor={getMissionColor(schedaDetail.type)}/>
+                  <Mission mission={schedaDetail.mission} />
                   {/* {currentTab === 'mission' && <Mission mission={userDetail.mission}/>} */}
                   {/* {currentTab === 'documenti' && <Mission />}
                   {currentTab === 'gdp' && <Mission />}
                   {currentTab === 'processi' && <Mission />} */}
                   <Box sx={{display: 'flex', gap:"15px", mt:"10px"}}>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}   endIcon={<LinkIcon />}> Documenti</Button>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}  endIcon={<LinkIcon />}> Gruppi di appartenenza</Button>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}  endIcon={<LinkIcon />}> Processi</Button>
+                  <Button variant="outlined" color="primary"   endIcon={<LinkIcon />}> Documenti</Button>
+                  <Button variant="outlined" color="primary"  endIcon={<LinkIcon />}> Gruppi di appartenenza</Button>
+                  <Button variant="outlined" color="primary"  endIcon={<LinkIcon />}> Processi</Button>
                     
                     
                     
@@ -325,7 +307,7 @@ const CustomerDetails = () => {
           {schedaDetail.posizionamentoAziendale && (<>
           <Box sx={{ mt: 4 }}>
             <Box sx={{display: 'flex', justifyContent:"space-between"}}> 
-              <Typography variant="h5" sx={{color: colorByType}}  >Posizionamento Aziendale</Typography>
+              <Typography variant="h5" color="primary"  >Posizionamento Aziendale</Typography>
               <NextLink
                 href="/dashboard/organigramma"
                 passHref
@@ -334,7 +316,7 @@ const CustomerDetails = () => {
                 <Link
                   // color="secondary"
                   variant="subtitle2"
-                  sx={{color: colorByType}}
+                  color="primary"
                 >
                   {"Torna all'organigramma"}
                 </Link>
@@ -370,7 +352,7 @@ const CustomerDetails = () => {
           {schedaDetail.articolazioneOrganizzativa && (<>
           <Box sx={{ mt: 4 }}>
             <Box sx={{display: 'flex', justifyContent:"space-between"}}> 
-              <Typography variant="h5" sx={{color: colorByType}}  >Articolazione organizzativa</Typography>
+              <Typography variant="h5" color="primary"  >Articolazione organizzativa</Typography>
               {!schedaDetail.posizionamentoAziendale &&<NextLink
                 href="/dashboard/organigramma"
                 passHref
@@ -379,7 +361,7 @@ const CustomerDetails = () => {
                 <Link
                   // color="secondary"
                   variant="subtitle2"
-                  sx={{color: colorByType}}
+                  color="primary"
                 >
                   {"Torna all'organigramma"}
                 </Link>
@@ -414,9 +396,9 @@ const CustomerDetails = () => {
           </Box>
           </>)}
           <Box sx={{ mt: 3 }}>
-            <Typography variant="h5"  sx={{mb : 1, color: colorByType}} >Personale Assegnato</Typography>
+            <Typography variant="h5" color="primary"  sx={{mb : 1}} >Personale Assegnato</Typography>
             <Card>
-              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato} headerColor={getBgColor(schedaDetail.type)} bgColor={getMissionColor(schedaDetail.type)}/>
+              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato} />
             </Card>
           </Box>
             
