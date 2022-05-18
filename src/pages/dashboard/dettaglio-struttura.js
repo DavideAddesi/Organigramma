@@ -26,7 +26,8 @@ import { PersonaleAssegnato } from '../../components/dashboard/customer/personal
 import TreeviewComponent from '../../components/dashboard/organigramma/treeview-component';
 import { useMounted } from '../../hooks/use-mounted';
 import LinkIcon from '@mui/icons-material/Link'
-
+import { styled } from '@mui/material/styles';
+import Paper from '@mui/material/Paper';
 
 const tabs = [
   { label: 'Mission', value: 'mission' },
@@ -41,11 +42,14 @@ const CustomerDetails = () => {
   const [currentTab, setCurrentTab] = useState('mission');
   const [displayTreeview, setDisplayTreeview] = useState(false);
   const [colorByType, setColorByType] = useState(null);
+  const [valueTab, setValueTab] = useState(1);
 
 
 
 
-  
+  const handleChangeTab = (event, newValue) => {
+    setValueTab(newValue);
+  };
 
   const getScheda = useCallback(async () => {
     try {
@@ -86,19 +90,9 @@ const CustomerDetails = () => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-  // const chip = ( code, type) =>{ 
-  //    return <Chip label={code} variant="outlined"  />
-  // }
-
   const chip = (type, code) =>{ 
     const withNoCDR = code ? code.split("CDR").pop(): ""
-    if(type=="direzione") return   <Chip label={withNoCDR}  variant="outlined" sx={{color: colorByType}} />
-
-    // <FontAwesomeIcon icon={faBuilding} />
-    if(type=="struttura") return  <Chip label={withNoCDR} color="struttura" sx={{color: colorByType}} />
-
-    // <FontAwesomeIcon icon={faBriefcase} />
-    if(type=="unita") return <Chip label={withNoCDR || "******"} sx={{color: colorByType}}  />
+    return <Chip label={withNoCDR} color="primary" variant="outlined"  />
   }
 
   const getBgColor = type =>{
@@ -109,8 +103,29 @@ const CustomerDetails = () => {
 
   const getMissionColor = type =>{
     if(type=="direzione") return '#F8FFF6'
-    if(type=="struttura") return  '#E4EEF7'
+    if(type=="struttura") return  '#E3E7EC'
     if(type=="unita") return '#fff'
+  }
+
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    padding: theme.spacing(2),
+    height: "100%"
+  }));
+
+  const ItemTitolo = styled(Paper)(({ theme }) => ({
+    backgroundColor: getBgColor(schedaDetail.type),
+    padding: theme.spacing(2),
+    height: "100%"
+  }));
+
+  const getPersonale = () =>{
+    const pers = schedaDetail.personaleAssegnato
+    if(pers){
+      if(valueTab == 1) return pers.staff || []
+      if(valueTab == 2) return pers.ruo  || []
+      if(valueTab == 3) return pers.uoDiCompetenza  || []
+    }else return []
   }
 
 
@@ -135,98 +150,44 @@ const CustomerDetails = () => {
         }}
       >
         <Container maxWidth="md">
-          <div>
-            <Grid
-              container
-              justifyContent="space-between"
-              spacing={3}
-            >
-              {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
-              <Grid
-                item
-                  md={12}
-                  sx={{
-                    p:"20px 24px",
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    display: 'flex',
-                    backgroundColor: getBgColor(schedaDetail.type),
-                    borderRadius:"8px"
-                  }}
-                >
-                  <Typography
-                  // color="primary"
-                  variant="h4"
-                  sx={{color: colorByType}}
-                >
-                  {schedaDetail.area}
-                </Typography>
-                {chip(schedaDetail.type, schedaDetail.codice, )}
-              </Grid>
-              {/* <Grid item  md={12}><Divider  orientation="horizontal" /></Grid> */}
-              <Grid
-                item
-                md={12}
-                sx={{
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  display: 'flex',
-                }}
-              >
-                {/* <Box
-                 sx={{
-                  alignItems: 'center',
-                  display: 'flex',
-                  overflow: 'hidden'
-                 }}>
-                    <Avatar
-                      // src={userDetail.avatar}
-                      src={"https://randomuser.me/api/portraits/women/"+3+".jpg"}
-                      sx={{
-                        height: 64,
-                        mr: 2,
-                        width: 64
+            <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+              <Grid item md={6} xs={12}>
+                  <ItemTitolo>
+                    
+                    <div 
+                      style={{
+                        // alignItems: 'center',
+                        // justifyContent: 'space-between',
+                        display: 'flex'
                       }}
-                    />
-                    <div>
-                      <Typography
-                      color="textSecondary"
-                      variant="overline"
-                      >
-                        {userDetail.ruolo}, {userDetail.sede}
-                      </Typography>
-                      <Typography variant="subtitle2" sx={{mt:"-4px"}}>
-                        {userDetail.nome}
-                      </Typography>
-                      <Box
-                        sx={{
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                        }}
-                      >              
-                        <Typography variant="subtitle2">
-                          {userDetail.email}
-                        </Typography>               
-                      </Box>
+                    >
+                      <Typography color="primary"  sx={{fontSize:"1.8182rem", fontWeight:"bold"}}>
+                      {schedaDetail.area}
+                    </Typography>
+                      {chip(schedaDetail.type, schedaDetail.codice)}
                     </div>
-                </Box> */}
-                <Box sx={{ mt: 3 }}>
+                  </ItemTitolo>    
+              </Grid>
+              
+              <Grid
+                item
+                md={6}
+                xs={12}
+              >
+                <Item>
                   <Box > 
-                    <Typography variant="h5" sx={{color: colorByType}} >Responsabile</Typography>
+                    <Typography variant="h5" color="primary" >Responsabile</Typography>
                   </Box> 
                   <NextLink
                   href="/dashboard/utente"
                   passHref
                 >
-                 
-                
                   <Box 
                     sx={{
                       flexGrow: 1, 
                       backgroundColor:"#fff", 
                       p:2, 
-                      width: 950, 
+                      // width: 950, 
                       borderRadius:"8px",
                       cursor: 'pointer',
                       '&:hover': {
@@ -268,73 +229,42 @@ const CustomerDetails = () => {
                       </Box>
                     </Box> 
                     </NextLink>
-                </Box>
-                
+                </Item>
               </Grid>
          
             </Grid>
-            {/* <Tabs
-              indicatorColor="primary"
-              onChange={handleTabsChange}
-              scrollButtons="auto"
-              sx={{ mt: 3 }}
-              textColor="primary"
-              value={currentTab}
-              variant="scrollable"
-            >
-              {tabs.map((tab) => (
-                <Tab
-                  key={tab.value}
-                  label={tab.label}
-                  value={tab.value}
-                />
-              ))}
-            </Tabs> */}
-          </div>
-          <Divider />
-          <Box sx={{ mt: 3 }}>
-              <Grid
-                container
-                spacing={3}
-                >
+          {/* <Box sx={{ mt: 3 }}> */}
+              <Grid mt={3} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid
                   item
                   xs={12}
                   >
                     <Box > 
-                    <Typography variant="h5" sx={{color: colorByType}}  >Mission</Typography>
-                  </Box> 
-                  <Mission mission={schedaDetail.mission} bgColor={getMissionColor(schedaDetail.type)}/>
-                  {/* {currentTab === 'mission' && <Mission mission={userDetail.mission}/>} */}
-                  {/* {currentTab === 'documenti' && <Mission />}
-                  {currentTab === 'gdp' && <Mission />}
-                  {currentTab === 'processi' && <Mission />} */}
-                  <Box sx={{display: 'flex', gap:"15px", mt:"10px"}}>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}   endIcon={<LinkIcon />}> Documenti</Button>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}  endIcon={<LinkIcon />}> Gruppi di appartenenza</Button>
-                  <Button variant="outlined" sx={{color: colorByType, borderColor: colorByType}}  endIcon={<LinkIcon />}> Processi</Button>
-                    
-                    
-                    
-                  </Box>
+                      <Typography variant="h5" color="primary"  >Mission</Typography>
+                    </Box> 
+                    <Mission mission={schedaDetail.mission} />
+                    <Box sx={{display: 'flex', gap:"15px", mt:"10px"}}>
+                      <Button variant="outlined" color="primary"   endIcon={<LinkIcon />}> Documenti</Button>
+                      <Button variant="outlined" color="primary"  endIcon={<LinkIcon />}> Gruppi di appartenenza</Button>
+                      <Button variant="outlined" color="primary"  endIcon={<LinkIcon />}> Processi</Button>
+                    </Box>
                 </Grid>
-               
               </Grid>
       
-          </Box>
+          {/* </Box> */}
           {schedaDetail.posizionamentoAziendale && (<>
-          <Box sx={{ mt: 4 }}>
+            <Grid  mt={3} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
+            <Grid item xs={12}>
             <Box sx={{display: 'flex', justifyContent:"space-between"}}> 
-              <Typography variant="h5" sx={{color: colorByType}}  >Posizionamento Aziendale</Typography>
+              <Typography variant="h5" color="primary"  >Posizionamento Aziendale</Typography>
               <NextLink
                 href="/dashboard/organigramma"
                 passHref
-                
               >
                 <Link
                   // color="secondary"
                   variant="subtitle2"
-                  sx={{color: colorByType}}
+                  color="primary"
                 >
                   {"Torna all'organigramma"}
                 </Link>
@@ -365,25 +295,29 @@ const CustomerDetails = () => {
                 </Box>
               </Box>
             </Card>
-          </Box>
+            </Grid>
+          </Grid>
           </>)}
           {schedaDetail.articolazioneOrganizzativa && (<>
-          <Box sx={{ mt: 4 }}>
+          <Grid  mt={3} container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }} >
+            <Grid item xs={12}>
+
+            
             <Box sx={{display: 'flex', justifyContent:"space-between"}}> 
-              <Typography variant="h5" sx={{color: colorByType}}  >Articolazione organizzativa</Typography>
+              <Typography variant="h5" color="primary"  >Articolazione organizzativa</Typography>
               {!schedaDetail.posizionamentoAziendale &&<NextLink
                 href="/dashboard/organigramma"
                 passHref
-                
               >
                 <Link
                   // color="secondary"
                   variant="subtitle2"
-                  sx={{color: colorByType}}
+                  color="primary"
                 >
                   {"Torna all'organigramma"}
                 </Link>
               </NextLink>}
+              
             </Box>
             <Card>
               <Box>
@@ -410,14 +344,22 @@ const CustomerDetails = () => {
                 </Box>
               </Box>
             </Card>
-          </Box>
+            </Grid> 
+          </Grid>
           </>)}
-          <Box sx={{ mt: 3 }}>
-            <Typography variant="h5"  sx={{mb : 1, color: colorByType}} >Personale Assegnato</Typography>
-            <Card>
-              <PersonaleAssegnato personale={schedaDetail.personaleAssegnato} headerColor={getBgColor(schedaDetail.type)} bgColor={getMissionColor(schedaDetail.type)}/>
-            </Card>
-          </Box>
+          <Grid container mt={3} spacing={3}>
+            <Grid item xs={12} >
+              <Typography variant="h5" color="primary"  sx={{mb : 1}} >Personale Assegnato</Typography>
+              <Tabs  value={valueTab} onChange={handleChangeTab}>
+                {schedaDetail.personaleAssegnato.staff && <Tab label={"In Staff"} value={1} /> }  
+                {schedaDetail.personaleAssegnato.ruo && <Tab label={"RUO"} value={2} /> }  
+                {schedaDetail.personaleAssegnato.uoDiCompetenza && <Tab label={"Alle UO di competenza"} value={3} /> }  
+              </Tabs>
+              <Card>
+                <PersonaleAssegnato personale={getPersonale()} />
+              </Card>
+            </Grid>
+          </Grid>
             
         </Container>
       </Box>

@@ -258,8 +258,8 @@ const CustomerDetails = () => {
               
               </Grid>
               <Grid item md={4}>
-                      {/* <CalendarUser /> */}
-                      <FullCalendar
+                      <CalendarUser />
+                      {/* <FullCalendar
   plugins={[ dayGridPlugin ]}
   initialView="dayGridMonth"
   weekends={false}
@@ -267,7 +267,7 @@ const CustomerDetails = () => {
     { title: 'event 1', date: '2019-04-01' },
     { title: 'event 2', date: '2019-04-02' }
   ]}
-/>
+/> */}
                 </Grid>
             
          
