@@ -1,13 +1,11 @@
 import axios from 'axios';
-import userDetailJson from "../components/dashboard/organigramma/dettaglio/userDetails.json"
 
 export const errorHandler = (error) => {
   const response = error.response;
   return  response.data
 }
 
-// const postManPrefix = "https://9b74b1e5-e4c2-495b-8a66-8a4395e737ff.mock.pstmn.io"
-const postManPrefix ="https://ed449e2b-48de-4438-bbf1-01bb099e66a8.mock.pstmn.io"
+const postManPrefix = "https://ed449e2b-48de-4438-bbf1-01bb099e66a8.mock.pstmn.io"
 
 
 const getEndPoint = () => {
@@ -19,6 +17,15 @@ const getEndPoint = () => {
   }else return postManPrefix
 }
 
+const getUrl = () => {
+  if (typeof window !== 'undefined') {
+    const url=localStorage.getItem('api')
+    if(url && url != ""){
+      return url
+    } else return 1    
+  }else return 1
+}
+
 
 const http = axios.create({
   baseURL:  getEndPoint()
@@ -28,35 +35,35 @@ const http = axios.create({
 class InfoCamereAPI {
 
   getOrgInfocamere() {  
-    return http.get('/api/v1/organigramma/get/struttura/infocamere')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/struttura/infocamere': getUrl())
   }
 
   getScheda() {  
-    return http.get('/api/v1/organigramma/get/scheda/30')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/scheda/30': getUrl())
   }
 
   getSchedaDirezione() {  
-    return http.get('/api/v1/organigramma/get/scheda/10')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/scheda/10': getUrl())
   }
 
   getSchedaStruttura() {  
-    return http.get('/api/v1/organigramma/get/scheda/20')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/scheda/20': getUrl())
   }
 
   getUtente() {  
-    return http.get('/api/v1/organigramma/get/user/2')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/user/2': getUrl())
   }
 
   getOrgicoutsourcing() {  
-    return http.get('/api/v1/organigramma/get/struttura/icoutsourcing')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/struttura/icoutsourcing': getUrl())
   }
 
   getOrgiconto() {  
-    return http.get('/api/v1/organigramma/get/struttura/iconto')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/struttura/iconto': getUrl())
   } 
   
   getOrgecocerved() { 
-    return http.get('/api/v1/organigramma/get/struttura/ecocerved')
+    return http.get(getUrl() == 1 ? '/api/v1/organigramma/get/struttura/ecocerved': getUrl())
   }
 
 
