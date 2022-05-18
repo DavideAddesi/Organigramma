@@ -34,6 +34,8 @@ import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SchoolIcon from '@mui/icons-material/School';
+import FullCalendar from '@fullcalendar/react' // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid' 
 
 
 
@@ -257,6 +259,15 @@ const CustomerDetails = () => {
               </Grid>
               <Grid item md={4}>
                       <CalendarUser />
+                      {/* <FullCalendar
+  plugins={[ dayGridPlugin ]}
+  initialView="dayGridMonth"
+  weekends={false}
+  events={[
+    { title: 'event 1', date: '2019-04-01' },
+    { title: 'event 2', date: '2019-04-02' }
+  ]}
+/> */}
                 </Grid>
             
          

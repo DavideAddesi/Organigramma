@@ -253,12 +253,14 @@ const AccountButton = () => {
 export const DashboardNavbar = (props) => {
   const { onOpenSidebar, ...other } = props;
   const [endPointValue, setEndPointValue] = useState(localStorage.getItem('endpoint'));
+  const [apiValue, setApiValue] = useState(localStorage.getItem('api'));
 
 const router = useRouter();
 
 
   const refreshThePage = () =>{
     localStorage.setItem('endpoint', endPointValue)
+    localStorage.setItem('api', apiValue)
     router.reload(window.location.pathname)
 
   }
@@ -308,9 +310,20 @@ const router = useRouter();
             onChange={event=>setEndPointValue(event.target.value)} 
             value={endPointValue} 
           />
-          <IconButton onClick={refreshThePage}>
-            <RefreshIcon fontSize="small" />
-          </IconButton>
+          <TextField 
+            id="outlined-basic" 
+            label="url" 
+            variant="outlined" 
+            size="small" 
+            onChange={event=>setApiValue(event.target.value)} 
+            value={apiValue}  
+            sx={{ ml: 1 }}
+          />
+          <Tooltip title="refresh">
+            <IconButton onClick={refreshThePage}>
+              <RefreshIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
 
         </Toolbar>
       </DashboardNavbarRoot>
