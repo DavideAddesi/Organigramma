@@ -64,7 +64,7 @@ const ProfileDetails = ({ className, user, ...rest }) => {
   })); 
 
   return (
-      <Card style={{height: "350px"}} >
+      <Card style={{height:"100%"}} >
         <CardContent>
           <Box
             display="flex"

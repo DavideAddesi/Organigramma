@@ -22,7 +22,7 @@ import { getEvents, updateEvent } from '../../slices/calendar';
 import { useDispatch, useSelector } from '../../store';
 
 const FullCalendarWrapper = styled('div')(({ theme }) => ({
-  marginTop: theme.spacing(3),
+  // marginTop: theme.spacing(3),
   borderRadius: "8px",
   '& .fc-license-message': {
     display: 'none'

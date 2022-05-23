@@ -25,12 +25,12 @@ const classes = {
 const GeneralSettings = ({ className, user, ...rest }) => {
 
   return (
-          <Card className={clsx(classes.root, className)} {...rest}>
+          <Card style={{height:"100%"}} className={clsx(classes.root, className)} {...rest}>
             <CardHeader title={<Typography  color="primary" variant="h6">Informazioni</Typography>}  />
             <Divider />
             <CardContent>
-            <Grid container spacing={4} style={{marginBottom:"20px"}}>
-                <Grid item md={12} xs={12}>
+            <Grid container spacing={4}>
+                <Grid item md={6} xs={12}>
                 {/* <Typography>Area operativa  :</Typography> */}
                 <Button variant="outlined" color="secondary"  fullWidth>
                 <NextLink 
@@ -50,7 +50,7 @@ const GeneralSettings = ({ className, user, ...rest }) => {
                  
                 </Grid>
               </Grid>
-              <Grid container spacing={4} style={{marginBottom:"20px"}}>
+              <Grid container spacing={4} mt={1} >
                 <Grid item md={6} xs={12}>
                   <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
                     <Typography variant="overline" >Email:</Typography>
@@ -65,7 +65,7 @@ const GeneralSettings = ({ className, user, ...rest }) => {
                 </Grid>
               </Grid>
               {/* <Divider /> */}
-              <Grid container spacing={4} style={{marginTop:"20px"}}>
+              <Grid container spacing={4} >
                 <Grid item md={6} xs={12}>
                  
                     <Box sx={{display: 'flex', justifyContent: 'space-between'}}>
@@ -83,7 +83,6 @@ const GeneralSettings = ({ className, user, ...rest }) => {
            
               </Grid>
             </CardContent>
-            <Divider />
           </Card>
   );
 };

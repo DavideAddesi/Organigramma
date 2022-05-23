@@ -23,20 +23,10 @@ import { DashboardLayout } from '../../components/dashboard/dashboard-layout';
 import General from '../../components/dashboard/organigramma/General';
 import Competenze from '../../components/dashboard/organigramma/Competenze';
 import Altro from '../../components/dashboard/organigramma/Altro';
-import makeStyles from '@mui/styles/makeStyles';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-
-// import user from "./json-strutture/user.json"
-import LinkIcon from '@mui/icons-material/Link'
-import Skeleton from '@mui/material/Skeleton';
-import CalendarUser from './calendarUser';
-import { styled } from '@mui/material/styles';
-import Badge from '@mui/material/Badge';
 import { useMounted } from '../../hooks/use-mounted';
 import { infoCamereAPI } from '../../__fake-api__/infocamere-api';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import SchoolIcon from '@mui/icons-material/School';
+import ProfileDetails from '../../components/dashboard/organigramma/General/ProfileDetails';
+import GeneralSettings from '../../components/dashboard/organigramma/General/GeneralSettings';
 
 const tabsUser = [
   { label: 'Generale', value: 'general' },
@@ -81,7 +71,33 @@ const Utente2 = () => {
   return(
     <Container maxWidth="lg">
     <Box mt={3}>
-      <Tabs
+     
+    </Box>
+    <Divider />
+    <Box mt={3}>
+    <Grid
+      container
+      spacing={3}
+      style={{marginBottom:"30px"}}
+    >
+      <Grid
+        item
+        md={4}
+        xs={12}
+        
+      >
+        <ProfileDetails user={user} />
+      </Grid>
+      <Grid
+        item
+        md={8}
+        xs={12}
+        
+      >
+        <GeneralSettings user={user} />
+      </Grid>
+    </Grid>
+    <Tabs
         onChange={handleTabsUserChange}
         scrollButtons="auto"
         value={currentTabUser}
@@ -92,9 +108,6 @@ const Utente2 = () => {
           <Tab key={tab.value} label={tab.label} value={tab.value} />
         ))}
       </Tabs>
-    </Box>
-    <Divider />
-    <Box mt={3}>
       {currentTabUser == 'general' && <General user={user} />}
       {currentTabUser == 'competenze' && <Competenze user={user} />}
       {currentTabUser == 'altro' && <Altro user={user} />}
