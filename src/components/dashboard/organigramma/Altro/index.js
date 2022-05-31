@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { Grid, Box, Typography, Card,   CardHeader, Divider, Chip, Button } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link'
+import ProfileDetails from '../General/ProfileDetails';
 
 
 
@@ -18,11 +19,20 @@ const Competenze = ({ className, user, ...rest }) => {
       style={{marginBottom:"30px"}}
       {...rest}
     >
+      {/* <Grid
+        item
+        // lg={4}
+        md={4}
+        // xl={3}
+        xs={12}
+      >
+        <ProfileDetails user={user} />
+      </Grid> */}
       <Grid
         item
-        lg={6}
+        // lg={6}
         md={6}
-        xl={6}
+        // xl={6}
         xs={12}
       > 
         <Card sx={{minHeight:"350px"}}>
@@ -39,9 +49,9 @@ const Competenze = ({ className, user, ...rest }) => {
       </Grid>
       <Grid
         item
-        lg={6}
+        // lg={6}
         md={6}
-        xl={6}
+        // xl={6}
         xs={12}
       > 
         <Card sx={{minHeight:"350px"}}>

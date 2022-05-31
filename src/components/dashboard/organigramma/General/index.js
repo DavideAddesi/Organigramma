@@ -19,24 +19,24 @@ const General = ({ className, user, ...rest }) => {
       style={{marginBottom:"30px"}}
       {...rest}
     >
-      <Grid
+      {/* <Grid
         item
-        lg={4}
-        md={6}
-        xl={3}
+        // lg={4}
+        md={4}
+        // xl={3}
         xs={12}
       >
         <ProfileDetails user={user} />
       </Grid>
       <Grid
         item
-        lg={8}
-        md={6}
-        xl={9}
+        // lg={8}
+        md={8}
+        // xl={9}
         xs={12}
       >
         <GeneralSettings user={user} />
-      </Grid>
+      </Grid> */}
       <Grid
         item
         lg={7}
